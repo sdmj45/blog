@@ -70,6 +70,102 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-a01-GCP-introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/05/01/a01-GCP-introduction/" class="article-date">
+  <time datetime="2020-05-01T13:37:46.000Z" itemprop="datePublished">2020-05-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/05/01/a01-GCP-introduction/">a01-GCP-introduction</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="What-is-GCP"><a href="#What-is-GCP" class="headerlink" title="What is GCP ?"></a>What is GCP ?</h1><p>GCP stands for Google Cloud Platform which is a suite of public cloud computing services offered by Google. It offers 4 main kinds of services: compute, storage, big data, machine learning that run on Google hardware.</p>
+<h2 id="what-is-cloud-computing"><a href="#what-is-cloud-computing" class="headerlink" title="what is cloud computing ?"></a>what is cloud computing ?</h2><ul>
+<li><strong>On-demand self-service</strong>: use interface to get processing, no human intervention needed</li>
+<li><strong>Broad network access</strong>: access from anywhere</li>
+<li><strong>Resource pooling</strong>: provider shares resources to customers</li>
+<li><strong>Rapid elasticity</strong>: get more resources quickly as needed</li>
+<li><strong>Measured service</strong>: pay only for what you consume</li>
+</ul>
+<h2 id="compute-evolution"><a href="#compute-evolution" class="headerlink" title="compute evolution"></a>compute evolution</h2><ol>
+<li><strong>Physical/colo</strong>: user-configured, managed and maintained</li>
+<li><strong>Virtualized</strong>: user-configured; provider-managed and maintained</li>
+<li><strong>Serverless</strong>: container based architecture, fully automated</li>
+</ol>
+<h2 id="gcp-computing-architectures"><a href="#gcp-computing-architectures" class="headerlink" title="gcp computing architectures"></a>gcp computing architectures</h2><ul>
+<li><strong>IaaS</strong>: Infrastructure as a Service<ul>
+<li>provides raw compute, storage and network organized in ways that are like from data centers</li>
+</ul>
+</li>
+<li><strong>PaaS</strong>: Platform as a Service<ul>
+<li>provides a platform allowing customers to develop, run and manage applications without maintaining infrastructure</li>
+</ul>
+</li>
+<li><strong>SaaS</strong>: Software as a Service<ul>
+<li>software is licensed on a subscription basis and is centrally hosted<img src="/blog/2020/05/01/a01-GCP-introduction/gcp_computing_architectures.png" class="" title="gcp_computing_architectures">
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="regions-and-zones"><a href="#regions-and-zones" class="headerlink" title="regions and zones"></a>regions and zones</h2><p>GCP is organized into regions and zones. <strong>Zone</strong> is department area for GCP resources. For example, the compute engine runs in a zone specified.</p>
+<p>Locations within regions usually have network latencies of under 5 milliseconds</p>
+<p>As of building a fault tolerant application, you can spread their resources across multiple regions<br><img src="/blog/2020/05/01/a01-GCP-introduction/regions_and_zones.png" class="" title="regions_and_zones"></p>
+<h2 id="open-apis"><a href="#open-apis" class="headerlink" title="open apis"></a>open apis</h2><p>GCP services are compatible with open sources products. for example:</p>
+<ul>
+<li>Cloud Bigtable &lt;==&gt; Apache HBase</li>
+<li>Cloud Dataproc &lt;==&gt; Hadoop</li>
+</ul>
+<h2 id="gcp-services"><a href="#gcp-services" class="headerlink" title="gcp services"></a>gcp services</h2><p>GCP offers services as compute, storage, big data and machine learning<br><img src="/blog/2020/05/01/a01-GCP-introduction/gcp_services.png" class="" title="gcp_services"></p>
+<h2 id="budgets-and-billing"><a href="#budgets-and-billing" class="headerlink" title="budgets and billing"></a>budgets and billing</h2><p>GCP provides 4 tools to help: </p>
+<p><strong>budgets and alert</strong>: define budget per billing or per project, you can create an alert at 50 percent, 90 percent and 100 percent</p>
+<p><strong>billing</strong>: you have billing account on GCP project</p>
+<p><strong>export</strong>: store detailed billing information</p>
+<p><strong>reports and quotas</strong>: </p>
+<ul>
+<li>report is a visual tool to monitor your expenditure. </li>
+<li>quotas are designed to prevent over-consumption of resources<ul>
+<li>rate quotas<br>  reset after a specific time. eg: Kubernetes service set a quota of 1000 calls per 100 seconds</li>
+<li>allocation quotas<br>  govern the number of resources you can have in your projects. eg: no more than 5 VPN per project</li>
+</ul>
+</li>
+</ul>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/SKCLJhDb-gc" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+      
+    </div>
+    <footer class="article-footer">
+<!--
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+        <a href="../../../../css/images/github_qr.jpg" class="fancybox fancybox.image" rel="group"><img id="wechat_subscriber_qcode" src="../../../../css/images/github_qr.jpg" alt="qr" style="width: 200px; max-width: 100%;"></a>
+        <div>交流或订阅，请长按或扫描上方二维码</div>
+      </div>
+-->
+      <a data-url="https://sdmj45.github.io/blog/2020/05/01/a01-GCP-introduction/" data-id="ckp8au4lp000n11i32ml5fceh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-xiaomakuaibao" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2020/03/31/xiaomakuaibao/" class="article-date">
@@ -111,7 +207,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2020/03/31/xiaomakuaibao/" data-id="cknyrf2yl001b2ci391r19i25" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/03/31/xiaomakuaibao/" data-id="ckp8au4nw001h11i3gdw1h45q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +274,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="cknyrf2yj00192ci36goqfu67" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="ckp8au4nu001f11i30cw96i33" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +377,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="cknyrf2xk00042ci38kp9hqiq" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="ckp8au4l3000311i33hjwazy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -350,7 +446,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cknyrf2xl00052ci3ayg38m54" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="ckp8au4l7000611i3cjxh07kw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -402,7 +498,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="cknyrf2xm00072ci315caezt8" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="ckp8au4ld000a11i37he2f538" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +557,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="cknyrf2xm00062ci3g0ufcrrp" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="ckp8au4l6000511i38oyb5nq2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -525,7 +621,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="cknyrf2xi00022ci3gnb7h673" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="ckp8au4ky000111i34k4v8my1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -590,7 +686,7 @@
         <div>交流或订阅，请长按或扫描上方二维码</div>
       </div>
 -->
-      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="cknyrf2xf00012ci38qxqcy4t" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="ckp8au4l2000211i3db7wg5pz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -615,7 +711,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
     </div>
   </div>
 
@@ -644,7 +740,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
     </div>
   </div>
 
@@ -655,6 +751,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2021/05/28/gcp-c01-introduction/">gcp-c01-introduction</a>
+          </li>
         
           <li>
             <a href="/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/">b09-01-BigQuery Load From Json</a>
@@ -670,10 +770,6 @@
         
           <li>
             <a href="/blog/2021/02/04/Python-b05-Property-Decorators/">Python-b05-Property Decorators</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2021/02/03/Python-b04-Special-Magic-Dunder-Methods/">Python-b04-Special(Magic/Dunder) Methods</a>
           </li>
         
       </ul>
