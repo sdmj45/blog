@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Python-a09-Modules | Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="This article shows the examples of Modules in python 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-a09-Modules">
+<meta property="og:url" content="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/index.html">
+<meta property="og:site_name" content="Developer">
+<meta property="og:description" content="This article shows the examples of Modules in python 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-29T16:05:13.000Z">
+<meta property="article:modified_time" content="2021-01-30T10:00:28.081Z">
+<meta property="article:author" content="MA Jian">
+<meta property="article:tag" content="development">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Developer</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">Enthussiasm in developing</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sdmj45.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Python-a09-Modules" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/01/29/Python-a09-Modules/" class="article-date">
+  <time class="dt-published" datetime="2021-01-29T16:05:13.000Z" itemprop="datePublished">2021-01-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Python-a09-Modules
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of Modules in python</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">## my_module.py file</span><br><span class="line">    print(&#x27;Imported my_module...&#x27;)</span><br><span class="line">    </span><br><span class="line">    test = &#x27;Test String&#x27;</span><br><span class="line">    </span><br><span class="line">    def find_index(to_search, target):</span><br><span class="line">        &#x27;&#x27;&#x27;Find the index of a value in a sequence&#x27;&#x27;&#x27;</span><br><span class="line">        for i, value in enumerate(to_search):</span><br><span class="line">            if value == target:</span><br><span class="line">                return i</span><br><span class="line">        return -1</span><br><span class="line">    </span><br><span class="line">## test.py basic</span><br><span class="line">    import my_module</span><br><span class="line"></span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = my_module.find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)   # Imported my_module...</span><br><span class="line">                   # 1   </span><br><span class="line">                    </span><br><span class="line">## test.py as</span><br><span class="line">    import my_module as mm</span><br><span class="line"></span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = mm.find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)   # Imported my_module...</span><br><span class="line">                   # 1</span><br><span class="line">    </span><br><span class="line">## test.py from</span><br><span class="line">    from my_module import find_index,test</span><br><span class="line">    </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)       # Imported my_module...</span><br><span class="line">                       # 1</span><br><span class="line">    print(test)        # Test String</span><br><span class="line">     </span><br><span class="line">## test.py from as</span><br><span class="line">    from my_module import find_index as fi,test</span><br><span class="line">    </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = fi(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)       # Imported my_module...</span><br><span class="line">                       # 1</span><br><span class="line">    print(test)        # Test String</span><br><span class="line"> </span><br><span class="line">## sys.path: the path of modules to import from</span><br><span class="line">     </span><br><span class="line">    from my_module import find_index, test</span><br><span class="line">    import sys</span><br><span class="line">    </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">     </span><br><span class="line">    # print(index)</span><br><span class="line">    # print(test)</span><br><span class="line">    print(sys.path) # [&#x27;C:\\Dev\\examples\\python\\python_examples&#x27;,...]</span><br><span class="line">    </span><br><span class="line">## add path to sys.path or to PYTHONPATH</span><br><span class="line">    # move my_module.py to new dir mymoduledir</span><br><span class="line">    # rerun test.py, there is an error ModuleNotFoundError</span><br><span class="line">    </span><br><span class="line">    # solution 1: add mymoduledir to sys.path</span><br><span class="line">        import sys</span><br><span class="line">        sys.path.append(&#x27;C:\Dev\examples\python\python_examples\mymoduledir&#x27;)</span><br><span class="line">        print(sys.path)   </span><br><span class="line">         </span><br><span class="line">    # solution 2: set mymoduledir to PYTHONPATH</span><br><span class="line">        set PYTHONPATH=C:\Dev\examples\python\python_examples\mymoduledir</span><br><span class="line">        </span><br><span class="line">## import existing libraries</span><br><span class="line">    # random</span><br><span class="line">    import random</span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    random_choice = random.choice(courses)</span><br><span class="line">    print(random_choice)</span><br><span class="line">    </span><br><span class="line">    # math</span><br><span class="line">    import math</span><br><span class="line">    res = math.log2(2)</span><br><span class="line">    print(res)    # 1.0</span><br><span class="line">    </span><br><span class="line">    # datetime</span><br><span class="line">    import datetime</span><br><span class="line">    </span><br><span class="line">    today = datetime.date.today()</span><br><span class="line">    print(today)</span><br><span class="line">    </span><br><span class="line">    # os</span><br><span class="line">    import os</span><br><span class="line">    # get current working directory</span><br><span class="line">    print(os.getcwd())  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="cl84hr7m9000q2wi41iczc95s" data-title="Python-a09-Modules" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2021/02/01/Python-b01-Classes-and-Instances/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python-b01-Classes and Instances
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2021/01/29/Python-a08-Functions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python-a08 Functions</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2022/09/16/xiaomakuaibao/">Website Recommended</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/09/15/d01-Logs-Router/">d01-Logs Router</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/08/09/Git-Commands/">Git Commands</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/05/28/gcp-c01-vpc/">gcp-c01-vpc</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/">b09-01-BigQuery Load From Json</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 MA Jian<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

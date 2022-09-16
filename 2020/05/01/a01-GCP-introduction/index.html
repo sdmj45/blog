@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>a01-GCP-introduction | Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="What is GCP ?GCP stands for Google Cloud Platform which is a suite of public cloud computing services offered by Google. It offers 4 main kinds of services: compute, storage, big data, machine learnin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="a01-GCP-introduction">
+<meta property="og:url" content="https://sdmj45.github.io/blog/2020/05/01/a01-GCP-introduction/index.html">
+<meta property="og:site_name" content="Developer">
+<meta property="og:description" content="What is GCP ?GCP stands for Google Cloud Platform which is a suite of public cloud computing services offered by Google. It offers 4 main kinds of services: compute, storage, big data, machine learnin">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-01T13:37:46.000Z">
+<meta property="article:modified_time" content="2020-05-11T14:16:44.038Z">
+<meta property="article:author" content="MA Jian">
+<meta property="article:tag" content="development">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Developer</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">Enthussiasm in developing</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sdmj45.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-a01-GCP-introduction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/05/01/a01-GCP-introduction/" class="article-date">
+  <time class="dt-published" datetime="2020-05-01T13:37:46.000Z" itemprop="datePublished">2020-05-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      a01-GCP-introduction
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="What-is-GCP"><a href="#What-is-GCP" class="headerlink" title="What is GCP ?"></a>What is GCP ?</h1><p>GCP stands for Google Cloud Platform which is a suite of public cloud computing services offered by Google. It offers 4 main kinds of services: compute, storage, big data, machine learning that run on Google hardware.</p>
+<h2 id="what-is-cloud-computing"><a href="#what-is-cloud-computing" class="headerlink" title="what is cloud computing ?"></a>what is cloud computing ?</h2><ul>
+<li><strong>On-demand self-service</strong>: use interface to get processing, no human intervention needed</li>
+<li><strong>Broad network access</strong>: access from anywhere</li>
+<li><strong>Resource pooling</strong>: provider shares resources to customers</li>
+<li><strong>Rapid elasticity</strong>: get more resources quickly as needed</li>
+<li><strong>Measured service</strong>: pay only for what you consume</li>
+</ul>
+<h2 id="compute-evolution"><a href="#compute-evolution" class="headerlink" title="compute evolution"></a>compute evolution</h2><ol>
+<li><strong>Physical&#x2F;colo</strong>: user-configured, managed and maintained</li>
+<li><strong>Virtualized</strong>: user-configured; provider-managed and maintained</li>
+<li><strong>Serverless</strong>: container based architecture, fully automated</li>
+</ol>
+<h2 id="gcp-computing-architectures"><a href="#gcp-computing-architectures" class="headerlink" title="gcp computing architectures"></a>gcp computing architectures</h2><ul>
+<li><strong>IaaS</strong>: Infrastructure as a Service<ul>
+<li>provides raw compute, storage and network organized in ways that are like from data centers</li>
+</ul>
+</li>
+<li><strong>PaaS</strong>: Platform as a Service<ul>
+<li>provides a platform allowing customers to develop, run and manage applications without maintaining infrastructure</li>
+</ul>
+</li>
+<li><strong>SaaS</strong>: Software as a Service<ul>
+<li>software is licensed on a subscription basis and is centrally hosted</li>
+</ul>
+</li>
+</ul>
+<h2 id="regions-and-zones"><a href="#regions-and-zones" class="headerlink" title="regions and zones"></a>regions and zones</h2><p>GCP is organized into regions and zones. <strong>Zone</strong> is department area for GCP resources. For example, the compute engine runs in a zone specified.</p>
+<p>Locations within regions usually have network latencies of under 5 milliseconds</p>
+<p>As of building a fault tolerant application, you can spread their resources across multiple regions</p>
+
+
+<h2 id="open-apis"><a href="#open-apis" class="headerlink" title="open apis"></a>open apis</h2><p>GCP services are compatible with open sources products. for example:</p>
+<ul>
+<li>Cloud Bigtable &lt;&#x3D;&#x3D;&gt; Apache HBase</li>
+<li>Cloud Dataproc &lt;&#x3D;&#x3D;&gt; Hadoop</li>
+</ul>
+<h2 id="gcp-services"><a href="#gcp-services" class="headerlink" title="gcp services"></a>gcp services</h2><p>GCP offers services as compute, storage, big data and machine learning</p>
+
+
+<h2 id="budgets-and-billing"><a href="#budgets-and-billing" class="headerlink" title="budgets and billing"></a>budgets and billing</h2><p>GCP provides 4 tools to help: </p>
+<p><strong>budgets and alert</strong>: define budget per billing or per project, you can create an alert at 50 percent, 90 percent and 100 percent</p>
+<p><strong>billing</strong>: you have billing account on GCP project</p>
+<p><strong>export</strong>: store detailed billing information</p>
+<p><strong>reports and quotas</strong>: </p>
+<ul>
+<li>report is a visual tool to monitor your expenditure. </li>
+<li>quotas are designed to prevent over-consumption of resources<ul>
+<li>rate quotas<br>  reset after a specific time. eg: Kubernetes service set a quota of 1000 calls per 100 seconds</li>
+<li>allocation quotas<br>  govern the number of resources you can have in your projects. eg: no more than 5 VPN per project</li>
+</ul>
+</li>
+</ul>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/SKCLJhDb-gc" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2020/05/01/a01-GCP-introduction/" data-id="cl84hr7mi00162wi41uknguus" data-title="a01-GCP-introduction" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/05/03/a02-Getting-Started-With-GCP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          a02-Getting-Started-With-GCP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2019/05/17/spark-listeners/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spark listeners</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2022/09/16/xiaomakuaibao/">Website Recommended</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/09/15/d01-Logs-Router/">d01-Logs Router</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/08/09/Git-Commands/">Git Commands</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/05/28/gcp-c01-vpc/">gcp-c01-vpc</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/">b09-01-BigQuery Load From Json</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 MA Jian<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
