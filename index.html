@@ -105,20 +105,20 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>How to install Jupyter on local machine?</p>
-
+<img src="/blog/2022/10/06/Python-c01-Jupyter/why.png" class="" title="why">
 
 <p>Here we use docker to do the installation.</p>
 <ol>
 <li>install docker on the windows, in this example, we use docker on windows<br>download the installer from <a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a> and install it simply<br>NB: <b>you have to use the admin account</b></li>
 <li>open the terminal with admin and install the jupyter<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8888:8888 -v C:\dev\softwares\docker_data\jupyter_data:/home/jovyan/work jupyter/scipy-notebook</span><br></pre></td></tr></table></figure></li>
-<li>run jupyter in a browser<br>You can find the url from the logs
-or from the desktop</li>
+<li>run jupyter in a browser<br>You can find the url from the logs<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_from_logs.png" class="" title="start_jupyter_from_logs">
+or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_from_desktop.png" class="" title="start_jupyter_from_desktop"></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8x5spne0015msi4cg05gond" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8x64ald0015l8i4fvvjd3bc" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
       
       
       
@@ -165,7 +165,7 @@ or from the desktop</li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="cl8x5spo0002fmsi4ek1p2271" data-title="Website Recommended" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="cl8x64an0002fl8i476ixf01s" data-title="Website Recommended" class="article-share-link">Share</a>
       
       
       
@@ -207,7 +207,7 @@ or from the desktop</li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="cl8x5spnx0025msi463widyi6" data-title="d01-Logs Router" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="cl8x64amp0025l8i4bgfad78k" data-title="d01-Logs Router" class="article-share-link">Share</a>
       
       
       
@@ -246,26 +246,26 @@ or from the desktop</li>
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h1 id="Git-modify-history"><a href="#Git-modify-history" class="headerlink" title="Git modify history"></a>Git modify history</h1><p>We have 3 old commits pushed as following, we want to modify them and squash the last 2 commits</p>
-
+<img src="/blog/2021/08/09/Git-Commands/old_original.png" class="" title="old_original">
 <p>command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~3</span><br></pre></td></tr></table></figure>
 <p>we got:</p>
-
+<img src="/blog/2021/08/09/Git-Commands/before_squash.png" class="" title="before_squash">
 <p>Change the last 2 commits to squash</p>
-
+<img src="/blog/2021/08/09/Git-Commands/change_to_squash.png" class="" title="change_to_squash">
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ech</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
-
+<img src="/blog/2021/08/09/Git-Commands/new_file_to_edit.png" class="" title="new_file_to_edit">
 <p>Comment the last 2 commit messages</p>
-
+<img src="/blog/2021/08/09/Git-Commands/comment_last_2_messages.png" class="" title="comment_last_2_messages">
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ech</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
-
+<img src="/blog/2021/08/09/Git-Commands/git_status.png" class="" title="git_status">
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f</span><br></pre></td></tr></table></figure>
 <p>And we can find that the commit history have been changed</p>
-
+<img src="/blog/2021/08/09/Git-Commands/after.png" class="" title="after">
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="cl8x5spmp0005msi4f9lgfvrw" data-title="Git Commands" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="cl8x64ak10004l8i4f7gbgeoj" data-title="Git Commands" class="article-share-link">Share</a>
       
       
       
@@ -303,7 +303,7 @@ or from the desktop</li>
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="4-ways-to-interact-with-GCP"><a href="#4-ways-to-interact-with-GCP" class="headerlink" title="4 ways to interact with GCP"></a>4 ways to interact with GCP</h2>
+        <h2 id="4-ways-to-interact-with-GCP"><a href="#4-ways-to-interact-with-GCP" class="headerlink" title="4 ways to interact with GCP"></a>4 ways to interact with GCP</h2><img src="/blog/2021/05/28/gcp-c01-vpc/4_ways_to_interact_with_gcp.png" class="" title="4_ways_to_interact_with_gcp">
 
 <h2 id="Projects-and-networks"><a href="#Projects-and-networks" class="headerlink" title="Projects and networks"></a>Projects and networks</h2><h3 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h3><ul>
 <li>Associate objects and services with billing</li>
@@ -315,7 +315,7 @@ or from the desktop</li>
 <li>Contains subnetworks</li>
 <li>Is available as default, auto or custom</li>
 </ul>
-<h2 id="3-VPC-network-types"><a href="#3-VPC-network-types" class="headerlink" title="3 VPC network types"></a>3 VPC network types</h2>
+<h2 id="3-VPC-network-types"><a href="#3-VPC-network-types" class="headerlink" title="3 VPC network types"></a>3 VPC network types</h2><img src="/blog/2021/05/28/gcp-c01-vpc/3_vpc_network_types.png" class="" title="3_vpc_network_types">
 
 <p>The projects can communicate over internal IPs when they are in the same network even though they are in different regions.<br>They can not communicate over internal IPs when they are in different networks even though they are in the same region</p>
 <h2 id="Subnetworks-cross-zones"><a href="#Subnetworks-cross-zones" class="headerlink" title="Subnetworks cross zones"></a>Subnetworks cross zones</h2><ul>
@@ -327,14 +327,14 @@ or from the desktop</li>
 <li>Can expand but not shrink</li>
 <li>Avoid large subnets</li>
 </ul>
-<h2 id="Internal-and-External-Ip-address"><a href="#Internal-and-External-Ip-address" class="headerlink" title="Internal and External Ip address"></a>Internal and External Ip address</h2>
+<h2 id="Internal-and-External-Ip-address"><a href="#Internal-and-External-Ip-address" class="headerlink" title="Internal and External Ip address"></a>Internal and External Ip address</h2><img src="/blog/2021/05/28/gcp-c01-vpc/internal_external_ip_address.png" class="" title="internal_external_ip_address">
 
 <p>Every VM need an internal ip address but the external ip address is optional and by default it is ephemeral</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/05/28/gcp-c01-vpc/" data-id="cl8x5spnx0028msi49zux936b" data-title="gcp-c01-vpc" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/05/28/gcp-c01-vpc/" data-id="cl8x64amt002al8i4ckdh8422" data-title="gcp-c01-vpc" class="article-share-link">Share</a>
       
       
       
@@ -379,7 +379,7 @@ or from the desktop</li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/" data-id="cl8x5spnu0021msi417e4azy1" data-title="b09-01-BigQuery Load From Json" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/" data-id="cl8x64ami0022l8i4ea7dfbby" data-title="b09-01-BigQuery Load From Json" class="article-share-link">Share</a>
       
       
       
@@ -434,7 +434,7 @@ or from the desktop</li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/16/Python-a11-pythonic/" data-id="cl8x5spn7000umsi47lrxarqo" data-title="Python-a11-pythonic" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/03/16/Python-a11-pythonic/" data-id="cl8x64aky000ul8i41gwvawrl" data-title="Python-a11-pythonic" class="article-share-link">Share</a>
       
       
       
@@ -483,7 +483,7 @@ or from the desktop</li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/15/Python-a10-Functional-Programming/" data-id="cl8x5spn6000smsi468oeb47z" data-title="Python-a10-Functional Programming" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/03/15/Python-a10-Functional-Programming/" data-id="cl8x64akw000sl8i41i0t9ge5" data-title="Python-a10-Functional Programming" class="article-share-link">Share</a>
       
       
       
@@ -530,7 +530,7 @@ or from the desktop</li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/04/Python-b05-Property-Decorators/" data-id="cl8x5spnd0013msi4acbbdyf8" data-title="Python-b05-Property Decorators" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/04/Python-b05-Property-Decorators/" data-id="cl8x64alc0013l8i49r2p89vt" data-title="Python-b05-Property Decorators" class="article-share-link">Share</a>
       
       
       
@@ -578,7 +578,7 @@ or from the desktop</li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/03/Python-b04-Special-Magic-Dunder-Methods/" data-id="cl8x5spnb000ymsi464nc48b7" data-title="Python-b04-Special(Magic/Dunder) Methods" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/03/Python-b04-Special-Magic-Dunder-Methods/" data-id="cl8x64ala0011l8i43olcfy7t" data-title="Python-b04-Special(Magic/Dunder) Methods" class="article-share-link">Share</a>
       
       
       

@@ -117,7 +117,7 @@
 <li>Message: The combination of data and (optional) attributes that a publisher sends to a topic and is eventually delivered to subscribers.</li>
 <li>Message attribute: A key-value pair that a publisher can define</li>
 </ul>
-<h2 id="Pub-x2F-Sub-Message-flow"><a href="#Pub-x2F-Sub-Message-flow" class="headerlink" title="Pub&#x2F;Sub Message flow"></a>Pub&#x2F;Sub Message flow</h2>
+<h2 id="Pub-x2F-Sub-Message-flow"><a href="#Pub-x2F-Sub-Message-flow" class="headerlink" title="Pub&#x2F;Sub Message flow"></a>Pub&#x2F;Sub Message flow</h2><img src="/blog/2020/05/23/b06-Cloud-PubSub/pubsub_overview.png" class="" title="pubsub_overview">
 <ol>
 <li>Publisher sends messages to the topic</li>
 <li>Messages are stored in message store until they are delivered and acknowledged by subscribers</li>
@@ -125,7 +125,7 @@
 <li>Subscriber receives pending messages from subscription and acknowledge to Pub&#x2F;Sub</li>
 <li>After message is acknowledged by the subscriber, it is removed from the subscription’s queue of messages.</li>
 </ol>
-<h2 id="Basic-flow-of-messages-Message-flow"><a href="#Basic-flow-of-messages-Message-flow" class="headerlink" title="Basic flow of messages Message flow"></a>Basic flow of messages Message flow</h2>
+<h2 id="Basic-flow-of-messages-Message-flow"><a href="#Basic-flow-of-messages-Message-flow" class="headerlink" title="Basic flow of messages Message flow"></a>Basic flow of messages Message flow</h2><img src="/blog/2020/05/23/b06-Cloud-PubSub/pubsub_basic_flow_of_messages.png" class="" title="basic_flow_of_messages">
 <p>Messages A, B are sent to the topic.<br>There are 2 subscriptions, Subscriber1 and Subscriber2 are subscribed to Subscription1 and each one got one message.<br>Subscriber3 is subscribed to Subscription2, and it got both message A and B</p>
 <h2 id="Publishing"><a href="#Publishing" class="headerlink" title="Publishing"></a>Publishing</h2><ul>
 <li><p>Message format</p>
@@ -172,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="cl8x5spnp001umsi4hixj4d6m" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="cl8x64ama001ul8i4ayum7svb" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
       
       
       
@@ -224,11 +224,11 @@
 <li>Cloud SQL &#x3D; MySQL</li>
 <li>Spanner is not “dropped in” replacement for MySQL<ul>
 <li>Not MySQL&#x2F;PostgreSQL compatible</li>
-<li>Work need to migrate</li>
+<li>Work need to migrate<img src="/blog/2020/05/20/b05-Cloud-Spanner/spanner_vs_relational_vs_nosql.png" class="" title="spanner_vs_relational_vs_nosql"></li>
 </ul>
 </li>
 </ul>
-<h2 id="Spanner-architecture"><a href="#Spanner-architecture" class="headerlink" title="Spanner architecture"></a>Spanner architecture</h2>
+<h2 id="Spanner-architecture"><a href="#Spanner-architecture" class="headerlink" title="Spanner architecture"></a>Spanner architecture</h2><img src="/blog/2020/05/20/b05-Cloud-Spanner/spanner_architecture.png" class="" title="spanner_architecture">
 
 <ul>
 <li>Nodes handle computation, each node serves up to 2 TB of storage</li>
@@ -239,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/20/b05-Cloud-Spanner/" data-id="cl8x5spnn001rmsi47zqw6o3o" data-title="b05-Cloud-Spanner" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/20/b05-Cloud-Spanner/" data-id="cl8x64am4001rl8i44x3qge20" data-title="b05-Cloud-Spanner" class="article-share-link">Share</a>
       
       
       
@@ -281,7 +281,7 @@
 <li>High performance, massively scalable NoSQL </li>
 <li>Ideal for large analytical workloads</li>
 </ul>
-<h3 id="Bigtable-infrastructure"><a href="#Bigtable-infrastructure" class="headerlink" title="Bigtable infrastructure"></a>Bigtable infrastructure</h3>
+<h3 id="Bigtable-infrastructure"><a href="#Bigtable-infrastructure" class="headerlink" title="Bigtable infrastructure"></a>Bigtable infrastructure</h3><img src="/blog/2020/05/19/b04-Bigtable/bigtable_infrastructure.png" class="" title="bigtable_infrastructure">
 
 <ul>
 <li>Front-end server pool serves requests to nodes</li>
@@ -313,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/" data-id="cl8x5spnm001omsi4e7i82r8q" data-title="b04-Bigtable" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/" data-id="cl8x64am2001ql8i48qzj8zp5" data-title="b04-Bigtable" class="article-share-link">Share</a>
       
       
       
@@ -404,7 +404,7 @@
 </li>
 </ul>
 <h2 id="Relational-Database-vs-Datastore"><a href="#Relational-Database-vs-Datastore" class="headerlink" title="Relational Database vs Datastore"></a>Relational Database vs Datastore</h2><p>Entities can be hierarchical</p>
-
+<img src="/blog/2020/05/16/b03-Cloud-Datastore/rdbms_vs_datastore.png" class="" title="rdbms_vs_datastore">
 
 <h2 id="Queries-and-Indexing"><a href="#Queries-and-Indexing" class="headerlink" title="Queries and Indexing"></a>Queries and Indexing</h2><h3 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h3><ul>
 <li>retrieve entity from datastore</li>
@@ -447,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/16/b03-Cloud-Datastore/" data-id="cl8x5spnn001qmsi4azv5btov" data-title="b03-Cloud-Datastore" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/16/b03-Cloud-Datastore/" data-id="cl8x64am1001ol8i4ayih7j6d" data-title="b03-Cloud-Datastore" class="article-share-link">Share</a>
       
       
       
@@ -493,13 +493,13 @@
 <li>Read replicas limited to same region as master</li>
 </ul>
 <p>Cloud SQL hands on</p>
-
+<img src="/blog/2020/05/14/b02-Cloud-SQL/hands_on.png" class="" title="hands_on">
 
 <div class="video-container"><iframe src="https://www.youtube.com/embed/CKAUkmybZCg" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="cl8x5spnl001nmsi4d94yepgl" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="cl8x64am0001nl8i4ghs64ell" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
       
       
       
@@ -572,14 +572,14 @@
 </li>
 </ul>
 <p>“Performance over Consistency”</p>
+<img src="/blog/2020/05/11/b01-Fundamental-Concepts/storage_compare.png" class="" title="storage_compare">
 
-
-<h2 id="How-to-choose-the-right-storage"><a href="#How-to-choose-the-right-storage" class="headerlink" title="How to choose the right storage"></a>How to choose the right storage</h2>
+<h2 id="How-to-choose-the-right-storage"><a href="#How-to-choose-the-right-storage" class="headerlink" title="How to choose the right storage"></a>How to choose the right storage</h2><img src="/blog/2020/05/11/b01-Fundamental-Concepts/how_to_choose_storage.png" class="" title="how_to_choose_storage">
 <div class="video-container"><iframe src="https://www.youtube.com/embed/J-2xbqn9xUQ" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/11/b01-Fundamental-Concepts/" data-id="cl8x5spnl001lmsi4ef5tfc7s" data-title="b01-Fundamental-Concepts" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/11/b01-Fundamental-Concepts/" data-id="cl8x64aly001ll8i46t2w4jsq" data-title="b01-Fundamental-Concepts" class="article-share-link">Share</a>
       
       
       
@@ -617,7 +617,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="Big-Data"><a href="#Big-Data" class="headerlink" title="Big Data"></a>Big Data</h2>
+        <h2 id="Big-Data"><a href="#Big-Data" class="headerlink" title="Big Data"></a>Big Data</h2><img src="/blog/2020/05/09/a08-GCP-Big-Data-and-Machine-Learning/big_data_services.png" class="" title="big_data_services">
 <p><strong>Serverless</strong> means you don’t have to worry about provisioning compute instances to run your jobs. the services are fully managed.</p>
 <h2 id="Cloud-Dataproc"><a href="#Cloud-Dataproc" class="headerlink" title="Cloud Dataproc"></a>Cloud Dataproc</h2><p>is managed Hadoop</p>
 <ul>
@@ -708,7 +708,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/09/a08-GCP-Big-Data-and-Machine-Learning/" data-id="cl8x5spnk001kmsi4ahoi6ig8" data-title="a08-GCP Big Data and Machine Learning" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/09/a08-GCP-Big-Data-and-Machine-Learning/" data-id="cl8x64alw001kl8i4g2r06wyx" data-title="a08-GCP Big Data and Machine Learning" class="article-share-link">Share</a>
       
       
       
@@ -760,7 +760,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a07-GCP-Developing-Deploying-and-Monitoring/" data-id="cl8x5spnj001imsi4dul41rny" data-title="a07-GCP Developing, Deploying and Monitoring" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a07-GCP-Developing-Deploying-and-Monitoring/" data-id="cl8x64alu001il8i4g5qtedtc" data-title="a07-GCP Developing, Deploying and Monitoring" class="article-share-link">Share</a>
       
       
       
@@ -829,9 +829,9 @@
 </li>
 </ul>
 <p>Comparing standard and flexible environments</p>
-
+<img src="/blog/2020/05/08/a06-GCP-Applications/standard_vs_flexible.png" class="" title="standard_vs_flexible">
 <p>Comparing Kubernetes Engine and App Engine</p>
-
+<img src="/blog/2020/05/08/a06-GCP-Applications/kubernetes_engine_vs_app_engine.png" class="" title="kubernetes_engine_vs_app_engine">
 
 <p>GCP provides 2 API management tools</p>
 <h2 id="Cloud-Endpoints"><a href="#Cloud-Endpoints" class="headerlink" title="Cloud Endpoints"></a>Cloud Endpoints</h2><ul>
@@ -849,7 +849,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a06-GCP-Applications/" data-id="cl8x5spnj001gmsi4d8o1bcpl" data-title="a06-GCP-Applications" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a06-GCP-Applications/" data-id="cl8x64als001gl8i43vclec6x" data-title="a06-GCP-Applications" class="article-share-link">Share</a>
       
       
       
@@ -900,7 +900,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="cl8x5spni001dmsi40k23bo1x" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="cl8x64alo001cl8i4680ugwcd" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
       
       
       

@@ -13,11 +13,18 @@
 <meta property="og:site_name" content="Developer">
 <meta property="og:description" content="Jenkins architecture is fundamentally “Master + Agent”, the master is designed to do the co-ordination and provide the GUI and API endpoint, and the Agents are designed to execute the work.  Jenkins c">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/new_node_SSH-min.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/jenkins_credentials_provider-min.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/launch_ssh_agent-min.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/new_node_JWS-min.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/launch_jws_agent-min.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/build_interface-min.png">
 <meta property="article:published_time" content="2019-05-03T15:03:53.000Z">
 <meta property="article:modified_time" content="2020-03-09T14:25:34.328Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/new_node_SSH-min.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
   
@@ -110,7 +117,7 @@
 <h2 id="Create-agent-machines-by-vagrant"><a href="#Create-agent-machines-by-vagrant" class="headerlink" title="Create agent machines by vagrant"></a>Create agent machines by vagrant</h2><p>I created 2 machines by vagrant with the Vagrantfile as below, you can go the directory of this file and run the command :</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
+<a href="/blog/2019/05/03/Jenkins-multiple-pipelines/Vagrantfile" title="[Vagrantfile]">[Vagrantfile]</a>
 
 
 <h2 id="Run-master-via-docker"><a href="#Run-master-via-docker" class="headerlink" title="Run master via docker"></a>Run master via docker</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -118,33 +125,33 @@
 <h2 id="Add-agent"><a href="#Add-agent" class="headerlink" title="Add agent"></a>Add agent</h2><p>go to Manage Jenkins&#x2F;Manage Nodes and click “New Node” button, we give a Node name and check Permanent Agent</p>
 <h3 id="SSH-connexion"><a href="#SSH-connexion" class="headerlink" title="SSH connexion"></a>SSH connexion</h3><p>In the first example, we will add an agent via SSH:<br>Before doing that, I generated the ssh key inside of docker container, and copy id_rsa.pub to ~&#x2F;.ssh&#x2F;known_hosts in agent</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;sdmj45@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<img src="/blog/2019/05/03/Jenkins-multiple-pipelines/new_node_SSH-min.png" class="" title="new node via ssh">
 
 <p>Labels: group name of the agent<br>Host: agent ip<br>Credentials: configure credential as below, we give the username as vagrant and private key generated in docker container</p>
-
+<img src="/blog/2019/05/03/Jenkins-multiple-pipelines/jenkins_credentials_provider-min.png" class="" title="new jenkins credentials via ssh">
 
 <p>Launch agent:<br>We can click Launch agent button to launch Agent</p>
-
+<img src="/blog/2019/05/03/Jenkins-multiple-pipelines/launch_ssh_agent-min.png" class="" title="launch ssh agent via ssh">
 
 <h3 id="Java-Web-Start-connexion"><a href="#Java-Web-Start-connexion" class="headerlink" title="Java Web Start connexion"></a>Java Web Start connexion</h3><p>In the second example, we will add an agent via Java Web Start:</p>
-
+<img src="/blog/2019/05/03/Jenkins-multiple-pipelines/new_node_JWS-min.png" class="" title="new node via Java web start">
 
 <p>Labels: group name of the agent</p>
 <p>Launch agent:<br>We can launch agent by “Run from agent command line”: copy the agent.jar to agent machine and run the command by changing localhost:8080 to host_ip:8080</p>
-
+<img src="/blog/2019/05/03/Jenkins-multiple-pipelines/launch_jws_agent-min.png" class="" title="launch agent via Java web start">
 
 
 <h2 id="Multiple-pipeline-build"><a href="#Multiple-pipeline-build" class="headerlink" title="Multiple pipeline build"></a>Multiple pipeline build</h2><p>I add a new build of test and execute a simple command, I added “sleep 30” in order to keep some time in the building </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello slave&quot;</span></span><br><span class="line"><span class="built_in">sleep</span> 30</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;bye slave&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>and then I can launch multiple pipeline build as follow (as there are 2 executors in each agent, I can launch 4 build simultaneously)</p>
-
+<img src="/blog/2019/05/03/Jenkins-multiple-pipelines/build_interface-min.png" class="" title="build interface">
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl8x5spmr0007msi4eio857ko" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl8x64ak60007l8i43r4t98hk" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
       
       
       

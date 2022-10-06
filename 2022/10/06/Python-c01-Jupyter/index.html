@@ -13,11 +13,15 @@
 <meta property="og:site_name" content="Developer">
 <meta property="og:description" content="How to install Jupyter on local machine?   Here we use docker to do the installation.  install docker on the windows, in this example, we use docker on windowsdownload the installer from https:&#x2F;&#x2F;docs.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/why.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_from_logs.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_from_desktop.png">
 <meta property="article:published_time" content="2022-10-06T14:16:44.000Z">
 <meta property="article:modified_time" content="2022-10-06T14:33:36.643Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/why.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
   
@@ -105,20 +109,20 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>How to install Jupyter on local machine?</p>
-
+<img src="/blog/2022/10/06/Python-c01-Jupyter/why.png" class="" title="why">
 
 <p>Here we use docker to do the installation.</p>
 <ol>
 <li>install docker on the windows, in this example, we use docker on windows<br>download the installer from <a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a> and install it simply<br>NB: <b>you have to use the admin account</b></li>
 <li>open the terminal with admin and install the jupyter<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8888:8888 -v C:\dev\softwares\docker_data\jupyter_data:/home/jovyan/work jupyter/scipy-notebook</span><br></pre></td></tr></table></figure></li>
-<li>run jupyter in a browser<br>You can find the url from the logs
-or from the desktop</li>
+<li>run jupyter in a browser<br>You can find the url from the logs<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_from_logs.png" class="" title="start_jupyter_from_logs">
+or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_from_desktop.png" class="" title="start_jupyter_from_desktop"></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8x5spne0015msi4cg05gond" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8x64ald0015l8i4fvvjd3bc" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
       
       
       

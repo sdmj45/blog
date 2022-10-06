@@ -1,0 +1,56 @@
+
+# -*- mode: ruby -*-
+# vim: ft=ruby
+
+
+# ---- Configuration variables ----
+GUI               = false # Enable/Disable GUI
+RAM               = 2048   # Default memory size in MB
+
+# Network configuration
+DOMAIN            = ".nat.example.com"
+NETWORK           = "192.168.40."
+NETMASK           = "255.255.255.0"
+
+# Default Virtualbox .box
+# See: https://wiki.debian.org/Teams/Cloud/VagrantBaseBoxes
+BOX               = 'bento/centos-7.3'
+BOX_VERSOIN       = '2.3.5'
+
+HOSTS = {
+   "mysalve1" => [NETWORK+"10", RAM, GUI, BOX],
+   "myslave2" => [NETWORK+"11", RAM, GUI, BOX]
+}
+
+ANSIBLE_INVENTORY_DIR = 'ansible/inventory'
+
+# ---- Vagrant configuration ----
+
+Vagrant.configure(2) do |config|
+    HOSTS.each do | (name, cfg) |
+      ipaddr, ram, gui, box = cfg
+
+      public_key = File.read("/Users/" + ENV['USER'] + "/.ssh/id_rsa.pub")
+
+      config.vm.provision :shell, :inline =>"
+             echo 'Copying ansible-vm public SSH Keys to the VM'
+             mkdir -p /home/vagrant/.ssh
+             chmod 700 /home/vagrant/.ssh
+             echo '#{public_key}' >> /home/vagrant/.ssh/authorized_keys"
+
+      config.vm.define name do |machine|
+        machine.vm.box   = box
+  
+        machine.vm.provider "virtualbox" do |vbox|
+          vbox.gui    = gui
+          vbox.memory = ram
+          vbox.name = name
+        end
+  
+        machine.vm.hostname = name + DOMAIN
+
+        machine.vm.network "private_network", ip: ipaddr, netmask: NETMASK
+      end
+    end # HOSTS-each
+  
+  end

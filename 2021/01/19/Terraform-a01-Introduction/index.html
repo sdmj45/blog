@@ -13,11 +13,14 @@
 <meta property="og:site_name" content="Developer">
 <meta property="og:description" content="What is TerraformTerraform is a tool for building, changing, and versioning infrastructure safely and efficiently.It is open source and declarative The differences between declarative and imperative:">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/creating_execution_plan.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/execute_plan_with_providers.png">
 <meta property="article:published_time" content="2021-01-19T13:47:02.000Z">
 <meta property="article:modified_time" content="2021-01-21T09:32:28.943Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/creating_execution_plan.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
   
@@ -132,10 +135,10 @@ More advanced in orchestration
 </code></pre>
 <h1 id="How-does-Terraform-work"><a href="#How-does-Terraform-work" class="headerlink" title="How does Terraform work"></a>How does Terraform work</h1><ol>
 <li><p>create execution plan</p>
-
+<img src="/blog/2021/01/19/Terraform-a01-Introduction/creating_execution_plan.png" class="" title="creating_execution_plan">
 </li>
 <li><p>execute plan with providers</p>
-</li>
+<img src="/blog/2021/01/19/Terraform-a01-Introduction/execute_plan_with_providers.png" class="" title="execute_plan_with_providers"></li>
 </ol>
 <h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><p>example:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">terraform &#123;</span><br><span class="line">  required_providers &#123;</span><br><span class="line">    google = &#123;</span><br><span class="line">      source = &quot;hashicorp/google&quot;</span><br><span class="line">      version = &quot;3.5.0&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">provider &quot;google&quot; &#123;</span><br><span class="line"></span><br><span class="line">  credentials = file(&quot;&lt;NAME&gt;.json&quot;)</span><br><span class="line"></span><br><span class="line">  project = &quot;&lt;PROJECT_ID&gt;&quot;</span><br><span class="line">  region  = &quot;us-central1&quot;</span><br><span class="line">  zone    = &quot;us-central1-c&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resource &quot;google_compute_network&quot; &quot;vpc_network&quot; &#123;</span><br><span class="line">  name = &quot;terraform-network&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -151,7 +154,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cl8x5spnf0016msi487mq7q1s" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cl8x64alf0016l8i43u1mb548" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
       
       
       

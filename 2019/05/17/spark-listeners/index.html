@@ -13,11 +13,14 @@
 <meta property="og:site_name" content="Developer">
 <meta property="og:description" content="When running spark job, driver collects logs from different executors and send events via an event bus to Web UI and to EventLog Listener simultaneously. EventLog Listener send events to a some direct">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/spark_history-min.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/sparklens-min.png">
 <meta property="article:published_time" content="2019-05-17T14:21:43.000Z">
 <meta property="article:modified_time" content="2020-03-09T14:25:34.372Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/spark_history-min.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
   
@@ -107,7 +110,7 @@
         <p>When running spark job, driver collects logs from different executors and send events via an event bus to Web UI and to EventLog Listener simultaneously.</p>
 <p>EventLog Listener send events to a some directory for example in hdfs to store the events, and then spark history server will expose these events in its interface.</p>
 <p>We could define our custom EventLog Listener, there are several listeners already developed and we can use them directly, here I will prent 3 examples.</p>
-
+<img src="/blog/2019/05/17/spark-listeners/spark_history-min.png" class="" title="spark history">
 
 
 
@@ -122,7 +125,7 @@
 <p>import package</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.qubole.sparklens.<span class="type">QuboleNotebookListener</span></span><br><span class="line"><span class="keyword">val</span> <span class="type">QNL</span> = <span class="keyword">new</span> <span class="type">QuboleNotebookListener</span>(sc.getConf)</span><br><span class="line">sc.addSparkListener(<span class="type">QNL</span>)</span><br></pre></td></tr></table></figure>
 
-
+<img src="/blog/2019/05/17/spark-listeners/sparklens-min.png" class="" title="sparklens">
 
 
 
@@ -139,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="cl8x5spnz002cmsi49f7ca94s" data-title="spark listeners" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="cl8x64amx002cl8i4afg6bgl5" data-title="spark listeners" class="article-share-link">Share</a>
       
       
       

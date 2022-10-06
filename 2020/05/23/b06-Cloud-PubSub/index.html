@@ -13,11 +13,14 @@
 <meta property="og:site_name" content="Developer">
 <meta property="og:description" content="Cloud Pub&#x2F;Sub Global scale messaging buffer&#x2F;coupler No-ops Decouples senders and receivers Equivalent to Kafka At-least-once delivery  Pub&#x2F;Sub Core Concepts Topic: A named resource to w">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/pubsub_overview.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/pubsub_basic_flow_of_messages.png">
 <meta property="article:published_time" content="2020-05-23T14:01:29.000Z">
 <meta property="article:modified_time" content="2021-04-26T09:13:55.983Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/pubsub_overview.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
   
@@ -117,7 +120,7 @@
 <li>Message: The combination of data and (optional) attributes that a publisher sends to a topic and is eventually delivered to subscribers.</li>
 <li>Message attribute: A key-value pair that a publisher can define</li>
 </ul>
-<h2 id="Pub-x2F-Sub-Message-flow"><a href="#Pub-x2F-Sub-Message-flow" class="headerlink" title="Pub&#x2F;Sub Message flow"></a>Pub&#x2F;Sub Message flow</h2>
+<h2 id="Pub-x2F-Sub-Message-flow"><a href="#Pub-x2F-Sub-Message-flow" class="headerlink" title="Pub&#x2F;Sub Message flow"></a>Pub&#x2F;Sub Message flow</h2><img src="/blog/2020/05/23/b06-Cloud-PubSub/pubsub_overview.png" class="" title="pubsub_overview">
 <ol>
 <li>Publisher sends messages to the topic</li>
 <li>Messages are stored in message store until they are delivered and acknowledged by subscribers</li>
@@ -125,7 +128,7 @@
 <li>Subscriber receives pending messages from subscription and acknowledge to Pub&#x2F;Sub</li>
 <li>After message is acknowledged by the subscriber, it is removed from the subscription’s queue of messages.</li>
 </ol>
-<h2 id="Basic-flow-of-messages-Message-flow"><a href="#Basic-flow-of-messages-Message-flow" class="headerlink" title="Basic flow of messages Message flow"></a>Basic flow of messages Message flow</h2>
+<h2 id="Basic-flow-of-messages-Message-flow"><a href="#Basic-flow-of-messages-Message-flow" class="headerlink" title="Basic flow of messages Message flow"></a>Basic flow of messages Message flow</h2><img src="/blog/2020/05/23/b06-Cloud-PubSub/pubsub_basic_flow_of_messages.png" class="" title="basic_flow_of_messages">
 <p>Messages A, B are sent to the topic.<br>There are 2 subscriptions, Subscriber1 and Subscriber2 are subscribed to Subscription1 and each one got one message.<br>Subscriber3 is subscribed to Subscription2, and it got both message A and B</p>
 <h2 id="Publishing"><a href="#Publishing" class="headerlink" title="Publishing"></a>Publishing</h2><ul>
 <li><p>Message format</p>
@@ -172,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="cl8x5spnp001umsi4hixj4d6m" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="cl8x64ama001ul8i4ayum7svb" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
       
       
       

@@ -109,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b03-Inheritance/" data-id="cl8x5spnc0011msi40n98eogr" data-title="Python-b03-Inheritance" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b03-Inheritance/" data-id="cl8x64al8000yl8i45iw0hsxb" data-title="Python-b03-Inheritance" class="article-share-link">Share</a>
       
       
       
@@ -222,7 +222,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b02-classmethod-staticmethod/" data-id="cl8x5spnb000xmsi481zkhc86" data-title="Python-b02-classmethod-staticmethod" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b02-classmethod-staticmethod/" data-id="cl8x64al7000xl8i48m7gexgm" data-title="Python-b02-classmethod-staticmethod" class="article-share-link">Share</a>
       
       
       
@@ -266,7 +266,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/01/Python-b01-Classes-and-Instances/" data-id="cl8x5spn8000vmsi40ua1bhfi" data-title="Python-b01-Classes and Instances" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/01/Python-b01-Classes-and-Instances/" data-id="cl8x64akz000vl8i44nd661xy" data-title="Python-b01-Classes and Instances" class="article-share-link">Share</a>
       
       
       
@@ -309,7 +309,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="cl8x5spn5000rmsi48cm0c2d0" data-title="Python-a09-Modules" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="cl8x64akv000rl8i47810f9bm" data-title="Python-a09-Modules" class="article-share-link">Share</a>
       
       
       
@@ -352,7 +352,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="cl8x5spn3000omsi44mag60ml" data-title="Python-a08 Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="cl8x64aks000ol8i4gq4ib5o7" data-title="Python-a08 Functions" class="article-share-link">Share</a>
       
       
       
@@ -395,7 +395,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="cl8x5spn2000nmsi4271n13bw" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="cl8x64akr000nl8i4hwu84m7s" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
       
       
       
@@ -461,10 +461,10 @@ More advanced in orchestration
 </code></pre>
 <h1 id="How-does-Terraform-work"><a href="#How-does-Terraform-work" class="headerlink" title="How does Terraform work"></a>How does Terraform work</h1><ol>
 <li><p>create execution plan</p>
-
+<img src="/blog/2021/01/19/Terraform-a01-Introduction/creating_execution_plan.png" class="" title="creating_execution_plan">
 </li>
 <li><p>execute plan with providers</p>
-</li>
+<img src="/blog/2021/01/19/Terraform-a01-Introduction/execute_plan_with_providers.png" class="" title="execute_plan_with_providers"></li>
 </ol>
 <h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><p>example:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">terraform &#123;</span><br><span class="line">  required_providers &#123;</span><br><span class="line">    google = &#123;</span><br><span class="line">      source = &quot;hashicorp/google&quot;</span><br><span class="line">      version = &quot;3.5.0&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">provider &quot;google&quot; &#123;</span><br><span class="line"></span><br><span class="line">  credentials = file(&quot;&lt;NAME&gt;.json&quot;)</span><br><span class="line"></span><br><span class="line">  project = &quot;&lt;PROJECT_ID&gt;&quot;</span><br><span class="line">  region  = &quot;us-central1&quot;</span><br><span class="line">  zone    = &quot;us-central1-c&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resource &quot;google_compute_network&quot; &quot;vpc_network&quot; &#123;</span><br><span class="line">  name = &quot;terraform-network&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -480,7 +480,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cl8x5spnf0016msi487mq7q1s" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cl8x64alf0016l8i43u1mb548" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
       
       
       
@@ -523,7 +523,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="cl8x5spn0000lmsi4dkvh9hp3" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="cl8x64ako000ll8i43h09gldm" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
       
       
       
@@ -568,7 +568,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="cl8x5spmz000kmsi46swm6iq9" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="cl8x64akn000kl8i49sk2bss8" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
       
       
       
@@ -613,7 +613,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="cl8x5spmy000jmsi42d0cgzzp" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="cl8x64akm000jl8i44wsxeexd" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
       
       
       
