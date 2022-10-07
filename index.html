@@ -78,6 +78,826 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-c05-Filtering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2022/10/07/Python-c05-Filtering/" class="article-date">
+  <time class="dt-published" datetime="2022-10-07T13:11:43.000Z" itemprop="datePublished">2022-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/c-pandas/">c-pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">people = &#123;</span><br><span class="line">    <span class="string">&quot;first&quot;</span>: [<span class="string">&quot;Corey&quot;</span>, <span class="string">&#x27;Jane&#x27;</span>, <span class="string">&#x27;John&#x27;</span>], </span><br><span class="line">    <span class="string">&quot;last&quot;</span>: [<span class="string">&quot;Schafer&quot;</span>, <span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Doe&#x27;</span>], </span><br><span class="line">    <span class="string">&quot;email&quot;</span>: [<span class="string">&quot;CoreyMSchafer@gmail.com&quot;</span>, <span class="string">&#x27;JaneDoe@email.com&#x27;</span>, <span class="string">&#x27;JohnDoe@email.com&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filt = (df[<span class="string">&#x27;last&#x27;</span>] == <span class="string">&#x27;Doe&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[filt]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># filter df with filt and return just the column first and email</span></span><br><span class="line">df.loc[filt, [<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># not in filter ~</span></span><br><span class="line">df.loc[~filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p>0    <a href="mailto:&#x43;&#111;&#x72;&#x65;&#x79;&#x4d;&#x53;&#x63;&#104;&#97;&#x66;&#101;&#x72;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x43;&#111;&#x72;&#x65;&#x79;&#x4d;&#x53;&#x63;&#104;&#97;&#x66;&#101;&#x72;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># isin filter</span></span><br><span class="line">lasts = [<span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Mike&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>]</span><br><span class="line">filt = df[<span class="string">&#x27;last&#x27;</span>].isin(lasts)</span><br><span class="line">df.loc[filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>1    <a href="mailto:&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#64;&#101;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#64;&#101;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a><br>2    <a href="mailto:&#x4a;&#111;&#x68;&#x6e;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x4a;&#111;&#x68;&#x6e;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Respondent</th>
+      <th>Professional</th>
+      <th>ProgramHobby</th>
+      <th>Country</th>
+      <th>University</th>
+      <th>EmploymentStatus</th>
+      <th>FormalEducation</th>
+      <th>MajorUndergrad</th>
+      <th>HomeRemote</th>
+      <th>CompanySize</th>
+      <th>...</th>
+      <th>StackOverflowMakeMoney</th>
+      <th>Gender</th>
+      <th>HighestEducationParents</th>
+      <th>Race</th>
+      <th>SurveyLong</th>
+      <th>QuestionsInteresting</th>
+      <th>QuestionsConfusing</th>
+      <th>InterestedAnswers</th>
+      <th>Salary</th>
+      <th>ExpectedSalary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Student</td>
+      <td>Yes, both</td>
+      <td>United States</td>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>High school</td>
+      <td>White or of European descent</td>
+      <td>Strongly disagree</td>
+      <td>Strongly agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Student</td>
+      <td>Yes, both</td>
+      <td>United Kingdom</td>
+      <td>Yes, full-time</td>
+      <td>Employed part-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>Computer science or software engineering</td>
+      <td>More than half, but not all, the time</td>
+      <td>20 to 99 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>37500.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A professional degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>113750.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Professional non-developer who sometimes write...</td>
+      <td>Yes, both</td>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Doctoral degree</td>
+      <td>A non-computer-focused engineering discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A doctoral degree</td>
+      <td>White or of European descent</td>
+      <td>Agree</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Switzerland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>10 to 19 employees</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19097</th>
+      <td>19098</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Canada</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>A business discipline</td>
+      <td>A few days each month</td>
+      <td>10 to 19 employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19098</th>
+      <td>19099</td>
+      <td>Student</td>
+      <td>Yes, I program as a hobby</td>
+      <td>India</td>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19099</th>
+      <td>19100</td>
+      <td>Professional non-developer who sometimes write...</td>
+      <td>Yes, I program as a hobby</td>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19100</th>
+      <td>19101</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>A humanities discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>110000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19101</th>
+      <td>19102</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>France</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>19102 rows × 154 columns</p>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># na=False means if not found the result, put False</span></span><br><span class="line">filt = df[<span class="string">&#x27;MajorUndergrad&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;software&#x27;</span>, na=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[filt]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Respondent</th>
+      <th>Professional</th>
+      <th>ProgramHobby</th>
+      <th>Country</th>
+      <th>University</th>
+      <th>EmploymentStatus</th>
+      <th>FormalEducation</th>
+      <th>MajorUndergrad</th>
+      <th>HomeRemote</th>
+      <th>CompanySize</th>
+      <th>...</th>
+      <th>StackOverflowMakeMoney</th>
+      <th>Gender</th>
+      <th>HighestEducationParents</th>
+      <th>Race</th>
+      <th>SurveyLong</th>
+      <th>QuestionsInteresting</th>
+      <th>QuestionsConfusing</th>
+      <th>InterestedAnswers</th>
+      <th>Salary</th>
+      <th>ExpectedSalary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Student</td>
+      <td>Yes, both</td>
+      <td>United Kingdom</td>
+      <td>Yes, full-time</td>
+      <td>Employed part-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>Computer science or software engineering</td>
+      <td>More than half, but not all, the time</td>
+      <td>20 to 99 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>37500.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A professional degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>113750.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Switzerland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>10 to 19 employees</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>Poland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>Fewer than 10 employees</td>
+      <td>...</td>
+      <td>Somewhat agree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Colombia</td>
+      <td>Yes, part-time</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>5,000 to 9,999 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A bachelor's degree</td>
+      <td>Hispanic or Latino/Latina</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19091</th>
+      <td>19092</td>
+      <td>Professional developer</td>
+      <td>No</td>
+      <td>Sweden</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19095</th>
+      <td>19096</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>A few days each month</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A bachelor's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Somewhat agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19096</th>
+      <td>19097</td>
+      <td>Professional developer</td>
+      <td>No</td>
+      <td>France</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>20 to 99 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>High school</td>
+      <td>White or of European descent</td>
+      <td>Strongly agree</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19099</th>
+      <td>19100</td>
+      <td>Professional non-developer who sometimes write...</td>
+      <td>Yes, I program as a hobby</td>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19101</th>
+      <td>19102</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>France</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>8098 rows × 154 columns</p>
+</div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="cl8yjtpu1001aooi4dwyx8kxg" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-c04-indexes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2022/10/07/Python-c04-indexes/" class="article-date">
@@ -1167,7 +1987,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="cl8yi9ib3001994i40f5s5e2e" data-title="Python-c04-indexes" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="cl8yjtptz0018ooi45ecu3g2k" data-title="Python-c04-indexes" class="article-share-link">Share</a>
       
       
       
@@ -1215,7 +2035,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>[‘<a href="mailto:&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#104;&#x61;&#x66;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#104;&#x61;&#x66;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a>‘, ‘<a href="mailto:&#x4a;&#97;&#110;&#101;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#x4a;&#97;&#110;&#101;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#111;&#x68;&#110;&#x44;&#111;&#x65;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x4a;&#111;&#x68;&#110;&#x44;&#111;&#x65;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>‘]</p>
+<p>[‘<a href="mailto:&#x43;&#x6f;&#114;&#x65;&#x79;&#x4d;&#x53;&#x63;&#x68;&#x61;&#102;&#x65;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x43;&#x6f;&#114;&#x65;&#x79;&#x4d;&#x53;&#x63;&#x68;&#x61;&#102;&#x65;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a>‘, ‘<a href="mailto:&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#x40;&#101;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;">&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#x40;&#101;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#111;&#x68;&#x6e;&#x44;&#x6f;&#x65;&#64;&#101;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x4a;&#111;&#x68;&#x6e;&#x44;&#x6f;&#x65;&#64;&#101;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a>‘]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
@@ -1269,7 +2089,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>0    <a href="mailto:&#x43;&#111;&#x72;&#101;&#121;&#x4d;&#x53;&#99;&#x68;&#97;&#x66;&#x65;&#x72;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x43;&#111;&#x72;&#101;&#121;&#x4d;&#x53;&#99;&#x68;&#97;&#x66;&#x65;&#x72;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a><br>1          <a href="mailto:&#74;&#97;&#110;&#x65;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#74;&#97;&#110;&#x65;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a><br>2          <a href="mailto:&#74;&#x6f;&#104;&#110;&#x44;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#74;&#x6f;&#104;&#110;&#x44;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#x43;&#111;&#x72;&#x65;&#121;&#77;&#x53;&#x63;&#x68;&#97;&#102;&#101;&#114;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#x43;&#111;&#x72;&#x65;&#121;&#77;&#x53;&#x63;&#x68;&#97;&#102;&#101;&#114;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a><br>1          <a href="mailto:&#74;&#x61;&#110;&#x65;&#x44;&#x6f;&#x65;&#x40;&#101;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">&#74;&#x61;&#110;&#x65;&#x44;&#x6f;&#x65;&#x40;&#101;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a><br>2          <a href="mailto:&#74;&#x6f;&#x68;&#110;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#74;&#x6f;&#x68;&#110;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#display multiple columns</span></span><br><span class="line">df[[<span class="string">&#x27;last&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -1317,7 +2137,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iloc: integer location: put the integer index to get the row</span></span><br><span class="line"><span class="comment"># get the first row in this example</span></span><br><span class="line">df.iloc[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#x43;&#x6f;&#114;&#x65;&#121;&#77;&#83;&#x63;&#x68;&#97;&#102;&#x65;&#114;&#64;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x43;&#x6f;&#114;&#x65;&#121;&#77;&#83;&#x63;&#x68;&#97;&#102;&#x65;&#114;&#64;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a><br>Name: 0, dtype: object</p>
+<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#x6f;&#114;&#101;&#x79;&#77;&#x53;&#x63;&#104;&#97;&#x66;&#x65;&#x72;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#67;&#x6f;&#114;&#101;&#x79;&#77;&#x53;&#x63;&#104;&#97;&#x66;&#x65;&#x72;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a><br>Name: 0, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[[<span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -1461,7 +2281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="cl8yi9ib3001894i44a9m7ekt" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="cl8yjtpu00019ooi4eok99j6v" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
       
       
       
@@ -1831,7 +2651,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="cl8yi9ib2001694i48virh3n9" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="cl8yjtptx0016ooi41s0t5c1g" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
       
       
       
@@ -1885,7 +2705,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8yi9ib1001494i4d2e44g76" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8yjtptw0015ooi4b3bkglib" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
       
       
       
@@ -1932,7 +2752,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="cl8yi9icr006b94i4fqxp6doo" data-title="Website Recommended" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="cl8yjtpvs006aooi44enldtny" data-title="Website Recommended" class="article-share-link">Share</a>
       
       
       
@@ -1974,7 +2794,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="cl8yi9ibp002b94i48iwc3fq5" data-title="d01-Logs Router" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="cl8yjtpum002dooi4htogdrtw" data-title="d01-Logs Router" class="article-share-link">Share</a>
       
       
       
@@ -2032,7 +2852,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="cl8yi9iae000494i44uot0ujd" data-title="Git Commands" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="cl8yjtpt10005ooi4hqbrfcp7" data-title="Git Commands" class="article-share-link">Share</a>
       
       
       
@@ -2101,7 +2921,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/05/28/gcp-c01-vpc/" data-id="cl8yi9ibq002d94i4b8as28fk" data-title="gcp-c01-vpc" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/05/28/gcp-c01-vpc/" data-id="cl8yjtpun002fooi4g6v843dc" data-title="gcp-c01-vpc" class="article-share-link">Share</a>
       
       
       
@@ -2146,62 +2966,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/" data-id="cl8yi9ibl002594i43j293vtw" data-title="b09-01-BigQuery Load From Json" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Python-a11-pythonic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2021/03/16/Python-a11-pythonic/" class="article-date">
-  <time class="dt-published" datetime="2021-03-16T14:40:53.000Z" itemprop="datePublished">2021-03-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/03/16/Python-a11-pythonic/">Python-a11-pythonic</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This article shows the examples of pythonic in python</p>
-<h2 id="replace-map-filter-by-list-comprehension"><a href="#replace-map-filter-by-list-comprehension" class="headerlink" title="replace map, filter by list comprehension"></a>replace map, filter by list comprehension</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># no pythonic</span><br><span class="line">nums = [1, 2, 3, 4, 5]</span><br><span class="line">result = map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, nums))</span><br><span class="line">print(list(result))     # [4, 16]</span><br><span class="line"></span><br><span class="line"># pythonic</span><br><span class="line">result2 = [x ** 2 for x in nums if x % 2 == 0]</span><br><span class="line">print(list(result2))     # [4, 16]</span><br></pre></td></tr></table></figure>
-
-<h2 id="replace-list-comprehension-by-generator-expression"><a href="#replace-list-comprehension-by-generator-expression" class="headerlink" title="replace list comprehension by generator expression"></a>replace list comprehension by generator expression</h2><p>Generator expression takes less memory than list comprehension</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># no pythonic</span><br><span class="line">my_comp = [x * 5 for x in range(1000)]</span><br><span class="line">print(getsizeof(my_comp))   # 8856</span><br><span class="line"># pythonic</span><br><span class="line">my_gen = (x * 5 for x in range(1000))</span><br><span class="line">print(getsizeof(my_gen))    # 112</span><br></pre></td></tr></table></figure>
-
-<h2 id="using-of-enumerate"><a href="#using-of-enumerate" class="headerlink" title="using of enumerate"></a>using of enumerate</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># no pythonic</span><br><span class="line">fruits = [&#x27;apple&#x27;,&#x27;banana&#x27;, &#x27;orange&#x27;]</span><br><span class="line">for i in range(len(fruits)):</span><br><span class="line">    print(fruits[i], &#x27;:&#x27;, i)    #   apple : 0</span><br><span class="line">                                #   banana : 1</span><br><span class="line">                                #   orange : 2</span><br><span class="line">                                </span><br><span class="line"># pythonic</span><br><span class="line">for i, v in enumerate(fruits):</span><br><span class="line">    print(v, &#x27;:&#x27;, i)            #   apple : 0</span><br><span class="line">                                #   banana : 1</span><br><span class="line">                                #   orange : 2</span><br></pre></td></tr></table></figure>
-
-<h2 id="use-with"><a href="#use-with" class="headerlink" title="use with"></a>use with</h2><p>With the ‘with’ statement, we get better syntax and exception handing</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># no pythonic</span><br><span class="line">f = open(&#x27;test.txt&#x27;)</span><br><span class="line">try:</span><br><span class="line">    data = f.read()</span><br><span class="line">finally:</span><br><span class="line">    f.close()        # we have to close the file by ourself</span><br><span class="line"># pythonic</span><br><span class="line">with open(&#x27;test.txt&#x27;) as f:</span><br><span class="line">    data = f.read() # python close the file for us</span><br></pre></td></tr></table></figure>
-
-<h2 id="use-zip"><a href="#use-zip" class="headerlink" title="use zip"></a>use zip</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># no pythonic</span><br><span class="line">a = [1, 5, 7]</span><br><span class="line">b = [2, 4, 6]</span><br><span class="line">for i in range(len(a)):</span><br><span class="line">    if a[i] &gt; b[i]:</span><br><span class="line">        print(a[i])</span><br><span class="line">    else:</span><br><span class="line">        print(b[i])         # 2</span><br><span class="line">                            # 5</span><br><span class="line">                            # 7</span><br><span class="line"># pythonic</span><br><span class="line">a = [1, 5, 7]</span><br><span class="line">b = [2, 4, 6]</span><br><span class="line">for i, j in zip(a, b):</span><br><span class="line">    if i &gt; j:</span><br><span class="line">        print(i)</span><br><span class="line">    else:</span><br><span class="line">        print(j)            # 2</span><br><span class="line">                            # 5</span><br><span class="line">                            # 7</span><br></pre></td></tr></table></figure>
-
-<h2 id="exchange-two-variables"><a href="#exchange-two-variables" class="headerlink" title="exchange two variables"></a>exchange two variables</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># no pythonic</span><br><span class="line">a = &#x27;hello&#x27;</span><br><span class="line">b = &#x27;world&#x27;</span><br><span class="line">a,b=b,a</span><br><span class="line">print(a, b) # world hello</span><br><span class="line"></span><br><span class="line"># pythonic</span><br><span class="line">a = &#x27;hello&#x27;</span><br><span class="line">b = &#x27;world&#x27;</span><br><span class="line">a,b=b,a</span><br><span class="line">print(a, b) # world hello</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/16/Python-a11-pythonic/" data-id="cl8yi9iav000t94i44s5t4pgw" data-title="Python-a11-pythonic" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/" data-id="cl8yjtpuk0028ooi42vkjd720" data-title="b09-01-BigQuery Load From Json" class="article-share-link">Share</a>
       
       
       
@@ -2270,6 +3035,10 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       <ul>
         
           <li>
+            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
           </li>
         
@@ -2283,10 +3052,6 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
         
           <li>
             <a href="/blog/2022/10/06/Python-c01-Jupyter/">Python-c01-Jupyter</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/09/16/xiaomakuaibao/">Website Recommended</a>
           </li>
         
       </ul>

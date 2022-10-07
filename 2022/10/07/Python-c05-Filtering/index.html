@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Python-c04-indexes | Developer</title>
+  <title>Python-c05-Filtering | Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1import pandas as pd  12df &#x3D; pd.read_csv(&amp;#x27;data&#x2F;survey_results_public.csv&amp;#x27;,  index_col&#x3D;&amp;#x27;Respondent&amp;#x27;)df_schema &#x3D; pd.read_csv(&amp;#x27;data&#x2F;survey_results_schema.csv&amp;#x27;, index_col&#x3D;&amp;#x">
+  <meta name="description" content="12345people &#x3D; &amp;#123;    &quot;first&quot;: [&quot;Corey&quot;, &amp;#x27;Jane&amp;#x27;, &amp;#x27;John&amp;#x27;],     &quot;last&quot;: [&quot;Schafer&quot;, &amp;#x27;Doe&amp;#x27;, &amp;#x27;Doe&amp;#x27;],     &quot;email&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python-c04-indexes">
-<meta property="og:url" content="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/index.html">
+<meta property="og:title" content="Python-c05-Filtering">
+<meta property="og:url" content="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/index.html">
 <meta property="og:site_name" content="Developer">
-<meta property="og:description" content="1import pandas as pd  12df &#x3D; pd.read_csv(&amp;#x27;data&#x2F;survey_results_public.csv&amp;#x27;,  index_col&#x3D;&amp;#x27;Respondent&amp;#x27;)df_schema &#x3D; pd.read_csv(&amp;#x27;data&#x2F;survey_results_schema.csv&amp;#x27;, index_col&#x3D;&amp;#x">
+<meta property="og:description" content="12345people &#x3D; &amp;#123;    &quot;first&quot;: [&quot;Corey&quot;, &amp;#x27;Jane&amp;#x27;, &amp;#x27;John&amp;#x27;],     &quot;last&quot;: [&quot;Schafer&quot;, &amp;#x27;Doe&amp;#x27;, &amp;#x27;Doe&amp;#x27;],     &quot;email&quot;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-07T10:00:56.000Z">
-<meta property="article:modified_time" content="2022-10-07T13:54:08.018Z">
+<meta property="article:published_time" content="2022-10-07T13:11:43.000Z">
+<meta property="article:modified_time" content="2022-10-07T13:54:07.991Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
@@ -78,10 +78,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Python-c04-indexes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-Python-c05-Filtering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/blog/2022/10/07/Python-c04-indexes/" class="article-date">
-  <time class="dt-published" datetime="2022-10-07T10:00:56.000Z" itemprop="datePublished">2022-10-07</time>
+    <a href="/blog/2022/10/07/Python-c05-Filtering/" class="article-date">
+  <time class="dt-published" datetime="2022-10-07T13:11:43.000Z" itemprop="datePublished">2022-10-07</time>
 </a>
     
   <div class="article-category">
@@ -96,7 +96,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Python-c04-indexes
+      Python-c05-Filtering
     </h1>
   
 
@@ -104,436 +104,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">people = &#123;</span><br><span class="line">    <span class="string">&quot;first&quot;</span>: [<span class="string">&quot;Corey&quot;</span>, <span class="string">&#x27;Jane&#x27;</span>, <span class="string">&#x27;John&#x27;</span>], </span><br><span class="line">    <span class="string">&quot;last&quot;</span>: [<span class="string">&quot;Schafer&quot;</span>, <span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Doe&#x27;</span>], </span><br><span class="line">    <span class="string">&quot;email&quot;</span>: [<span class="string">&quot;CoreyMSchafer@gmail.com&quot;</span>, <span class="string">&#x27;JaneDoe@email.com&#x27;</span>, <span class="string">&#x27;JohnDoe@email.com&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>,  index_col=<span class="string">&#x27;Respondent&#x27;</span>)</span><br><span class="line">df_schema = pd.read_csv(<span class="string">&#x27;data/survey_results_schema.csv&#x27;</span>, index_col=<span class="string">&#x27;Column&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># inplace=True will apply the changes to the DataFrame</span></span><br><span class="line">df_schema.sort_index(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_schema</span><br></pre></td></tr></table></figure>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Question</th>
-    </tr>
-    <tr>
-      <th>Column</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>AnnoyingUI</th>
-      <td>It annoys me when software has a poor UI</td>
-    </tr>
-    <tr>
-      <th>AssessJobCommute</th>
-      <td>When you're assessing potential jobs to apply ...</td>
-    </tr>
-    <tr>
-      <th>AssessJobCompensation</th>
-      <td>When you're assessing potential jobs to apply ...</td>
-    </tr>
-    <tr>
-      <th>AssessJobDept</th>
-      <td>When you're assessing potential jobs to apply ...</td>
-    </tr>
-    <tr>
-      <th>AssessJobDiversity</th>
-      <td>When you're assessing potential jobs to apply ...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>WorkPayCare</th>
-      <td>I don't really care what I work on, so long as...</td>
-    </tr>
-    <tr>
-      <th>WorkStart</th>
-      <td>Suppose you could choose your own working hour...</td>
-    </tr>
-    <tr>
-      <th>YearsCodedJob</th>
-      <td>For how many years have you coded as part of y...</td>
-    </tr>
-    <tr>
-      <th>YearsCodedJobPast</th>
-      <td>For how many years did you code as part of you...</td>
-    </tr>
-    <tr>
-      <th>YearsProgram</th>
-      <td>How long has it been since you first learned h...</td>
-    </tr>
-  </tbody>
-</table>
-<p>154 rows × 1 columns</p>
-</div>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set index to the Country</span></span><br><span class="line">df.set_index(<span class="string">&#x27;Country&#x27;</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># give the list of index elements</span></span><br><span class="line">df.index</span><br></pre></td></tr></table></figure>
-
-<p>Index([‘United States’, ‘United Kingdom’, ‘United Kingdom’, ‘United States’,<br>   ‘Switzerland’, ‘New Zealand’, ‘United States’, ‘Poland’, ‘Colombia’,<br>   ‘France’,<br>   …<br>   ‘United States’, ‘India’, ‘United Kingdom’, ‘United States’, ‘France’,<br>   ‘Canada’, ‘India’, ‘United Kingdom’, ‘United States’, ‘France’],<br>  dtype&#x3D;’object’, name&#x3D;’Country’, length&#x3D;19102)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pass the element of the index to loc</span></span><br><span class="line">df.loc[<span class="string">&#x27;United States&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>University</th>
-      <th>EmploymentStatus</th>
-      <th>FormalEducation</th>
-      <th>MajorUndergrad</th>
-      <th>HomeRemote</th>
-      <th>CompanySize</th>
-      <th>CompanyType</th>
-      <th>YearsProgram</th>
-      <th>YearsCodedJob</th>
-      <th>YearsCodedJobPast</th>
-      <th>...</th>
-      <th>StackOverflowMakeMoney</th>
-      <th>Gender</th>
-      <th>HighestEducationParents</th>
-      <th>Race</th>
-      <th>SurveyLong</th>
-      <th>QuestionsInteresting</th>
-      <th>QuestionsConfusing</th>
-      <th>InterestedAnswers</th>
-      <th>Salary</th>
-      <th>ExpectedSalary</th>
-    </tr>
-    <tr>
-      <th>Country</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Not employed, and not looking for work</td>
-      <td>Secondary school</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2 to 3 years</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Strongly disagree</td>
-      <td>Male</td>
-      <td>High school</td>
-      <td>White or of European descent</td>
-      <td>Strongly disagree</td>
-      <td>Strongly agree</td>
-      <td>Disagree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Doctoral degree</td>
-      <td>A non-computer-focused engineering discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10,000 or more employees</td>
-      <td>Non-profit/non-governmental organization or pr...</td>
-      <td>14 to 15 years</td>
-      <td>9 to 10 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A doctoral degree</td>
-      <td>White or of European descent</td>
-      <td>Agree</td>
-      <td>Agree</td>
-      <td>Somewhat agree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Master's degree</td>
-      <td>A non-computer-focused engineering discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>20 to 99 employees</td>
-      <td>Government agency or public school/university</td>
-      <td>9 to 10 years</td>
-      <td>8 to 9 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A doctoral degree</td>
-      <td>White or of European descent</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>A social science</td>
-      <td>All or almost all the time (I'm full-time remote)</td>
-      <td>100 to 499 employees</td>
-      <td>Venture-funded startup</td>
-      <td>12 to 13 years</td>
-      <td>11 to 12 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Strongly disagree</td>
-      <td>Female</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Strongly disagree</td>
-      <td>Agree</td>
-      <td>Strongly disagree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>Yes, part-time</td>
-      <td>Independent contractor, freelancer, or self-em...</td>
-      <td>Primary/elementary school</td>
-      <td>NaN</td>
-      <td>All or almost all the time (I'm full-time remote)</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>11 to 12 years</td>
-      <td>1 to 2 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A doctoral degree</td>
-      <td>White or of European descent</td>
-      <td>Disagree</td>
-      <td>Somewhat agree</td>
-      <td>Strongly disagree</td>
-      <td>Agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>A natural science</td>
-      <td>All or almost all the time (I'm full-time remote)</td>
-      <td>Fewer than 10 employees</td>
-      <td>Privately-held limited company, not in startup...</td>
-      <td>6 to 7 years</td>
-      <td>3 to 4 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed part-time</td>
-      <td>Some college/university study without earning ...</td>
-      <td>Computer science or software engineering</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10 to 19 employees</td>
-      <td>Sole proprietorship or partnership, not in sta...</td>
-      <td>2 to 3 years</td>
-      <td>1 to 2 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>Disagree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>Management information systems</td>
-      <td>Never</td>
-      <td>10,000 or more employees</td>
-      <td>Publicly-traded corporation</td>
-      <td>20 or more years</td>
-      <td>20 or more years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>A few days each month</td>
-      <td>100 to 499 employees</td>
-      <td>Venture-funded startup</td>
-      <td>20 or more years</td>
-      <td>19 to 20 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A bachelor's degree</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Somewhat agree</td>
-      <td>Disagree</td>
-      <td>Somewhat agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>United States</th>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Some college/university study without earning ...</td>
-      <td>A humanities discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>100 to 499 employees</td>
-      <td>Sole proprietorship or partnership, not in sta...</td>
-      <td>20 or more years</td>
-      <td>20 or more years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Somewhat agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>110000.0</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>4364 rows × 150 columns</p>
-</div>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reset the index to the integer</span></span><br><span class="line">df.reset_index(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 
@@ -556,301 +131,81 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Country</th>
-      <th>University</th>
-      <th>EmploymentStatus</th>
-      <th>FormalEducation</th>
-      <th>MajorUndergrad</th>
-      <th>HomeRemote</th>
-      <th>CompanySize</th>
-      <th>CompanyType</th>
-      <th>YearsProgram</th>
-      <th>YearsCodedJob</th>
-      <th>...</th>
-      <th>StackOverflowMakeMoney</th>
-      <th>Gender</th>
-      <th>HighestEducationParents</th>
-      <th>Race</th>
-      <th>SurveyLong</th>
-      <th>QuestionsInteresting</th>
-      <th>QuestionsConfusing</th>
-      <th>InterestedAnswers</th>
-      <th>Salary</th>
-      <th>ExpectedSalary</th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>United States</td>
-      <td>No</td>
-      <td>Not employed, and not looking for work</td>
-      <td>Secondary school</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2 to 3 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Strongly disagree</td>
-      <td>Male</td>
-      <td>High school</td>
-      <td>White or of European descent</td>
-      <td>Strongly disagree</td>
-      <td>Strongly agree</td>
-      <td>Disagree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>United Kingdom</td>
-      <td>Yes, full-time</td>
-      <td>Employed part-time</td>
-      <td>Some college/university study without earning ...</td>
-      <td>Computer science or software engineering</td>
-      <td>More than half, but not all, the time</td>
-      <td>20 to 99 employees</td>
-      <td>Privately-held limited company, not in startup...</td>
-      <td>9 to 10 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Strongly disagree</td>
-      <td>Male</td>
-      <td>A master's degree</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Somewhat agree</td>
-      <td>Disagree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>37500.0</td>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>United Kingdom</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10,000 or more employees</td>
-      <td>Publicly-traded corporation</td>
-      <td>20 or more years</td>
-      <td>20 or more years</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A professional degree</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>113750.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>United States</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Doctoral degree</td>
-      <td>A non-computer-focused engineering discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10,000 or more employees</td>
-      <td>Non-profit/non-governmental organization or pr...</td>
-      <td>14 to 15 years</td>
-      <td>9 to 10 years</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A doctoral degree</td>
-      <td>White or of European descent</td>
-      <td>Agree</td>
-      <td>Agree</td>
-      <td>Somewhat agree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Switzerland</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Master's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Never</td>
-      <td>10 to 19 employees</td>
-      <td>Privately-held limited company, not in startup...</td>
-      <td>20 or more years</td>
-      <td>10 to 11 years</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>19097</th>
-      <td>Canada</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>A business discipline</td>
-      <td>A few days each month</td>
-      <td>10 to 19 employees</td>
-      <td>Privately-held limited company, not in startup...</td>
-      <td>1 to 2 years</td>
-      <td>1 to 2 years</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19098</th>
-      <td>India</td>
-      <td>No</td>
-      <td>Not employed, and not looking for work</td>
-      <td>Secondary school</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1 to 2 years</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19099</th>
-      <td>United Kingdom</td>
-      <td>No</td>
-      <td>Independent contractor, freelancer, or self-em...</td>
-      <td>Bachelor's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Never</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>14 to 15 years</td>
-      <td>14 to 15 years</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19100</th>
-      <td>United States</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Some college/university study without earning ...</td>
-      <td>A humanities discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>100 to 499 employees</td>
-      <td>Sole proprietorship or partnership, not in sta...</td>
-      <td>20 or more years</td>
-      <td>20 or more years</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Somewhat agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>110000.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19101</th>
-      <td>France</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Master's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>All or almost all the time (I'm full-time remote)</td>
-      <td>100 to 499 employees</td>
-      <td>Sole proprietorship or partnership, not in sta...</td>
-      <td>14 to 15 years</td>
-      <td>9 to 10 years</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
     </tr>
   </tbody>
 </table>
-<p>19102 rows × 151 columns</p>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filt = (df[<span class="string">&#x27;last&#x27;</span>] == <span class="string">&#x27;Doe&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[filt]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_index(ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># filter df with filt and return just the column first and email</span></span><br><span class="line">df.loc[filt, [<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 
 
 <div>
@@ -872,6 +227,56 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>first</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># not in filter ~</span></span><br><span class="line">df.loc[~filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p>0    <a href="mailto:&#x43;&#111;&#x72;&#x65;&#x79;&#x4d;&#x53;&#x63;&#104;&#97;&#x66;&#101;&#x72;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x43;&#111;&#x72;&#x65;&#x79;&#x4d;&#x53;&#x63;&#104;&#97;&#x66;&#101;&#x72;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># isin filter</span></span><br><span class="line">lasts = [<span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Mike&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>]</span><br><span class="line">filt = df[<span class="string">&#x27;last&#x27;</span>].isin(lasts)</span><br><span class="line">df.loc[filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>1    <a href="mailto:&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#64;&#101;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#64;&#101;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a><br>2    <a href="mailto:&#x4a;&#111;&#x68;&#x6e;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x4a;&#111;&#x68;&#x6e;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Respondent</th>
+      <th>Professional</th>
+      <th>ProgramHobby</th>
       <th>Country</th>
       <th>University</th>
       <th>EmploymentStatus</th>
@@ -879,9 +284,6 @@
       <th>MajorUndergrad</th>
       <th>HomeRemote</th>
       <th>CompanySize</th>
-      <th>CompanyType</th>
-      <th>YearsProgram</th>
-      <th>YearsCodedJob</th>
       <th>...</th>
       <th>StackOverflowMakeMoney</th>
       <th>Gender</th>
@@ -897,122 +299,122 @@
   </thead>
   <tbody>
     <tr>
-      <th>19101</th>
-      <td>France</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Master's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>All or almost all the time (I'm full-time remote)</td>
-      <td>100 to 499 employees</td>
-      <td>Sole proprietorship or partnership, not in sta...</td>
-      <td>14 to 15 years</td>
-      <td>9 to 10 years</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19100</th>
+      <th>0</th>
+      <td>1</td>
+      <td>Student</td>
+      <td>Yes, both</td>
       <td>United States</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Some college/university study without earning ...</td>
-      <td>A humanities discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>100 to 499 employees</td>
-      <td>Sole proprietorship or partnership, not in sta...</td>
-      <td>20 or more years</td>
-      <td>20 or more years</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Somewhat agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>110000.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19099</th>
-      <td>United Kingdom</td>
-      <td>No</td>
-      <td>Independent contractor, freelancer, or self-em...</td>
-      <td>Bachelor's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Never</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>14 to 15 years</td>
-      <td>14 to 15 years</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19098</th>
-      <td>India</td>
       <td>No</td>
       <td>Not employed, and not looking for work</td>
       <td>Secondary school</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>1 to 2 years</td>
-      <td>NaN</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>High school</td>
+      <td>White or of European descent</td>
+      <td>Strongly disagree</td>
+      <td>Strongly agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>19097</th>
-      <td>Canada</td>
+      <th>1</th>
+      <td>2</td>
+      <td>Student</td>
+      <td>Yes, both</td>
+      <td>United Kingdom</td>
+      <td>Yes, full-time</td>
+      <td>Employed part-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>Computer science or software engineering</td>
+      <td>More than half, but not all, the time</td>
+      <td>20 to 99 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>37500.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>United Kingdom</td>
       <td>No</td>
       <td>Employed full-time</td>
       <td>Bachelor's degree</td>
-      <td>A business discipline</td>
-      <td>A few days each month</td>
-      <td>10 to 19 employees</td>
-      <td>Privately-held limited company, not in startup...</td>
-      <td>1 to 2 years</td>
-      <td>1 to 2 years</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
       <td>...</td>
       <td>Disagree</td>
       <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
+      <td>A professional degree</td>
       <td>White or of European descent</td>
       <td>Somewhat agree</td>
       <td>Agree</td>
       <td>Disagree</td>
       <td>Agree</td>
+      <td>113750.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Professional non-developer who sometimes write...</td>
+      <td>Yes, both</td>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Doctoral degree</td>
+      <td>A non-computer-focused engineering discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A doctoral degree</td>
+      <td>White or of European descent</td>
+      <td>Agree</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Switzerland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>10 to 19 employees</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1041,17 +443,113 @@
       <td>...</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>Switzerland</td>
+      <th>19097</th>
+      <td>19098</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Canada</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>A business discipline</td>
+      <td>A few days each month</td>
+      <td>10 to 19 employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19098</th>
+      <td>19099</td>
+      <td>Student</td>
+      <td>Yes, I program as a hobby</td>
+      <td>India</td>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19099</th>
+      <td>19100</td>
+      <td>Professional non-developer who sometimes write...</td>
+      <td>Yes, I program as a hobby</td>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19100</th>
+      <td>19101</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>A humanities discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>110000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19101</th>
+      <td>19102</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>France</td>
       <td>No</td>
       <td>Employed full-time</td>
       <td>Master's degree</td>
       <td>Computer science or software engineering</td>
-      <td>Never</td>
-      <td>10 to 19 employees</td>
-      <td>Privately-held limited company, not in startup...</td>
-      <td>20 or more years</td>
-      <td>10 to 11 years</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>100 to 499 employees</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1064,56 +562,64 @@
       <td>NaN</td>
       <td>NaN</td>
     </tr>
-    <tr>
-      <th>3</th>
-      <td>United States</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Doctoral degree</td>
-      <td>A non-computer-focused engineering discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10,000 or more employees</td>
-      <td>Non-profit/non-governmental organization or pr...</td>
-      <td>14 to 15 years</td>
-      <td>9 to 10 years</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A doctoral degree</td>
-      <td>White or of European descent</td>
-      <td>Agree</td>
-      <td>Agree</td>
-      <td>Somewhat agree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
+  </tbody>
+</table>
+<p>19102 rows × 154 columns</p>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># na=False means if not found the result, put False</span></span><br><span class="line">filt = df[<span class="string">&#x27;MajorUndergrad&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;software&#x27;</span>, na=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[filt]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Respondent</th>
+      <th>Professional</th>
+      <th>ProgramHobby</th>
+      <th>Country</th>
+      <th>University</th>
+      <th>EmploymentStatus</th>
+      <th>FormalEducation</th>
+      <th>MajorUndergrad</th>
+      <th>HomeRemote</th>
+      <th>CompanySize</th>
+      <th>...</th>
+      <th>StackOverflowMakeMoney</th>
+      <th>Gender</th>
+      <th>HighestEducationParents</th>
+      <th>Race</th>
+      <th>SurveyLong</th>
+      <th>QuestionsInteresting</th>
+      <th>QuestionsConfusing</th>
+      <th>InterestedAnswers</th>
+      <th>Salary</th>
+      <th>ExpectedSalary</th>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>United Kingdom</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10,000 or more employees</td>
-      <td>Publicly-traded corporation</td>
-      <td>20 or more years</td>
-      <td>20 or more years</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A professional degree</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>113750.0</td>
-      <td>NaN</td>
-    </tr>
+  </thead>
+  <tbody>
     <tr>
       <th>1</th>
+      <td>2</td>
+      <td>Student</td>
+      <td>Yes, both</td>
       <td>United Kingdom</td>
       <td>Yes, full-time</td>
       <td>Employed part-time</td>
@@ -1121,9 +627,6 @@
       <td>Computer science or software engineering</td>
       <td>More than half, but not all, the time</td>
       <td>20 to 99 employees</td>
-      <td>Privately-held limited company, not in startup...</td>
-      <td>9 to 10 years</td>
-      <td>NaN</td>
       <td>...</td>
       <td>Strongly disagree</td>
       <td>Male</td>
@@ -1137,37 +640,253 @@
       <td>37500.0</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>United States</td>
+      <th>2</th>
+      <td>3</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>United Kingdom</td>
       <td>No</td>
-      <td>Not employed, and not looking for work</td>
-      <td>Secondary school</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A professional degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>113750.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Switzerland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>10 to 19 employees</td>
+      <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2 to 3 years</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>Poland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>Fewer than 10 employees</td>
+      <td>...</td>
+      <td>Somewhat agree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>Colombia</td>
+      <td>Yes, part-time</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>5,000 to 9,999 employees</td>
       <td>...</td>
       <td>Strongly disagree</td>
       <td>Male</td>
-      <td>High school</td>
-      <td>White or of European descent</td>
-      <td>Strongly disagree</td>
+      <td>A bachelor's degree</td>
+      <td>Hispanic or Latino/Latina</td>
+      <td>Somewhat agree</td>
       <td>Strongly agree</td>
       <td>Disagree</td>
       <td>Strongly agree</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19091</th>
+      <td>19092</td>
+      <td>Professional developer</td>
+      <td>No</td>
+      <td>Sweden</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19095</th>
+      <td>19096</td>
+      <td>Professional developer</td>
+      <td>Yes, both</td>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>A few days each month</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A bachelor's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Somewhat agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19096</th>
+      <td>19097</td>
+      <td>Professional developer</td>
+      <td>No</td>
+      <td>France</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>20 to 99 employees</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>High school</td>
+      <td>White or of European descent</td>
+      <td>Strongly agree</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19099</th>
+      <td>19100</td>
+      <td>Professional non-developer who sometimes write...</td>
+      <td>Yes, I program as a hobby</td>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19101</th>
+      <td>19102</td>
+      <td>Professional developer</td>
+      <td>Yes, I program as a hobby</td>
+      <td>France</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>100 to 499 employees</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
   </tbody>
 </table>
-<p>19102 rows × 151 columns</p>
+<p>8098 rows × 154 columns</p>
 </div>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="cl8yjtptz0018ooi45ecu3g2k" data-title="Python-c04-indexes" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="cl8yjtpu1001aooi4dwyx8kxg" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
       
       
       
@@ -1177,19 +896,10 @@
     
 <nav id="article-nav">
   
-    <a href="/blog/2022/10/07/Python-c05-Filtering/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Python-c05-Filtering
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2022/10/07/Python-c04-indexes/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Python-c03-DataFrame and Series</div>
+      <div class="article-nav-title">Python-c04-indexes</div>
     </a>
   
 </nav>

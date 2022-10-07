@@ -78,6 +78,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Hive-vs-Presto" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2019/05/13/Hive-vs-Presto/" class="article-date">
+  <time class="dt-published" datetime="2019-05-13T13:53:41.000Z" itemprop="datePublished">2019-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/big-data/">big data</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2019/05/13/Hive-vs-Presto/">Hive vs Presto</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h1><p>Presto is a distributed SQL query engine for big data, it allows users to query a variety of data sources such as Hadoop, RDBMS, Mongo etc. One can even query data from multiple data sources within a single query.</p>
+<h1 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h1><p>Hive is a data warehouse software built on top of Apache Hadoop for providing data query and analysis. It translates SQL queries into multiple stages of MapReduce and it is powerful enough to handle huge numbers of jobs</p>
+<h1 id="Comparisons"><a href="#Comparisons" class="headerlink" title="Comparisons"></a>Comparisons</h1><table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Presto</th>
+<th align="right">Hive</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>best of use</td>
+<td align="center">Interactive queries</td>
+<td align="right">Large data aggregation(join for example)</td>
+</tr>
+<tr>
+<td>sql standardized fidelity</td>
+<td align="center">ANSI SQL</td>
+<td align="right">HiveQL</td>
+</tr>
+<tr>
+<td>window function</td>
+<td align="center">yes</td>
+<td align="right">yes</td>
+</tr>
+<tr>
+<td>optimized target</td>
+<td align="center">latency</td>
+<td align="right">query throughput</td>
+</tr>
+<tr>
+<td>execution mode</td>
+<td align="center">Intermediate data in memory</td>
+<td align="right">Spills intermediate data to File System</td>
+</tr>
+<tr>
+<td>fault tolerance</td>
+<td align="center">No</td>
+<td align="right">Yes</td>
+</tr>
+<tr>
+<td>speed</td>
+<td align="center">2 times faster than hive</td>
+<td align="right">slow</td>
+</tr>
+<tr>
+<td>data processing models</td>
+<td align="center">push model</td>
+<td align="right">pull model</td>
+</tr>
+<tr>
+<td>limitation</td>
+<td align="center">limited at the maximum amount of memory that each task can store</td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="cl8yjtpsy0004ooi45mtmfi8d" data-title="Hive vs Presto" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Jenkins-multiple-pipelines" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2019/05/03/Jenkins-multiple-pipelines/" class="article-date">
@@ -144,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl8yi9iaj000b94i46labe17k" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl8yjtpt30007ooi4gtrxazdw" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
       
       
       
@@ -196,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="cl8yi9iag000794i4hwtwdlqo" data-title="Kubernetes Deploy Example - Part 2" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="cl8yjtpt6000booi46dh6189j" data-title="Kubernetes Deploy Example - Part 2" class="article-share-link">Share</a>
       
       
       
@@ -256,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="cl8yi9iai000894i41ilp9je6" data-title="Kubernetes Deploy Example - Part 1" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="cl8yjtpt40008ooi48toj1sa4" data-title="Kubernetes Deploy Example - Part 1" class="article-share-link">Share</a>
       
       
       
@@ -316,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="cl8yi9ia9000194i4ang0epum" data-title="Avro vs Parquet" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="cl8yjtpsg0000ooi43mte4vsq" data-title="Avro vs Parquet" class="article-share-link">Share</a>
       
       
       
@@ -377,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="cl8yi9ia4000094i41ypxcc8a" data-title="My First Blog" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="cl8yjtpsp0001ooi47tjk14qa" data-title="My First Blog" class="article-share-link">Share</a>
       
       
       
@@ -446,6 +544,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
           </li>
         
@@ -459,10 +561,6 @@
         
           <li>
             <a href="/blog/2022/10/06/Python-c01-Jupyter/">Python-c01-Jupyter</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/09/16/xiaomakuaibao/">Website Recommended</a>
           </li>
         
       </ul>
