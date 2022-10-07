@@ -78,6 +78,1107 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-c04-indexes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2022/10/07/Python-c04-indexes/" class="article-date">
+  <time class="dt-published" datetime="2022-10-07T10:00:56.000Z" itemprop="datePublished">2022-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/c-pandas/">c-pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>,  index_col=<span class="string">&#x27;Respondent&#x27;</span>)</span><br><span class="line">df_schema = pd.read_csv(<span class="string">&#x27;data/survey_results_schema.csv&#x27;</span>, index_col=<span class="string">&#x27;Column&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># inplace=True will apply the changes to the DataFrame</span></span><br><span class="line">df_schema.sort_index(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_schema</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Question</th>
+    </tr>
+    <tr>
+      <th>Column</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AnnoyingUI</th>
+      <td>It annoys me when software has a poor UI</td>
+    </tr>
+    <tr>
+      <th>AssessJobCommute</th>
+      <td>When you're assessing potential jobs to apply ...</td>
+    </tr>
+    <tr>
+      <th>AssessJobCompensation</th>
+      <td>When you're assessing potential jobs to apply ...</td>
+    </tr>
+    <tr>
+      <th>AssessJobDept</th>
+      <td>When you're assessing potential jobs to apply ...</td>
+    </tr>
+    <tr>
+      <th>AssessJobDiversity</th>
+      <td>When you're assessing potential jobs to apply ...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>WorkPayCare</th>
+      <td>I don't really care what I work on, so long as...</td>
+    </tr>
+    <tr>
+      <th>WorkStart</th>
+      <td>Suppose you could choose your own working hour...</td>
+    </tr>
+    <tr>
+      <th>YearsCodedJob</th>
+      <td>For how many years have you coded as part of y...</td>
+    </tr>
+    <tr>
+      <th>YearsCodedJobPast</th>
+      <td>For how many years did you code as part of you...</td>
+    </tr>
+    <tr>
+      <th>YearsProgram</th>
+      <td>How long has it been since you first learned h...</td>
+    </tr>
+  </tbody>
+</table>
+<p>154 rows × 1 columns</p>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set index to the Country</span></span><br><span class="line">df.set_index(<span class="string">&#x27;Country&#x27;</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># give the list of index elements</span></span><br><span class="line">df.index</span><br></pre></td></tr></table></figure>
+
+<p>Index([‘United States’, ‘United Kingdom’, ‘United Kingdom’, ‘United States’,<br>   ‘Switzerland’, ‘New Zealand’, ‘United States’, ‘Poland’, ‘Colombia’,<br>   ‘France’,<br>   …<br>   ‘United States’, ‘India’, ‘United Kingdom’, ‘United States’, ‘France’,<br>   ‘Canada’, ‘India’, ‘United Kingdom’, ‘United States’, ‘France’],<br>  dtype&#x3D;’object’, name&#x3D;’Country’, length&#x3D;19102)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pass the element of the index to loc</span></span><br><span class="line">df.loc[<span class="string">&#x27;United States&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>University</th>
+      <th>EmploymentStatus</th>
+      <th>FormalEducation</th>
+      <th>MajorUndergrad</th>
+      <th>HomeRemote</th>
+      <th>CompanySize</th>
+      <th>CompanyType</th>
+      <th>YearsProgram</th>
+      <th>YearsCodedJob</th>
+      <th>YearsCodedJobPast</th>
+      <th>...</th>
+      <th>StackOverflowMakeMoney</th>
+      <th>Gender</th>
+      <th>HighestEducationParents</th>
+      <th>Race</th>
+      <th>SurveyLong</th>
+      <th>QuestionsInteresting</th>
+      <th>QuestionsConfusing</th>
+      <th>InterestedAnswers</th>
+      <th>Salary</th>
+      <th>ExpectedSalary</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2 to 3 years</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>High school</td>
+      <td>White or of European descent</td>
+      <td>Strongly disagree</td>
+      <td>Strongly agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Doctoral degree</td>
+      <td>A non-computer-focused engineering discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>Non-profit/non-governmental organization or pr...</td>
+      <td>14 to 15 years</td>
+      <td>9 to 10 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A doctoral degree</td>
+      <td>White or of European descent</td>
+      <td>Agree</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>A non-computer-focused engineering discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>20 to 99 employees</td>
+      <td>Government agency or public school/university</td>
+      <td>9 to 10 years</td>
+      <td>8 to 9 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A doctoral degree</td>
+      <td>White or of European descent</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>A social science</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>100 to 499 employees</td>
+      <td>Venture-funded startup</td>
+      <td>12 to 13 years</td>
+      <td>11 to 12 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Female</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Strongly disagree</td>
+      <td>Agree</td>
+      <td>Strongly disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>Yes, part-time</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Primary/elementary school</td>
+      <td>NaN</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11 to 12 years</td>
+      <td>1 to 2 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A doctoral degree</td>
+      <td>White or of European descent</td>
+      <td>Disagree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>A natural science</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>Fewer than 10 employees</td>
+      <td>Privately-held limited company, not in startup...</td>
+      <td>6 to 7 years</td>
+      <td>3 to 4 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed part-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10 to 19 employees</td>
+      <td>Sole proprietorship or partnership, not in sta...</td>
+      <td>2 to 3 years</td>
+      <td>1 to 2 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Management information systems</td>
+      <td>Never</td>
+      <td>10,000 or more employees</td>
+      <td>Publicly-traded corporation</td>
+      <td>20 or more years</td>
+      <td>20 or more years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>A few days each month</td>
+      <td>100 to 499 employees</td>
+      <td>Venture-funded startup</td>
+      <td>20 or more years</td>
+      <td>19 to 20 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A bachelor's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Somewhat agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>A humanities discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>100 to 499 employees</td>
+      <td>Sole proprietorship or partnership, not in sta...</td>
+      <td>20 or more years</td>
+      <td>20 or more years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>110000.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>4364 rows × 150 columns</p>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reset the index to the integer</span></span><br><span class="line">df.reset_index(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>University</th>
+      <th>EmploymentStatus</th>
+      <th>FormalEducation</th>
+      <th>MajorUndergrad</th>
+      <th>HomeRemote</th>
+      <th>CompanySize</th>
+      <th>CompanyType</th>
+      <th>YearsProgram</th>
+      <th>YearsCodedJob</th>
+      <th>...</th>
+      <th>StackOverflowMakeMoney</th>
+      <th>Gender</th>
+      <th>HighestEducationParents</th>
+      <th>Race</th>
+      <th>SurveyLong</th>
+      <th>QuestionsInteresting</th>
+      <th>QuestionsConfusing</th>
+      <th>InterestedAnswers</th>
+      <th>Salary</th>
+      <th>ExpectedSalary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>United States</td>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2 to 3 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>High school</td>
+      <td>White or of European descent</td>
+      <td>Strongly disagree</td>
+      <td>Strongly agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>United Kingdom</td>
+      <td>Yes, full-time</td>
+      <td>Employed part-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>Computer science or software engineering</td>
+      <td>More than half, but not all, the time</td>
+      <td>20 to 99 employees</td>
+      <td>Privately-held limited company, not in startup...</td>
+      <td>9 to 10 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>37500.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>Publicly-traded corporation</td>
+      <td>20 or more years</td>
+      <td>20 or more years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A professional degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>113750.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Doctoral degree</td>
+      <td>A non-computer-focused engineering discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>Non-profit/non-governmental organization or pr...</td>
+      <td>14 to 15 years</td>
+      <td>9 to 10 years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A doctoral degree</td>
+      <td>White or of European descent</td>
+      <td>Agree</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Switzerland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>10 to 19 employees</td>
+      <td>Privately-held limited company, not in startup...</td>
+      <td>20 or more years</td>
+      <td>10 to 11 years</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19097</th>
+      <td>Canada</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>A business discipline</td>
+      <td>A few days each month</td>
+      <td>10 to 19 employees</td>
+      <td>Privately-held limited company, not in startup...</td>
+      <td>1 to 2 years</td>
+      <td>1 to 2 years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19098</th>
+      <td>India</td>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1 to 2 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19099</th>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14 to 15 years</td>
+      <td>14 to 15 years</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19100</th>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>A humanities discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>100 to 499 employees</td>
+      <td>Sole proprietorship or partnership, not in sta...</td>
+      <td>20 or more years</td>
+      <td>20 or more years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>110000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19101</th>
+      <td>France</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>100 to 499 employees</td>
+      <td>Sole proprietorship or partnership, not in sta...</td>
+      <td>14 to 15 years</td>
+      <td>9 to 10 years</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>19102 rows × 151 columns</p>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_index(ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>University</th>
+      <th>EmploymentStatus</th>
+      <th>FormalEducation</th>
+      <th>MajorUndergrad</th>
+      <th>HomeRemote</th>
+      <th>CompanySize</th>
+      <th>CompanyType</th>
+      <th>YearsProgram</th>
+      <th>YearsCodedJob</th>
+      <th>...</th>
+      <th>StackOverflowMakeMoney</th>
+      <th>Gender</th>
+      <th>HighestEducationParents</th>
+      <th>Race</th>
+      <th>SurveyLong</th>
+      <th>QuestionsInteresting</th>
+      <th>QuestionsConfusing</th>
+      <th>InterestedAnswers</th>
+      <th>Salary</th>
+      <th>ExpectedSalary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19101</th>
+      <td>France</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>100 to 499 employees</td>
+      <td>Sole proprietorship or partnership, not in sta...</td>
+      <td>14 to 15 years</td>
+      <td>9 to 10 years</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19100</th>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>A humanities discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>100 to 499 employees</td>
+      <td>Sole proprietorship or partnership, not in sta...</td>
+      <td>20 or more years</td>
+      <td>20 or more years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>110000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19099</th>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14 to 15 years</td>
+      <td>14 to 15 years</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19098</th>
+      <td>India</td>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1 to 2 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19097</th>
+      <td>Canada</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>A business discipline</td>
+      <td>A few days each month</td>
+      <td>10 to 19 employees</td>
+      <td>Privately-held limited company, not in startup...</td>
+      <td>1 to 2 years</td>
+      <td>1 to 2 years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>Some college/university study, no bachelor's d...</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Switzerland</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Master's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Never</td>
+      <td>10 to 19 employees</td>
+      <td>Privately-held limited company, not in startup...</td>
+      <td>20 or more years</td>
+      <td>10 to 11 years</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>United States</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Doctoral degree</td>
+      <td>A non-computer-focused engineering discipline</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>Non-profit/non-governmental organization or pr...</td>
+      <td>14 to 15 years</td>
+      <td>9 to 10 years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A doctoral degree</td>
+      <td>White or of European descent</td>
+      <td>Agree</td>
+      <td>Agree</td>
+      <td>Somewhat agree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>United Kingdom</td>
+      <td>No</td>
+      <td>Employed full-time</td>
+      <td>Bachelor's degree</td>
+      <td>Computer science or software engineering</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>10,000 or more employees</td>
+      <td>Publicly-traded corporation</td>
+      <td>20 or more years</td>
+      <td>20 or more years</td>
+      <td>...</td>
+      <td>Disagree</td>
+      <td>Male</td>
+      <td>A professional degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Agree</td>
+      <td>Disagree</td>
+      <td>Agree</td>
+      <td>113750.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>United Kingdom</td>
+      <td>Yes, full-time</td>
+      <td>Employed part-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>Computer science or software engineering</td>
+      <td>More than half, but not all, the time</td>
+      <td>20 to 99 employees</td>
+      <td>Privately-held limited company, not in startup...</td>
+      <td>9 to 10 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>A master's degree</td>
+      <td>White or of European descent</td>
+      <td>Somewhat agree</td>
+      <td>Somewhat agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>37500.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>United States</td>
+      <td>No</td>
+      <td>Not employed, and not looking for work</td>
+      <td>Secondary school</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2 to 3 years</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Strongly disagree</td>
+      <td>Male</td>
+      <td>High school</td>
+      <td>White or of European descent</td>
+      <td>Strongly disagree</td>
+      <td>Strongly agree</td>
+      <td>Disagree</td>
+      <td>Strongly agree</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>19102 rows × 151 columns</p>
+</div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="cl8yi9ib3001994i40f5s5e2e" data-title="Python-c04-indexes" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-c03-DataFrame-and-Series" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/" class="article-date">
@@ -114,7 +1215,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>[‘<a href="mailto:&#67;&#111;&#x72;&#101;&#x79;&#x4d;&#x53;&#x63;&#x68;&#97;&#102;&#101;&#114;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#67;&#111;&#x72;&#101;&#x79;&#x4d;&#x53;&#x63;&#x68;&#97;&#102;&#101;&#114;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a>‘, ‘<a href="mailto:&#74;&#97;&#x6e;&#x65;&#x44;&#x6f;&#101;&#64;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#74;&#97;&#x6e;&#x65;&#x44;&#x6f;&#101;&#64;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a>‘, ‘<a href="mailto:&#x4a;&#x6f;&#104;&#x6e;&#68;&#111;&#101;&#64;&#101;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x4a;&#x6f;&#104;&#x6e;&#68;&#111;&#101;&#64;&#101;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;</a>‘]</p>
+<p>[‘<a href="mailto:&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#104;&#x61;&#x66;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#104;&#x61;&#x66;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a>‘, ‘<a href="mailto:&#x4a;&#97;&#110;&#101;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#x4a;&#97;&#110;&#101;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#111;&#x68;&#110;&#x44;&#111;&#x65;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x4a;&#111;&#x68;&#110;&#x44;&#111;&#x65;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>‘]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
@@ -168,7 +1269,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>0    <a href="mailto:&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#99;&#104;&#97;&#102;&#101;&#x72;&#64;&#103;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#99;&#104;&#97;&#102;&#101;&#x72;&#64;&#103;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a><br>1          <a href="mailto:&#74;&#97;&#x6e;&#101;&#x44;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#74;&#97;&#x6e;&#101;&#x44;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#109;</a><br>2          <a href="mailto:&#x4a;&#111;&#x68;&#110;&#x44;&#111;&#x65;&#64;&#x65;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x4a;&#111;&#x68;&#110;&#x44;&#111;&#x65;&#64;&#x65;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#x43;&#111;&#x72;&#101;&#121;&#x4d;&#x53;&#99;&#x68;&#97;&#x66;&#x65;&#x72;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x43;&#111;&#x72;&#101;&#121;&#x4d;&#x53;&#99;&#x68;&#97;&#x66;&#x65;&#x72;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a><br>1          <a href="mailto:&#74;&#97;&#110;&#x65;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#74;&#97;&#110;&#x65;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a><br>2          <a href="mailto:&#74;&#x6f;&#104;&#110;&#x44;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#74;&#x6f;&#104;&#110;&#x44;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#display multiple columns</span></span><br><span class="line">df[[<span class="string">&#x27;last&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -216,7 +1317,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iloc: integer location: put the integer index to get the row</span></span><br><span class="line"><span class="comment"># get the first row in this example</span></span><br><span class="line">df.iloc[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#x43;&#111;&#x72;&#x65;&#x79;&#77;&#x53;&#99;&#x68;&#97;&#102;&#x65;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x43;&#111;&#x72;&#x65;&#x79;&#77;&#x53;&#99;&#x68;&#97;&#102;&#x65;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a><br>Name: 0, dtype: object</p>
+<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#x43;&#x6f;&#114;&#x65;&#121;&#77;&#83;&#x63;&#x68;&#97;&#102;&#x65;&#114;&#64;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x43;&#x6f;&#114;&#x65;&#121;&#77;&#83;&#x63;&#x68;&#97;&#102;&#x65;&#114;&#64;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a><br>Name: 0, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[[<span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -360,7 +1461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="cl8ybfmqw0016oki4dy9jhimm" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="cl8yi9ib3001894i44a9m7ekt" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
       
       
       
@@ -730,7 +1831,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="cl8ybfmqv0014oki4gdjgep6g" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="cl8yi9ib2001694i48virh3n9" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
       
       
       
@@ -784,7 +1885,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8ybfmqv0013oki41oxha309" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl8yi9ib1001494i4d2e44g76" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
       
       
       
@@ -831,7 +1932,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="cl8ybfmsb0065oki4chhd0lwf" data-title="Website Recommended" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="cl8yi9icr006b94i4fqxp6doo" data-title="Website Recommended" class="article-share-link">Share</a>
       
       
       
@@ -873,7 +1974,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="cl8ybfmrh0028oki4cwos9rao" data-title="d01-Logs Router" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="cl8yi9ibp002b94i48iwc3fq5" data-title="d01-Logs Router" class="article-share-link">Share</a>
       
       
       
@@ -931,7 +2032,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="cl8ybfmq00004oki4dy3wci3v" data-title="Git Commands" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="cl8yi9iae000494i44uot0ujd" data-title="Git Commands" class="article-share-link">Share</a>
       
       
       
@@ -1000,7 +2101,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/05/28/gcp-c01-vpc/" data-id="cl8ybfmrh002aoki497o8g5st" data-title="gcp-c01-vpc" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/05/28/gcp-c01-vpc/" data-id="cl8yi9ibq002d94i4b8as28fk" data-title="gcp-c01-vpc" class="article-share-link">Share</a>
       
       
       
@@ -1045,7 +2146,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/" data-id="cl8ybfmrf0022oki47zn72c9p" data-title="b09-01-BigQuery Load From Json" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/03/26/b09-01-BigQuery-Load-From-Json/" data-id="cl8yi9ibl002594i43j293vtw" data-title="b09-01-BigQuery Load From Json" class="article-share-link">Share</a>
       
       
       
@@ -1100,56 +2201,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/16/Python-a11-pythonic/" data-id="cl8ybfmqn000uoki45qprewe3" data-title="Python-a11-pythonic" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Python-a10-Functional-Programming" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2021/03/15/Python-a10-Functional-Programming/" class="article-date">
-  <time class="dt-published" datetime="2021-03-15T17:37:57.000Z" itemprop="datePublished">2021-03-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/03/15/Python-a10-Functional-Programming/">Python-a10-Functional Programming</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This article shows the examples of Functional Programming in python</p>
-<h2 id="function-composition"><a href="#function-composition" class="headerlink" title="function composition"></a>function composition</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 1</span><br><span class="line">def inner():</span><br><span class="line">    print(&#x27;this is the inner function&#x27;)</span><br><span class="line">    </span><br><span class="line">def outer(func):</span><br><span class="line">    func()</span><br><span class="line">    </span><br><span class="line">outer(inner)  # this is the inner function</span><br><span class="line"></span><br><span class="line"># 2</span><br><span class="line">def outer():</span><br><span class="line">    def inner():</span><br><span class="line">        print(&#x27;this is the inner function&#x27;)</span><br><span class="line">    return inner</span><br><span class="line"></span><br><span class="line">outer()() # this is the inner function</span><br><span class="line"></span><br><span class="line"># sorted</span><br><span class="line">animals = [&quot;ferret&quot;, &quot;vole&quot;, &quot;dog&quot;, &quot;gecko&quot;]</span><br><span class="line">print(sorted(animals, key=len)) # [&#x27;dog&#x27;, &#x27;vole&#x27;, &#x27;gecko&#x27;, &#x27;ferret&#x27;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># callable Return whether the object is callable</span><br><span class="line">print(callable(lambda s: s[::-1])) # True</span><br><span class="line"></span><br><span class="line"># 2</span><br><span class="line">reverse = lambda s: s[::-1]</span><br><span class="line">print(reverse(&#x27;This is a test&#x27;)) # tset a si sihT&lt;</span><br><span class="line"></span><br><span class="line"># 3</span><br><span class="line">print((lambda s: s[::-1])(&#x27;This is a test&#x27;))  # tset a si sihT</span><br><span class="line"></span><br><span class="line"># 4</span><br><span class="line">print((lambda x, y, z: x + y + z / 3)(1, 2, 3)) # 4.0</span><br><span class="line"></span><br><span class="line"># 5</span><br><span class="line">def func(x):</span><br><span class="line">    return x, x ** 2, x ** 3</span><br><span class="line"></span><br><span class="line">print(func(3)) #(3, 9, 27)</span><br><span class="line"></span><br><span class="line"># 6</span><br><span class="line">print((lambda x: (x, x ** 2, x ** 3))(3)) #(3, 9, 27)</span><br></pre></td></tr></table></figure>
-
-<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># map returns an iterator</span><br><span class="line">def reverse(s):</span><br><span class="line">    return s[::-1]</span><br><span class="line"></span><br><span class="line">animals = [&quot;cat&quot;, &quot;dog&quot;, &quot;hedgehog&quot;, &quot;gecko&quot;]</span><br><span class="line">iterator = map(reverse, animals)</span><br><span class="line">print(iterator)         # &lt;map object at 0x000001ADCF5CFCD0&gt;</span><br><span class="line">print(list(iterator)    # [&#x27;tac&#x27;, &#x27;god&#x27;, &#x27;gohegdeh&#x27;, &#x27;okceg&#x27;]</span><br><span class="line"></span><br><span class="line"># 2</span><br><span class="line">print(list(map(lambda s: s[::-1], animals)))    # [&#x27;tac&#x27;, &#x27;god&#x27;, &#x27;gohegdeh&#x27;, &#x27;okceg&#x27;]</span><br><span class="line"></span><br><span class="line"># map with multiple iterables</span><br><span class="line">def func(a, b, c):</span><br><span class="line">    return a + b + c</span><br><span class="line"></span><br><span class="line">print(list(map(func, [1, 2, 3], [10, 20, 30], [100, 200, 300])))    # [111, 222, 333]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 1</span><br><span class="line">def greater_than_100(x):</span><br><span class="line">    return x &gt; 100</span><br><span class="line"></span><br><span class="line">print(list(filter(greater_than_100, [1, 3, 5, 100, 200, 300])))     # [200, 300]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 1</span><br><span class="line">from functools import reduce</span><br><span class="line"></span><br><span class="line">def add(x, y):</span><br><span class="line">    return x + y</span><br><span class="line"></span><br><span class="line">print(reduce(add, [1, 3, 5]))   # 9</span><br><span class="line"></span><br><span class="line"># complex</span><br><span class="line">def custom_map(function, iterable):</span><br><span class="line">    from functools import reduce</span><br><span class="line"></span><br><span class="line">    return reduce(</span><br><span class="line">        lambda items, value: items + [function(value)],</span><br><span class="line">        iterable,</span><br><span class="line">        []</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">print(list(custom_map(str, [2, 3, 3, 4, 5]))) # [&#x27;2&#x27;, &#x27;3&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;]</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/03/15/Python-a10-Functional-Programming/" data-id="cl8ybfmqm000soki4dxem757a" data-title="Python-a10-Functional Programming" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/03/16/Python-a11-pythonic/" data-id="cl8yi9iav000t94i44s5t4pgw" data-title="Python-a11-pythonic" class="article-share-link">Share</a>
       
       
       
@@ -1218,6 +2270,10 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       <ul>
         
           <li>
+            <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
           </li>
         
@@ -1231,10 +2287,6 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
         
           <li>
             <a href="/blog/2022/09/16/xiaomakuaibao/">Website Recommended</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/09/15/d01-Logs-Router/">d01-Logs Router</a>
           </li>
         
       </ul>

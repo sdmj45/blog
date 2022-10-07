@@ -78,6 +78,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-a06-Conditions-and-Boolean" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" class="article-date">
+  <time class="dt-published" datetime="2021-01-18T14:59:17.000Z" itemprop="datePublished">2021-01-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/01/18/Python-a06-Conditions-and-Boolean/">Python-a06-Conditions and Boolean</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of Conditions and Boolean in python</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">## basic</span><br><span class="line">    if True:</span><br><span class="line">        print(&#x27;Conditional was true&#x27;) # Conditional was true</span><br><span class="line">        </span><br><span class="line">    if False:</span><br><span class="line">        print(&#x27;Conditional was true&#x27;) #</span><br><span class="line">       </span><br><span class="line"># Comparisons</span><br><span class="line">    # Equal:            ==</span><br><span class="line">    # Not Equal:        !=</span><br><span class="line">    # Greater Than:     &gt;</span><br><span class="line">    # Less Than:        &lt;</span><br><span class="line">    # Greater or Equal: &gt;=</span><br><span class="line">    # Less or Equal:    &lt;=</span><br><span class="line">    # Object Identity:  is</span><br><span class="line">    </span><br><span class="line">    language = &#x27;Python&#x27;</span><br><span class="line">    if language == &#x27;Python&#x27;:</span><br><span class="line">        print(&#x27;Conditional was true&#x27;) # Conditional was true</span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;No match&#x27;) </span><br><span class="line">        </span><br><span class="line">    num = [1,2,3]</span><br><span class="line">    num_two = [1,2,3]</span><br><span class="line">    num_three = num</span><br><span class="line">    print(num is num_two) # False</span><br><span class="line">    print(num is num_three) # True</span><br><span class="line">    print(id(num))</span><br><span class="line">    print(id(num_two))</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"># if elif else        </span><br><span class="line">    language = &#x27;Python&#x27;</span><br><span class="line">    if language == &#x27;Python&#x27;:</span><br><span class="line">        print(&#x27;Conditional was true&#x27;)</span><br><span class="line">    elif language == &#x27;Java&#x27;:</span><br><span class="line">        print(&#x27;Language is Java&#x27;)    </span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;No match&#x27;) </span><br><span class="line"></span><br><span class="line"># booleans operators: and or not</span><br><span class="line">    user = &#x27;Admin&#x27;</span><br><span class="line">    logged_in = True</span><br><span class="line">    </span><br><span class="line">    if user == &#x27;Admin&#x27; and logged_in:</span><br><span class="line">        print(&#x27;Admin Page&#x27;)</span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;Bad&#x27;)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">    if user == &#x27;Admin&#x27; or logged_in:</span><br><span class="line">        print(&#x27;Admin Page&#x27;)</span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;Bad&#x27;)      </span><br><span class="line">          </span><br><span class="line">              </span><br><span class="line">    if not logged_in:</span><br><span class="line">        print(&#x27;Please Log in&#x27;)</span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;Welcome&#x27;)</span><br><span class="line">        </span><br><span class="line"># False Values:</span><br><span class="line">    # False</span><br><span class="line">    # None</span><br><span class="line">    # 0 of any numeric type</span><br><span class="line">    # Any empty sequence, for example: &#x27;&#x27;, (), []</span><br><span class="line">    # Any empty mapping, for example: &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    condition = False</span><br><span class="line">    if condition:</span><br><span class="line">        print(&#x27;Evaluated to True&#x27;)</span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;Evaluated to False&#x27;)</span><br><span class="line">                </span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="cl8yi9iar000l94i4148g675k" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-a05-Dictionaries" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/01/18/Python-a05-Dictionaries/" class="article-date">
@@ -111,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="cl8ybfmqf000koki40gdg928w" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="cl8yi9iaq000j94i4an2b0ozh" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
       
       
       
@@ -156,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="cl8ybfmqf000joki4bo8xewb2" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="cl8yi9iao000i94i4ehiv6ijh" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
       
       
       
@@ -201,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="cl8ybfmqd000goki4c3x8e9yi" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="cl8yi9ian000g94i49oy12tir" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
       
       
       
@@ -246,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="cl8ybfmqb000foki4dbr63hib" data-title="Python-a02-String" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="cl8yi9iam000f94i4031faszo" data-title="Python-a02-String" class="article-share-link">Share</a>
       
       
       
@@ -301,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="cl8ybfmq9000coki436n0433r" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="cl8yi9iak000c94i46xaz9h4p" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
       
       
       
@@ -368,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="cl8ybfmrb001voki48ktl2jug" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="cl8yi9ibg001w94i41flv6o5q" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
       
       
       
@@ -426,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/08/20/GCP-Kubernetes-Manually/" data-id="cl8ybfmq40007oki4d9050f0a" data-title="GCP-Kubernetes-Manually" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/08/20/GCP-Kubernetes-Manually/" data-id="cl8yi9iad000394i4hq4d2359" data-title="GCP-Kubernetes-Manually" class="article-share-link">Share</a>
       
       
       
@@ -465,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/08/06/spark-skewness/" data-id="cl8ybfmsa0064oki44kam2rc6" data-title="spark skewness" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/08/06/spark-skewness/" data-id="cl8yi9icq006a94i4ffjm64d3" data-title="spark skewness" class="article-share-link">Share</a>
       
       
       
@@ -573,73 +616,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="cl8ybfmrg0026oki4aj7benqa" data-title="b10-Machine Learning" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-b09-BigQuery" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/06/12/b09-BigQuery/" class="article-date">
-  <time class="dt-published" datetime="2020-06-12T06:31:40.000Z" itemprop="datePublished">2020-06-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/06/12/b09-BigQuery/">b09-BigQuery</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="What-is-BigQuery"><a href="#What-is-BigQuery" class="headerlink" title="What is BigQuery ?"></a>What is BigQuery ?</h2><ul>
-<li>Fully Managed Data warehousing<ul>
-<li>Near real time analysis of petabyte scale databases</li>
-</ul>
-</li>
-<li>Serverless(no ops)</li>
-<li>Auto scaling</li>
-<li>Both storage and analysis</li>
-<li>Interact with SQL</li>
-</ul>
-<h2 id="How-BigQuery-works"><a href="#How-BigQuery-works" class="headerlink" title="How BigQuery works"></a>How BigQuery works</h2><ul>
-<li>Columnar data store</li>
-<li>It does not update exciting records</li>
-<li>No transactional</li>
-</ul>
-<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><ul>
-<li>Dataset: contains tables&#x2F;views</li>
-<li>Table: collections of columns</li>
-<li>Job: long running action&#x2F;query</li>
-</ul>
-<h2 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h2><ul>
-<li>can control by project, dataset, view</li>
-<li>cannot control at table level</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/12/b09-BigQuery/" data-id="cl8ybfmrf0023oki495huaft3" data-title="b09-BigQuery" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="cl8yi9ibn002894i42j7ih1uk" data-title="b10-Machine Learning" class="article-share-link">Share</a>
       
       
       
@@ -708,6 +685,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
           </li>
         
@@ -721,10 +702,6 @@
         
           <li>
             <a href="/blog/2022/09/16/xiaomakuaibao/">Website Recommended</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/09/15/d01-Logs-Router/">d01-Logs Router</a>
           </li>
         
       </ul>
