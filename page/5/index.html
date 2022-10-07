@@ -78,6 +78,95 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-a06-GCP-Applications" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/05/08/a06-GCP-Applications/" class="article-date">
+  <time class="dt-published" datetime="2020-05-08T13:21:34.000Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/05/08/a06-GCP-Applications/">a06-GCP-Applications</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="App-Engine"><a href="#App-Engine" class="headerlink" title="App Engine"></a>App Engine</h2><p>is a PaaS for building scalable applications</p>
+<ul>
+<li>it makes deployment, maintenance and scalability easy</li>
+<li>suited for building scalable web applications and mobile backends</li>
+</ul>
+<p>It offers 2 environments:</p>
+<ul>
+<li><p><strong>standard environment</strong></p>
+<ul>
+<li>easily deploy applications</li>
+<li>autoscale</li>
+<li>free daily quota</li>
+<li>usage based pricing</li>
+<li>Specific versions of Java, Python, PHP and Go are supported</li>
+</ul>
+<p>Sandbox constraints:</p>
+<ul>
+<li>No writing to local files</li>
+<li>All requests time out at 60s</li>
+<li>Limits on third-party software</li>
+</ul>
+</li>
+<li><p><strong>flexible environment</strong></p>
+<ul>
+<li>Build and deploy containerized apps with a click</li>
+<li>No sandbox constraints</li>
+<li>Can access App Engine resources</li>
+</ul>
+</li>
+</ul>
+<p>Comparing standard and flexible environments</p>
+<img src="/blog/2020/05/08/a06-GCP-Applications/standard_vs_flexible.png" class="" title="standard_vs_flexible">
+<p>Comparing Kubernetes Engine and App Engine</p>
+<img src="/blog/2020/05/08/a06-GCP-Applications/kubernetes_engine_vs_app_engine.png" class="" title="kubernetes_engine_vs_app_engine">
+
+<p>GCP provides 2 API management tools</p>
+<h2 id="Cloud-Endpoints"><a href="#Cloud-Endpoints" class="headerlink" title="Cloud Endpoints"></a>Cloud Endpoints</h2><ul>
+<li>Control access and validate calls with JSON Web Token and Google API keys<ul>
+<li>Identify web, mobile users with Auth0 and Firebase Authentication</li>
+</ul>
+</li>
+<li>Generate client libraries</li>
+</ul>
+<h2 id="Apigee-Edge"><a href="#Apigee-Edge" class="headerlink" title="Apigee Edge"></a>Apigee Edge</h2><ul>
+<li>A platform for making APIs available to your customers and partners</li>
+<li>Contains analytics, monetization, and a developer portal<br>The backend services for Apigee need not to be in GCP</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a06-GCP-Applications/" data-id="cl8ybfmr3001ioki4c6webwlw" data-title="a06-GCP-Applications" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-a05-GCP-Containers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2020/05/08/a05-GCP-Containers/" class="article-date">
@@ -117,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="cl8yae1dq001fm4i4crxa7qnf" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="cl8ybfmr2001hoki4e8ye6t1c" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
       
       
       
@@ -239,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a04-GCP-Storage/" data-id="cl8yae1dp001em4i477a18zb2" data-title="a04-GCP-Storage" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a04-GCP-Storage/" data-id="cl8ybfmr1001foki44khefyzp" data-title="a04-GCP-Storage" class="article-share-link">Share</a>
       
       
       
@@ -305,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a03-GCP-Virtual-Machines/" data-id="cl8yae1do001cm4i4aq699342" data-title="a03-GCP-Virtual-Machines" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a03-GCP-Virtual-Machines/" data-id="cl8ybfmr1001eoki4fvlig1e8" data-title="a03-GCP-Virtual-Machines" class="article-share-link">Share</a>
       
       
       
@@ -351,7 +440,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/spark-cross-join/" data-id="cl8yae1e7002am4i475wjfbp5" data-title="spark cross join" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/spark-cross-join/" data-id="cl8ybfmri002boki4eplh10xf" data-title="spark cross join" class="article-share-link">Share</a>
       
       
       
@@ -450,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/03/a02-Getting-Started-With-GCP/" data-id="cl8yae1dn001am4i4gz48htzy" data-title="a02-Getting-Started-With-GCP" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/03/a02-Getting-Started-With-GCP/" data-id="cl8ybfmr0001coki4bjq21h6b" data-title="a02-Getting-Started-With-GCP" class="article-share-link">Share</a>
       
       
       
@@ -545,7 +634,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/01/a01-GCP-introduction/" data-id="cl8yae1dm0017m4i49z46cddd" data-title="a01-GCP-introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/01/a01-GCP-introduction/" data-id="cl8ybfmqz001aoki488nacwjd" data-title="a01-GCP-introduction" class="article-share-link">Share</a>
       
       
       
@@ -618,7 +707,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="cl8yae1e7002bm4i4c5tg0jhh" data-title="spark listeners" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="cl8ybfmrj002doki4fxthamsn" data-title="spark listeners" class="article-share-link">Share</a>
       
       
       
@@ -716,7 +805,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="cl8yae1cq0003m4i41w68hhas" data-title="Hive vs Presto" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="cl8ybfmpy0003oki404pc4yff" data-title="Hive vs Presto" class="article-share-link">Share</a>
       
       
       
@@ -794,59 +883,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl8yae1cs0005m4i48679ayb1" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Kubernetes-Deploy-Example-Part-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" class="article-date">
-  <time class="dt-published" datetime="2019-04-26T11:44:51.000Z" itemprop="datePublished">2019-04-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/devops/">devops</a>►<a class="article-category-link" href="/blog/categories/devops/kubernetes/">kubernetes</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/">Kubernetes Deploy Example - Part 2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This is part 2 of Kubernetes Deploy Example, in this example, we will use the yaml file to deploy a nginx.</p>
-<p>In this example, we have combined the Deployment part and the Service part together. We could deploy them at the same time.</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span> <span class="comment"># for versions before 1.9.0 use apps/v1beta2 </span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span> </span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-deployment</span> </span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line">  <span class="attr">selector:</span> </span><br><span class="line">    <span class="attr">matchLabels:</span> </span><br><span class="line">      <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">2</span> <span class="comment"># tells deployment to run 2 pods matching the template </span></span><br><span class="line">  <span class="attr">template:</span> </span><br><span class="line">    <span class="attr">metadata:</span> </span><br><span class="line">      <span class="attr">labels:</span> </span><br><span class="line">        <span class="attr">app:</span> <span class="string">nginx</span> </span><br><span class="line">    <span class="attr">spec:</span> </span><br><span class="line">      <span class="attr">containers:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nginx</span> </span><br><span class="line">        <span class="attr">image:</span> <span class="string">nginx:latest</span> </span><br><span class="line">        <span class="attr">ports:</span> </span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span> </span><br><span class="line"><span class="meta">--- </span></span><br><span class="line"><span class="comment"># https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service  </span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span> </span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span> </span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-service</span> </span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line">  <span class="attr">selector:</span> </span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx</span> </span><br><span class="line">  <span class="attr">ports:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="attr">protocol:</span> <span class="string">TCP</span> </span><br><span class="line">    <span class="attr">port:</span> <span class="number">80</span> </span><br><span class="line">    <span class="attr">targetPort:</span> <span class="number">80</span> </span><br><span class="line">    <span class="attr">nodePort:</span> <span class="number">32000</span> </span><br><span class="line">  <span class="attr">type:</span> <span class="string">NodePort</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Step-1-Apply-applications-with-yaml-file"><a href="#Step-1-Apply-applications-with-yaml-file" class="headerlink" title="Step 1: Apply applications with yaml file"></a>Step 1: Apply applications with yaml file</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f ./deployment.yaml</span><br><span class="line">deployment.apps <span class="string">&quot;nginx-deployment&quot;</span> created</span><br><span class="line">service <span class="string">&quot;nginx-service&quot;</span> created</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Step-2-Get-kubernetes-ip"><a href="#Step-2-Get-kubernetes-ip" class="headerlink" title="Step 2: Get kubernetes ip"></a>Step 2: Get kubernetes ip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get endpoints kubernetes</span><br><span class="line"></span><br><span class="line">NAME         ENDPOINTS             AGE</span><br><span class="line">kubernetes   192.168.99.100:8443   143d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Step-3-Access-to-nginx"><a href="#Step-3-Access-to-nginx" class="headerlink" title="Step 3: Access to nginx"></a>Step 3: Access to nginx</h2><p>Open your navigator and type the url of kubernetes with the port of nginx(we defined 32000 in the yaml file), you will access to welcome page of nginx</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.99.100:32000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="cl8yae1cu0008m4i4eg2k02tl" data-title="Kubernetes Deploy Example - Part 2" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl8ybfmq20005oki44vgo9y2y" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
       
       
       
@@ -915,6 +952,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
           </li>
         
@@ -928,10 +969,6 @@
         
           <li>
             <a href="/blog/2022/09/15/d01-Logs-Router/">d01-Logs Router</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2021/08/09/Git-Commands/">Git Commands</a>
           </li>
         
       </ul>

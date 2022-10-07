@@ -78,6 +78,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-b05-Property-Decorators" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/02/04/Python-b05-Property-Decorators/" class="article-date">
+  <time class="dt-published" datetime="2021-02-04T09:11:31.000Z" itemprop="datePublished">2021-02-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/b-OOP/">b-OOP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/02/04/Python-b05-Property-Decorators/">Python-b05-Property Decorators</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of  in python</p>
+<h4 id="email-does-not-change-when-first-changes"><a href="#email-does-not-change-when-first-changes" class="headerlink" title="email does not change when first changes"></a>email does not change when first changes</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Employee:</span><br><span class="line">    raise_amount = 2.04</span><br><span class="line"></span><br><span class="line">    def __init__(self, first, last):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line">        self.email = first + &#x27;.&#x27; + last + &#x27;@company.com&#x27;</span><br><span class="line"></span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;)</span><br><span class="line"></span><br><span class="line">emp_1.first = &#x27;Jim&#x27;</span><br><span class="line"></span><br><span class="line">print(emp_1.first)          # Jim</span><br><span class="line">print(emp_1.email)          # Bob.Gobdo@company.com</span><br><span class="line">print(emp_1.fullname())     # Jim Gobdo</span><br></pre></td></tr></table></figure>
+<h4 id="email-move-into-method"><a href="#email-move-into-method" class="headerlink" title="email move into method"></a>email move into method</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Employee:</span><br><span class="line">    raise_amount = 2.04</span><br><span class="line"></span><br><span class="line">    def __init__(self, first, last):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line"></span><br><span class="line">    def email(self):</span><br><span class="line">        return &#x27;&#123;&#125;.&#123;&#125;@company.com&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;)</span><br><span class="line"></span><br><span class="line">emp_1.first = &#x27;Jim&#x27;</span><br><span class="line"></span><br><span class="line">print(emp_1.first)          # Jim</span><br><span class="line">print(emp_1.email())        # Jim.Gobdo@company.com</span><br><span class="line">print(emp_1.fullname())     # Jim Gobdo</span><br></pre></td></tr></table></figure>
+<h4 id="add-property-on-method"><a href="#add-property-on-method" class="headerlink" title="add @property on method"></a>add @property on method</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Employee:</span><br><span class="line">    raise_amount = 2.04</span><br><span class="line"></span><br><span class="line">    def __init__(self, first, last):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def email(self):</span><br><span class="line">        return &#x27;&#123;&#125;.&#123;&#125;@company.com&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;)</span><br><span class="line"></span><br><span class="line">emp_1.first = &#x27;Jim&#x27;</span><br><span class="line"></span><br><span class="line">print(emp_1.first)        # Jim</span><br><span class="line">print(emp_1.email)        # Jim.Gobdo@company.com</span><br><span class="line">print(emp_1.fullname)     # Jim Gobdo</span><br></pre></td></tr></table></figure>
+<h4 id="setter"><a href="#setter" class="headerlink" title="setter"></a>setter</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Employee:</span><br><span class="line">    raise_amount = 2.04</span><br><span class="line"></span><br><span class="line">    def __init__(self, first, last):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def email(self):</span><br><span class="line">        return &#x27;&#123;&#125;.&#123;&#125;@company.com&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    @fullname.setter</span><br><span class="line">    def fullname(self, name):</span><br><span class="line">        first, last = name.split(&#x27; &#x27;)</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;)</span><br><span class="line"></span><br><span class="line">emp_1.fullname = &#x27;John Smith&#x27;</span><br><span class="line"></span><br><span class="line">print(emp_1.first)        # John</span><br><span class="line">print(emp_1.email)        # John.Smith@company.com</span><br><span class="line">print(emp_1.fullname)     # John Smith</span><br></pre></td></tr></table></figure>
+<h4 id="deleter"><a href="#deleter" class="headerlink" title="deleter"></a>deleter</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Employee:</span><br><span class="line">    raise_amount = 2.04</span><br><span class="line"></span><br><span class="line">    def __init__(self, first, last):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def email(self):</span><br><span class="line">        return &#x27;&#123;&#125;.&#123;&#125;@company.com&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    @fullname.setter</span><br><span class="line">    def fullname(self, name):</span><br><span class="line">        first, last = name.split(&#x27; &#x27;)</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line"></span><br><span class="line">    @fullname.deleter</span><br><span class="line">    def fullname(self):</span><br><span class="line">        print(&#x27;Delete name&#x27;)</span><br><span class="line">        self.first = None</span><br><span class="line">        self.last = None</span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;)</span><br><span class="line"></span><br><span class="line">del emp_1.fullname</span><br><span class="line"></span><br><span class="line">print(emp_1.first)        # None</span><br><span class="line">print(emp_1.email)        # None.None@company.com</span><br><span class="line">print(emp_1.fullname)     # None None</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/02/04/Python-b05-Property-Decorators/" data-id="cl8ybfmqu0011oki4cy9sh3ns" data-title="Python-b05-Property Decorators" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-b04-Special-Magic-Dunder-Methods" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/02/03/Python-b04-Special-Magic-Dunder-Methods/" class="article-date">
@@ -114,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/03/Python-b04-Special-Magic-Dunder-Methods/" data-id="cl8yae1df000ym4i4f600fnm5" data-title="Python-b04-Special(Magic/Dunder) Methods" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/03/Python-b04-Special-Magic-Dunder-Methods/" data-id="cl8ybfmqt0010oki4bsun9my4" data-title="Python-b04-Special(Magic/Dunder) Methods" class="article-share-link">Share</a>
       
       
       
@@ -157,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b03-Inheritance/" data-id="cl8yae1dh0010m4i470135dl6" data-title="Python-b03-Inheritance" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b03-Inheritance/" data-id="cl8ybfmqr000yoki4hdndcxg9" data-title="Python-b03-Inheritance" class="article-share-link">Share</a>
       
       
       
@@ -270,7 +317,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b02-classmethod-staticmethod/" data-id="cl8yae1df000xm4i43i7qcaxf" data-title="Python-b02-classmethod-staticmethod" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b02-classmethod-staticmethod/" data-id="cl8ybfmqr000xoki45q5ub76x" data-title="Python-b02-classmethod-staticmethod" class="article-share-link">Share</a>
       
       
       
@@ -314,7 +361,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/01/Python-b01-Classes-and-Instances/" data-id="cl8yae1dc000vm4i4esim5425" data-title="Python-b01-Classes and Instances" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/01/Python-b01-Classes-and-Instances/" data-id="cl8ybfmqo000voki47islb6lj" data-title="Python-b01-Classes and Instances" class="article-share-link">Share</a>
       
       
       
@@ -357,7 +404,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="cl8yae1d9000rm4i4dighenpu" data-title="Python-a09-Modules" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="cl8ybfmql000roki4ffgu7r4r" data-title="Python-a09-Modules" class="article-share-link">Share</a>
       
       
       
@@ -400,7 +447,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="cl8yae1d9000pm4i46xf38su2" data-title="Python-a08 Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="cl8ybfmql000poki44n4i2tmb" data-title="Python-a08 Functions" class="article-share-link">Share</a>
       
       
       
@@ -443,7 +490,7 @@ def func3():
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="cl8yae1d8000nm4i404ko4uss" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="cl8ybfmqk000noki4bekyfb6s" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
       
       
       
@@ -528,7 +575,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cl8yae1dl0016m4i41jhgakog" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cl8ybfmqx0017oki4brf6601n" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
       
       
       
@@ -571,52 +618,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="cl8yae1d7000mm4i4hdqq91of" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Python-a05-Dictionaries" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2021/01/18/Python-a05-Dictionaries/" class="article-date">
-  <time class="dt-published" datetime="2021-01-18T14:08:21.000Z" itemprop="datePublished">2021-01-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/01/18/Python-a05-Dictionaries/">Python-a05-Dictionaries</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This article shows the examples of Dictionaries in python</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">## basic</span><br><span class="line">    student =  &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 25, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line">    print(student) # &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 25, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line">    print(student[&#x27;name&#x27;]) # John</span><br><span class="line">    print(student[&#x27;courses&#x27;][0]) # Math</span><br><span class="line">    print(student[&#x27;phone&#x27;]) # error</span><br><span class="line">    </span><br><span class="line">    print(student.get(&#x27;name&#x27;)) # John</span><br><span class="line">    print(student.get(&#x27;phone&#x27;)) # None</span><br><span class="line">    print(student.get(&#x27;phone&#x27;, &#x27;Not Found&#x27;)) # Not Found</span><br><span class="line">    </span><br><span class="line"># add and update element</span><br><span class="line">    student[&#x27;phone&#x27;] = &#x27;555&#x27;    </span><br><span class="line">    student[&#x27;name&#x27;] = &#x27;Bob&#x27;</span><br><span class="line">    print(student) # &#123;&#x27;name&#x27;: &#x27;Bob&#x27;, &#x27;phone&#x27;: &#x27;555&#x27;, &#x27;age&#x27;: 25, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line">    </span><br><span class="line">    student.update(&#123;&#x27;name&#x27;: &#x27;Jane&#x27;, &#x27;age&#x27;: 26, &#x27;phone&#x27;: &#x27;666&#x27;&#125;)</span><br><span class="line">    print(student) # &#123;&#x27;name&#x27;: &#x27;Jane&#x27;, &#x27;phone&#x27;: &#x27;666&#x27;, &#x27;age&#x27;: 26, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line"></span><br><span class="line"># delete element</span><br><span class="line">    student =  &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 25, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line">    del student[&#x27;age&#x27;]</span><br><span class="line">    print(student) # &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line"></span><br><span class="line">    age = student.pop(&#x27;age&#x27;)</span><br><span class="line">    print(student) # &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line">    print(age) # 25</span><br><span class="line">  </span><br><span class="line"># loop</span><br><span class="line">    student =  &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 25, &#x27;courses&#x27;: [&#x27;Math&#x27;, &#x27;CompSci&#x27;]&#125;</span><br><span class="line">    print(student.keys()) # dict_keys([&#x27;name&#x27;, &#x27;age&#x27;, &#x27;courses&#x27;])</span><br><span class="line">    print(student.values()) # dict_values([&#x27;John&#x27;, 25, [&#x27;Math&#x27;, &#x27;CompSci&#x27;]])</span><br><span class="line">    print(student.items()) # dict_items([(&#x27;name&#x27;:&#x27;John&#x27;), (&#x27;age&#x27;:25), (&#x27;courses&#x27;:[&#x27;Math&#x27;, &#x27;CompSci&#x27;])])</span><br><span class="line">    </span><br><span class="line">    for key in student:</span><br><span class="line">        print(key) # name; age; courses</span><br><span class="line">        </span><br><span class="line">    for key,value in student.items():</span><br><span class="line">        print(key,value) #name John; age 25; courses [&#x27;Math&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<div class="video-container"><iframe src="https://www.youtube.com/embed/undefined" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="cl8yae1d5000km4i4ef1g2241" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="cl8ybfmqj000moki4a21b4e6r" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
       
       
       
@@ -685,6 +687,10 @@ More advanced in orchestration
       <ul>
         
           <li>
+            <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
           </li>
         
@@ -698,10 +704,6 @@ More advanced in orchestration
         
           <li>
             <a href="/blog/2022/09/15/d01-Logs-Router/">d01-Logs Router</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2021/08/09/Git-Commands/">Git Commands</a>
           </li>
         
       </ul>
