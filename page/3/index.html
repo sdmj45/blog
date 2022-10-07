@@ -78,6 +78,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-a04-List-Tuple-Set" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/01/17/Python-a04-List-Tuple-Set/" class="article-date">
+  <time class="dt-published" datetime="2021-01-17T16:10:19.000Z" itemprop="datePublished">2021-01-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/01/17/Python-a04-List-Tuple-Set/">Python-a04-List,Tuple,Set</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of List, Tuple, Set in python</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">## List </span><br><span class="line"># List basics</span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    print(courses)</span><br><span class="line">    print(len(courses))</span><br><span class="line">    print(courses[0])</span><br><span class="line">    print(courses[-1]) # start from the end </span><br><span class="line">    print(courses[4]) # error</span><br><span class="line">    print(courses[0:2]) # the first index include, not the second one</span><br><span class="line">    print(courses[:2]) # from the first to index 2</span><br><span class="line">    print(courses[2:]) # from index 2 to the end</span><br><span class="line"></span><br><span class="line"># Add elements to List</span><br><span class="line">    courses1 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]    </span><br><span class="line">    courses1.append(&#x27;Art&#x27;)</span><br><span class="line">    print(courses1) # [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;, &#x27;Art&#x27;]</span><br><span class="line">    </span><br><span class="line">    courses2 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]    </span><br><span class="line">    courses2.insert(0, &#x27;Art&#x27;)</span><br><span class="line">    print(courses2) # [&#x27;Art&#x27;, &#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    courses3 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;] </span><br><span class="line">    courses4 = [&#x27;Art&#x27;, &#x27;Education&#x27;]</span><br><span class="line">    courses3.insert(0, courses4)</span><br><span class="line">    print(courses3) # [[&#x27;Art&#x27;, &#x27;Education&#x27;], &#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;] </span><br><span class="line">    </span><br><span class="line">    courses5 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;] </span><br><span class="line">    courses6 = [&#x27;Art&#x27;, &#x27;Education&#x27;]</span><br><span class="line">    courses5.extend(courses6)</span><br><span class="line">    print(courses5) # [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;, &#x27;Art&#x27;, &#x27;Education&#x27;] </span><br><span class="line">    </span><br><span class="line"># Remove elements to List    </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    courses.remove(&#x27;Math&#x27;)</span><br><span class="line">    print(courses) #[&#x27;History&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    courses1 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    courses.pop()</span><br><span class="line">    print(courses) #[&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    courses2 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    popped = courses.pop()</span><br><span class="line">    print(popped) #&#x27;CompSci&#x27;</span><br><span class="line">    </span><br><span class="line"># Order in List       </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    courses.reverse()</span><br><span class="line">    print(courses) #[&#x27;CompSci&#x27;, &#x27;Physics&#x27;, &#x27;Math&#x27;, &#x27;History&#x27;]</span><br><span class="line">    </span><br><span class="line">    courses1 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    courses1.sort()</span><br><span class="line">    print(courses1) #[&#x27;CompSci&#x27;, &#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;]</span><br><span class="line">     </span><br><span class="line">    courses2 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    courses2.sort(reverse=True)</span><br><span class="line">    print(courses2) #[&#x27;Physics&#x27;, &#x27;Math&#x27;, &#x27;History&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line"> </span><br><span class="line">    courses3 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    courses4 = sorted(courses3)</span><br><span class="line">    print(courses4) #[&#x27;CompSci&#x27;, &#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;]</span><br><span class="line">    </span><br><span class="line"># Min, Max, Sum in List  </span><br><span class="line">    nums = [1,5,2,4,3]</span><br><span class="line">    print(min(nums)) #1</span><br><span class="line">    print(max(nums)) #5</span><br><span class="line">    print(sum(nums)) #15</span><br><span class="line">    </span><br><span class="line"># index in List  </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    print(courses.index(&#x27;ComSci&#x27;)) # 3</span><br><span class="line">    print(courses.index(&#x27;Art&#x27;)) # error</span><br><span class="line">    print(&#x27;Art&#x27; in courses) # False</span><br><span class="line">    print(&#x27;Math&#x27; in courses) # True</span><br><span class="line">    </span><br><span class="line">    for item in courses:</span><br><span class="line">        print(item)  # History Math Physics CompSci</span><br><span class="line">    </span><br><span class="line">    for index, course in enumerate(courses):</span><br><span class="line">        print(index, course)  # 0 History  1 Math  2 Physics  3 CompSci</span><br><span class="line">    </span><br><span class="line">    for index, course in enumerate(courses, start=1):</span><br><span class="line">        print(index, course)  # 1 History  2 Math  3 Physics  4 CompSci</span><br><span class="line">    </span><br><span class="line"># join in List</span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    course_str = &#x27;, &#x27;.join(courses)</span><br><span class="line">    new_courses = course_str.split(&#x27;, &#x27;)</span><br><span class="line">    print(course_str) # &#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;</span><br><span class="line">    print(new_courses) # [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">## Tuple</span><br><span class="line"># List is mutable, Tuple is immnutable, we can&#x27;t add, append, modify element in Tuple</span><br><span class="line">    list1 = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    list2 = list1</span><br><span class="line">    print(list1) #[&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    print(list2) #[&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    list1[0] = &#x27;Art&#x27;</span><br><span class="line">    print(list1) #[&#x27;Art&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    print(list2) #[&#x27;Art&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    tuple1 = (&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;)</span><br><span class="line">    tuple2 = tuple1</span><br><span class="line">    print(tuple1) #(&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;)</span><br><span class="line">    print(tuple2) #(&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;)</span><br><span class="line">    </span><br><span class="line">    tuple1[0] = &#x27;Art&#x27;  # error</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">## Set</span><br><span class="line"># Set values are unordered and unduplicated</span><br><span class="line">    set1 = &#123;&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;&#125;</span><br><span class="line">    print(set1) #&#123;&#x27;Math&#x27;, &#x27;History&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;&#125; order may change</span><br><span class="line">    </span><br><span class="line">    set2 = &#123;&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;, &#x27;Math&#x27;&#125;</span><br><span class="line">    print(set2) #&#123;&#x27;Math&#x27;, &#x27;History&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;&#125; order may change</span><br><span class="line">    </span><br><span class="line">    set3 = &#123;&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;&#125;</span><br><span class="line">    print(&#x27;Math&#x27; in set3) #True Set is optimized for the check existing</span><br><span class="line">     </span><br><span class="line">    # Set is optimized to find the same and differences between 2 ones</span><br><span class="line">    set4 = &#123;&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;&#125;</span><br><span class="line">    set5 = &#123;&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Art&#x27;, &#x27;Design&#x27;&#125;</span><br><span class="line">    print(set4.intersaction(set5)) #&#123;&#x27;History&#x27;, &#x27;Math&#x27;&#125;</span><br><span class="line">    print(set4.difference(set5)) #&#123;&#x27;Physics&#x27;, &#x27;CompSci&#x27;&#125;</span><br><span class="line">    print(set4.union(set5)) #&#123;&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;, &#x27;Art&#x27;, &#x27;Design&#x27;&#125;</span><br><span class="line">    </span><br><span class="line">## How to create empty List, Tuple, Set</span><br><span class="line">    empty_list = []    </span><br><span class="line">    empty_list = list()    </span><br><span class="line">     </span><br><span class="line">    empty_tuple = ()    </span><br><span class="line">    empty_tuple = tuple()    </span><br><span class="line">    </span><br><span class="line">    empty_set = &#123;&#125; # This is wrong, it&#x27;s a dict</span><br><span class="line">    empty_set = set()</span><br></pre></td></tr></table></figure>
+
+<div class="video-container"><iframe src="https://www.youtube.com/embed/undefined" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="cl8yae1d4000jm4i4a6zaf0px" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-a03-Numeric" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/01/15/Python-a03-Numeric/" class="article-date">
@@ -111,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="cl8x6b0tw000gwgi4dgml0g3h" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="cl8yae1d3000gm4i47d2jenfk" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
       
       
       
@@ -156,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="cl8x6b0tv000fwgi4gp9pcaj9" data-title="Python-a02-String" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="cl8yae1d1000fm4i43gkl6hlp" data-title="Python-a02-String" class="article-share-link">Share</a>
       
       
       
@@ -211,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="cl8x6b0tt000cwgi4bm962l4n" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="cl8yae1cy000cm4i43tr25m5k" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
       
       
       
@@ -278,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="cl8x6b0uv001twgi46kyc749n" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="cl8yae1dx001sm4i42cgo9p0g" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
       
       
       
@@ -336,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/08/20/GCP-Kubernetes-Manually/" data-id="cl8x6b0tk0003wgi4fqrwhbo4" data-title="GCP-Kubernetes-Manually" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/08/20/GCP-Kubernetes-Manually/" data-id="cl8yae1cr0004m4i45vradbry" data-title="GCP-Kubernetes-Manually" class="article-share-link">Share</a>
       
       
       
@@ -375,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/08/06/spark-skewness/" data-id="cl8x6b0v8002bwgi4c2qif8yo" data-title="spark skewness" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/08/06/spark-skewness/" data-id="cl8yae1fb0061m4i4hfugbjs0" data-title="spark skewness" class="article-share-link">Share</a>
       
       
       
@@ -483,7 +528,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="cl8x6b0v20022wgi43qf1aite" data-title="b10-Machine Learning" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="cl8yae1e30023m4i45j1z91r6" data-title="b10-Machine Learning" class="article-share-link">Share</a>
       
       
       
@@ -549,7 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/12/b09-BigQuery/" data-id="cl8x6b0uz0020wgi45wv70jrh" data-title="b09-BigQuery" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/12/b09-BigQuery/" data-id="cl8yae1e30022m4i4gugw88nh" data-title="b09-BigQuery" class="article-share-link">Share</a>
       
       
       
@@ -622,69 +667,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/05/b08-Cloud-Dataproc/" data-id="cl8x6b0ux001xwgi4gp307shb" data-title="b08-Cloud Dataproc" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-b07-Cloud-Dataflow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/05/23/b07-Cloud-Dataflow/" class="article-date">
-  <time class="dt-published" datetime="2020-05-23T15:43:39.000Z" itemprop="datePublished">2020-05-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/05/23/b07-Cloud-Dataflow/">b07-Cloud Dataflow</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Data-Processing"><a href="#Data-Processing" class="headerlink" title="Data Processing"></a>Data Processing</h2><img src="/blog/2020/05/23/b07-Cloud-Dataflow/data_processing_challenge.png" class="" title="data_processing_challenge">
-
-<p>Solution:<br>Apache Beam + Cloud Dataflow</p>
-<h2 id="Cloud-Dataflow"><a href="#Cloud-Dataflow" class="headerlink" title="Cloud Dataflow"></a>Cloud Dataflow</h2><ul>
-<li>Auto scaling, No-Ops, Stream and Batch Processing</li>
-<li>Built on Apache Beam</li>
-<li>Pipelines are regional-based</li>
-</ul>
-<p>Data Transformation</p>
-<img src="/blog/2020/05/23/b07-Cloud-Dataflow/data_transformation.png" class="" title="data_transformation">
-
-<h2 id="Cloud-Dataproc-vs-Cloud-Dataflow"><a href="#Cloud-Dataproc-vs-Cloud-Dataflow" class="headerlink" title="Cloud Dataproc vs Cloud Dataflow"></a>Cloud Dataproc vs Cloud Dataflow</h2><img src="/blog/2020/05/23/b07-Cloud-Dataflow/dataproc_vs_dataflow.png" class="" title="dataproc_vs_dataflow">
-
-<h2 id="Key-Terms"><a href="#Key-Terms" class="headerlink" title="Key Terms"></a>Key Terms</h2><ul>
-<li>Element : single entry of data (eg. table row)</li>
-<li>PCollection: Distributed data set, input and output</li>
-<li>Transform: Data processing in pipeline</li>
-<li>ParDo: Type of Transform <img src="/blog/2020/05/23/b07-Cloud-Dataflow/pipeline.png" class="" title="pipeline">
-<div class="video-container"><iframe src="https://www.youtube.com/embed/XLXe1LHrkho" frameborder="0" loading="lazy" allowfullscreen></iframe></div></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b07-Cloud-Dataflow/" data-id="cl8x6b0ux001wwgi49xa46r46" data-title="b07-Cloud Dataflow" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/05/b08-Cloud-Dataproc/" data-id="cl8yae1e1001zm4i40yoi6aaw" data-title="b08-Cloud Dataproc" class="article-share-link">Share</a>
       
       
       
@@ -753,6 +736,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/06/Python-c01-Jupyter/">Python-c01-Jupyter</a>
           </li>
         
@@ -766,10 +753,6 @@
         
           <li>
             <a href="/blog/2021/08/09/Git-Commands/">Git Commands</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2021/05/28/gcp-c01-vpc/">gcp-c01-vpc</a>
           </li>
         
       </ul>

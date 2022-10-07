@@ -78,6 +78,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Kubernetes-Deploy-Example-Part-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" class="article-date">
+  <time class="dt-published" datetime="2019-04-26T09:52:39.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/devops/">devops</a>►<a class="article-category-link" href="/blog/categories/devops/kubernetes/">kubernetes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/">Kubernetes Deploy Example - Part 1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Kubernetes is a container orchestration system for automating application deployment, scaling and management. Here we will show a simple example of nginx deployment by kubernetes.</p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><ol>
+<li>install kubernetes, for me, I use minikube</li>
+<li>install docker</li>
+</ol>
+<h2 id="Step-1-Pull-the-image-from-Docker-Registry"><a href="#Step-1-Pull-the-image-from-Docker-Registry" class="headerlink" title="Step 1: Pull the image from Docker Registry"></a>Step 1: Pull the image from Docker Registry</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl run nginx --image=nginx:latest --port=80</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-2-Check-if-deployment-ok"><a href="#Step-2-Check-if-deployment-ok" class="headerlink" title="Step 2: Check if deployment ok"></a>Step 2: Check if deployment ok</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods</span><br><span class="line"></span><br><span class="line">NAME              READY     STATUS    RESTARTS   AGE</span><br><span class="line">nginx-6bfb654d7c-xjvhg                1/1       Running   0          1h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-3-Expose-service-through-NodePort"><a href="#Step-3-Expose-service-through-NodePort" class="headerlink" title="Step 3: Expose service through NodePort"></a>Step 3: Expose service through NodePort</h2><p>As I use minikube in local, I don’t have LoadBalancer installed, so I use NodePort as type here</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl expose deployment nginx --<span class="built_in">type</span>=NodePort --port=80 --target-port=80</span><br><span class="line"></span><br><span class="line">service <span class="string">&quot;nginx&quot;</span> exposed</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-4-Get-service-port"><a href="#Step-4-Get-service-port" class="headerlink" title="Step 4: Get service port"></a>Step 4: Get service port</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc nginx</span><br><span class="line"></span><br><span class="line">NAME      TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE</span><br><span class="line">nginx     NodePort   10.109.174.66   &lt;none&gt;        80:32598/TCP   45m</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Here we can find that the service if exposed by port 32598</p>
+<h2 id="Step-5-Get-kubernetes-ip"><a href="#Step-5-Get-kubernetes-ip" class="headerlink" title="Step 5: Get kubernetes ip"></a>Step 5: Get kubernetes ip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get endpoints kubernetes</span><br><span class="line"></span><br><span class="line">NAME         ENDPOINTS             AGE</span><br><span class="line">kubernetes   192.168.99.100:8443   143d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Step-6-Access-to-nginx"><a href="#Step-6-Access-to-nginx" class="headerlink" title="Step 6: Access to nginx"></a>Step 6: Access to nginx</h2><p>Open your navigator and type the url of kubernetes with the port of nginx, you will access to welcome page of nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.99.100:32598</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="cl8yae1cw000bm4i4al4j3046" data-title="Kubernetes Deploy Example - Part 1" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Avro-vs-Parquet" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2019/04/17/Avro-vs-Parquet/" class="article-date">
@@ -126,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="cl8x6b0te0001wgi48gitgqy0" data-title="Avro vs Parquet" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="cl8yae1cf0000m4i418jx7oo8" data-title="Avro vs Parquet" class="article-share-link">Share</a>
       
       
       
@@ -187,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="cl8x6b0t60000wgi41dsp92q1" data-title="My First Blog" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="cl8yae1cm0001m4i44g06808v" data-title="My First Blog" class="article-share-link">Share</a>
       
       
       
@@ -256,6 +316,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/06/Python-c01-Jupyter/">Python-c01-Jupyter</a>
           </li>
         
@@ -269,10 +333,6 @@
         
           <li>
             <a href="/blog/2021/08/09/Git-Commands/">Git Commands</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2021/05/28/gcp-c01-vpc/">gcp-c01-vpc</a>
           </li>
         
       </ul>
