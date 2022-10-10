@@ -78,6 +78,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-spark-skewness" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/08/06/spark-skewness/" class="article-date">
+  <time class="dt-published" datetime="2020-08-06T11:16:30.000Z" itemprop="datePublished">2020-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/08/06/spark-skewness/">spark skewness</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Here we have an example of key salting to resolve the problem of skewness in spark.</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkConf</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.&#123;<span class="type">DataFrame</span>, <span class="type">SparkSession</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.functions._</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSkewnessExample</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">    .setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    .setAppName(<span class="string">&quot;SparkSkewnessExample&quot;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> spark = <span class="type">SparkSession</span></span><br><span class="line">    .builder()</span><br><span class="line">    .config(conf)</span><br><span class="line">    .getOrCreate()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">import</span> spark.implicits._</span><br><span class="line"></span><br><span class="line">  <span class="comment">// DataFrame 1</span></span><br><span class="line">  <span class="keyword">val</span> df1 = <span class="type">Seq</span>(</span><br><span class="line">    (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;12&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;31&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;24&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;0&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;24&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;b&quot;</span>, <span class="string">&quot;45&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;c&quot;</span>, <span class="string">&quot;24&quot;</span>)</span><br><span class="line">  ).toDF(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;value&quot;</span>)</span><br><span class="line">  df1.show(<span class="number">10</span>,<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">//DataFrame2</span></span><br><span class="line">  <span class="keyword">val</span> df2 = <span class="type">Seq</span>(</span><br><span class="line">    (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;45&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;b&quot;</span>, <span class="string">&quot;575&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;c&quot;</span>, <span class="string">&quot;54&quot;</span>)</span><br><span class="line">  ).toDF(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;value&quot;</span>)</span><br><span class="line">  df2.show(<span class="number">10</span>,<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// eliminate skewness</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eliminateSkewness</span></span>(leftDf: <span class="type">DataFrame</span>, leftCol: <span class="type">String</span>, rightDf: <span class="type">DataFrame</span>) = &#123;</span><br><span class="line">    <span class="keyword">val</span> df1 = leftDf</span><br><span class="line">      .withColumn(leftCol, concat(</span><br><span class="line">        leftDf.col(leftCol), lit(<span class="string">&quot;_&quot;</span>), lit(floor(rand(<span class="number">123456</span>) * <span class="number">10</span>))))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> df2 = rightDf</span><br><span class="line">      .withColumn(<span class="string">&quot;saltCol&quot;</span>,</span><br><span class="line">        explode(</span><br><span class="line">          array((<span class="number">0</span> to <span class="number">10</span>).map(lit(_)): _ *)</span><br><span class="line">        ))</span><br><span class="line"></span><br><span class="line">    (df1, df2)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> (df3, df4) = eliminateSkewness(df1, <span class="string">&quot;id&quot;</span>, df2)</span><br><span class="line"></span><br><span class="line">  df3.show(<span class="number">100</span>, <span class="literal">false</span>)</span><br><span class="line">  df4.show(<span class="number">100</span>, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">//join after eliminating data skewness</span></span><br><span class="line">    df3.join(</span><br><span class="line">      df4,</span><br><span class="line">      df3.col(<span class="string">&quot;id&quot;</span>) &lt;=&gt; concat(df4.col(<span class="string">&quot;id&quot;</span>), lit(<span class="string">&quot;_&quot;</span>), df4.col(<span class="string">&quot;saltCol&quot;</span>))</span><br><span class="line">    ).drop(<span class="string">&quot;saltCol&quot;</span>)</span><br><span class="line">      .show(<span class="number">100</span>,<span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2020/08/06/spark-skewness/" data-id="cl92lsb9o006fsoi44bb2fwke" data-title="spark skewness" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-b10-Machine-Learning" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2020/06/16/b10-Machine-Learning/" class="article-date">
@@ -172,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="cl8yjtpum002cooi4aumz3hyi" data-title="b10-Machine Learning" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="cl92lsb5z002csoi4fu8qc5ps" data-title="b10-Machine Learning" class="article-share-link">Share</a>
       
       
       
@@ -238,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/12/b09-BigQuery/" data-id="cl8yjtpul002aooi49mj377fq" data-title="b09-BigQuery" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/12/b09-BigQuery/" data-id="cl92lsb5t002asoi42rnjb3mu" data-title="b09-BigQuery" class="article-share-link">Share</a>
       
       
       
@@ -311,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/05/b08-Cloud-Dataproc/" data-id="cl8yjtpuj0025ooi422q7gufm" data-title="b08-Cloud Dataproc" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/05/b08-Cloud-Dataproc/" data-id="cl92lsb5q0028soi4fa809cvc" data-title="b08-Cloud Dataproc" class="article-share-link">Share</a>
       
       
       
@@ -373,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b07-Cloud-Dataflow/" data-id="cl8yjtpui0024ooi4dvj33omk" data-title="b07-Cloud Dataflow" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b07-Cloud-Dataflow/" data-id="cl92lsb5n0025soi42nlh4je3" data-title="b07-Cloud Dataflow" class="article-share-link">Share</a>
       
       
       
@@ -479,7 +520,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="cl8yjtpuh0022ooi40ulyb0kr" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="cl92lsb5k0024soi4d98nh6bo" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
       
       
       
@@ -546,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/20/b05-Cloud-Spanner/" data-id="cl8yjtpuf001zooi404tq5mdd" data-title="b05-Cloud-Spanner" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/20/b05-Cloud-Spanner/" data-id="cl92lsb5f0021soi4c4fsemiz" data-title="b05-Cloud-Spanner" class="article-share-link">Share</a>
       
       
       
@@ -620,7 +661,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/" data-id="cl8yjtpue001xooi48xrwee61" data-title="b04-Bigtable" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/" data-id="cl92lsb5c001zsoi4hy3r0ft2" data-title="b04-Bigtable" class="article-share-link">Share</a>
       
       
       
@@ -754,7 +795,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/16/b03-Cloud-Datastore/" data-id="cl8yjtpud001uooi42uv2a8ep" data-title="b03-Cloud-Datastore" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/16/b03-Cloud-Datastore/" data-id="cl92lsb57001xsoi4bm25ea5p" data-title="b03-Cloud-Datastore" class="article-share-link">Share</a>
       
       
       
@@ -806,87 +847,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="cl8yjtpuc001tooi4ct7p5b0q" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-b01-Fundamental-Concepts" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/05/11/b01-Fundamental-Concepts/" class="article-date">
-  <time class="dt-published" datetime="2020-05-11T13:39:21.000Z" itemprop="datePublished">2020-05-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/05/11/b01-Fundamental-Concepts/">b01-Fundamental-Concepts</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Database-Types"><a href="#Database-Types" class="headerlink" title="Database Types"></a>Database Types</h2><h3 id="Relational-database"><a href="#Relational-database" class="headerlink" title="Relational database"></a>Relational database</h3><ul>
-<li>SQL</li>
-<li>ACID ( Atomicity, Consistency, Isolation, Durability)</li>
-<li>Transactional</li>
-<li>Examples<ul>
-<li>Mysql, Microsoft SQL Server, Oracle, PostgreSQL</li>
-</ul>
-</li>
-<li>Pros<ul>
-<li>Standard, consistent, reliable, data integrity</li>
-</ul>
-</li>
-<li>Cons<ul>
-<li>Poor scaling, not fast, not good for semi-structured data</li>
-</ul>
-</li>
-</ul>
-<p>“Consistency and Reliability over Performance”</p>
-<h3 id="Non-Relational-Database"><a href="#Non-Relational-Database" class="headerlink" title="Non-Relational Database"></a>Non-Relational Database</h3><ul>
-<li>Non-structured</li>
-<li>Some have ACID (Datastore)</li>
-<li>Examples<ul>
-<li>Redis, MongoDB, Cassandra, HBase, Bigtable, RavenDB</li>
-</ul>
-</li>
-<li>Pros<ul>
-<li>Scalable, High Performance, Not Structure-Limited</li>
-</ul>
-</li>
-<li>Cons<ul>
-<li>Consistency, Data Integrity</li>
-</ul>
-</li>
-</ul>
-<p>“Performance over Consistency”</p>
-<img src="/blog/2020/05/11/b01-Fundamental-Concepts/storage_compare.png" class="" title="storage_compare">
-
-<h2 id="How-to-choose-the-right-storage"><a href="#How-to-choose-the-right-storage" class="headerlink" title="How to choose the right storage"></a>How to choose the right storage</h2><img src="/blog/2020/05/11/b01-Fundamental-Concepts/how_to_choose_storage.png" class="" title="how_to_choose_storage">
-<div class="video-container"><iframe src="https://www.youtube.com/embed/J-2xbqn9xUQ" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/11/b01-Fundamental-Concepts/" data-id="cl8yjtpub001rooi43wfbfs52" data-title="b01-Fundamental-Concepts" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="cl92lsb54001usoi4czxy4bju" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
       
       
       
@@ -955,6 +916,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
           </li>
         
@@ -968,10 +933,6 @@
         
           <li>
             <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/06/Python-c01-Jupyter/">Python-c01-Jupyter</a>
           </li>
         
       </ul>

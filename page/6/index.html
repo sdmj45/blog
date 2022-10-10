@@ -78,6 +78,79 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-spark-listeners" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2019/05/17/spark-listeners/" class="article-date">
+  <time class="dt-published" datetime="2019-05-17T14:21:43.000Z" itemprop="datePublished">2019-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/spark/">spark</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2019/05/17/spark-listeners/">spark listeners</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>When running spark job, driver collects logs from different executors and send events via an event bus to Web UI and to EventLog Listener simultaneously.</p>
+<p>EventLog Listener send events to a some directory for example in hdfs to store the events, and then spark history server will expose these events in its interface.</p>
+<p>We could define our custom EventLog Listener, there are several listeners already developed and we can use them directly, here I will prent 3 examples.</p>
+<img src="/blog/2019/05/17/spark-listeners/spark_history-min.png" class="" title="spark history">
+
+
+
+<h2 id="sparklens"><a href="#sparklens" class="headerlink" title="sparklens"></a>sparklens</h2><p><a target="_blank" rel="noopener" href="https://github.com/qubole/sparklens">Sparklens</a> is a profiling tool for Spark with built-in Spark Scheduler simulator, it reports </p>
+<ul>
+<li><p>Estimated completion time and estimated cluster utilisation with different number of executors</p>
+</li>
+<li><p>Job&#x2F;Stage timeline which shows how the parallel stages were scheduled within a job. This makes it easy to visualise the DAG with stage dependencies at the job level.</p>
+</li>
+</ul>
+<p>Here is a screen capture of sparklens reporting ( in my example, I added sparklens jar in the classpath of zepplin, and import sparklens package, and then I can use sparklens directly)</p>
+<p>import package</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.qubole.sparklens.<span class="type">QuboleNotebookListener</span></span><br><span class="line"><span class="keyword">val</span> <span class="type">QNL</span> = <span class="keyword">new</span> <span class="type">QuboleNotebookListener</span>(sc.getConf)</span><br><span class="line">sc.addSparkListener(<span class="type">QNL</span>)</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/2019/05/17/spark-listeners/sparklens-min.png" class="" title="sparklens">
+
+
+
+
+<h2 id="sparklint"><a href="#sparklint" class="headerlink" title="sparklint"></a>sparklint</h2><p><a target="_blank" rel="noopener" href="https://github.com/groupon/sparklint">Sparklint</a> is a profiling tool for Spark with advance metrics and better visualization about your spark application’s resource utilization. It helps you find out where the bottle neck are</p>
+<p>We can use it in the application code, or we can also use it to analyse event logs, at the moment when I write this blog, the actual version of sparklint is 1.0.13, and we can’t analyse event logs of history server yet if it is compressed in the configuration.<br>But we can decompress it to json file and then we can work on it.</p>
+<p>here is a screen capture of sparklint</p>
+
+
+
+<h2 id="sparkMeasure"><a href="#sparkMeasure" class="headerlink" title="sparkMeasure"></a>sparkMeasure</h2><p><a target="_blank" rel="noopener" href="https://github.com/LucaCanali/sparkMeasure">sparkMeasure</a> is a tool for performance troubleshooting of Apache Spark workloads, It simplifies the collection and analysis of Spark performance metrics.</p>
+<p>It is a tool for multiple uses: instrument interactive (notebooks) and batch workloads</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="cl92lsb6j002jsoi43fre60o1" data-title="spark listeners" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Hive-vs-Presto" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2019/05/13/Hive-vs-Presto/" class="article-date">
@@ -164,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="cl8yjtpsy0004ooi45mtmfi8d" data-title="Hive vs Presto" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="cl92lsb050005soi4cfxz3y8a" data-title="Hive vs Presto" class="article-share-link">Share</a>
       
       
       
@@ -242,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl8yjtpt30007ooi4gtrxazdw" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="cl92lsb0g0007soi4e1x7a81o" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
       
       
       
@@ -294,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="cl8yjtpt6000booi46dh6189j" data-title="Kubernetes Deploy Example - Part 2" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="cl92lsb0s000bsoi4ah0u3fd1" data-title="Kubernetes Deploy Example - Part 2" class="article-share-link">Share</a>
       
       
       
@@ -354,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="cl8yjtpt40008ooi48toj1sa4" data-title="Kubernetes Deploy Example - Part 1" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="cl92lsb0k0008soi461ai88i2" data-title="Kubernetes Deploy Example - Part 1" class="article-share-link">Share</a>
       
       
       
@@ -414,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="cl8yjtpsg0000ooi43mte4vsq" data-title="Avro vs Parquet" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="cl92lsay50000soi4afeu2brd" data-title="Avro vs Parquet" class="article-share-link">Share</a>
       
       
       
@@ -475,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="cl8yjtpsp0001ooi47tjk14qa" data-title="My First Blog" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="cl92lsayy0001soi49ha57izu" data-title="My First Blog" class="article-share-link">Share</a>
       
       
       
@@ -544,6 +617,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
+          </li>
+        
+          <li>
             <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
           </li>
         
@@ -557,10 +634,6 @@
         
           <li>
             <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/06/Python-c01-Jupyter/">Python-c01-Jupyter</a>
           </li>
         
       </ul>
