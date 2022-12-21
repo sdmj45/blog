@@ -78,6 +78,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-a08-Functions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/01/29/Python-a08-Functions/" class="article-date">
+  <time class="dt-published" datetime="2021-01-29T14:03:35.000Z" itemprop="datePublished">2021-01-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/01/29/Python-a08-Functions/">Python-a08 Functions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of Functions in python</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">## basic</span><br><span class="line">    def hello_func():</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    print(hello_func)  # &lt;function hello_func at 0x000001FC6BA4C430&gt;</span><br><span class="line">    print(hello_func())  # None</span><br><span class="line"></span><br><span class="line">## function without input</span><br><span class="line">    def hello_func():</span><br><span class="line">        return &#x27;hello&#x27;</span><br><span class="line">    print(hello_func())             # hello</span><br><span class="line"></span><br><span class="line">## function with input</span><br><span class="line">    def hello_func(greeting):</span><br><span class="line">        return &#x27;&#123;&#125; Function.&#x27;.format(greeting)</span><br><span class="line">    print(hello_func(&#x27;Hi&#x27;))         # Hi Function.</span><br><span class="line"></span><br><span class="line">## default value</span><br><span class="line">    def hello_func(greeting, name=&#x27;You&#x27;):</span><br><span class="line">        return &#x27;&#123;&#125;, &#123;&#125; Function.&#x27;.format(greeting, name)</span><br><span class="line"></span><br><span class="line">    print(hello_func(&#x27;Hi&#x27;))         # Hi, You Function.</span><br><span class="line">    </span><br><span class="line">## positional arguments, keyword arguments</span><br><span class="line">   ## 1</span><br><span class="line">    def student_info(*args, **kwargs):</span><br><span class="line">        print(args)</span><br><span class="line">        print(kwargs)</span><br><span class="line"></span><br><span class="line">    student_info(&#x27;Math&#x27;, &#x27;Art&#x27;, name=&#x27;John&#x27;, age=22)    # (&#x27;Math&#x27;, &#x27;Art&#x27;)</span><br><span class="line">                                                        # &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 22&#125;</span><br><span class="line">    </span><br><span class="line">   ## 2    </span><br><span class="line">    courses = [&#x27;Math&#x27;, &#x27;Art&#x27;]</span><br><span class="line">    info = &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 22&#125;</span><br><span class="line">    student_info(courses, info)         # ([&#x27;Math&#x27;, &#x27;Art&#x27;], &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 22&#125;)</span><br><span class="line">                                        # &#123;&#125;     </span><br><span class="line">                                        </span><br><span class="line">   ## 3    </span><br><span class="line">    courses = [&#x27;Math&#x27;, &#x27;Art&#x27;]</span><br><span class="line">    info = &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 22&#125;</span><br><span class="line">    student_info(*courses, **info)         # (&#x27;Math&#x27;, &#x27;Art&#x27;)</span><br><span class="line">                                           # &#123;&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 22&#125;</span><br><span class="line">                                                                                 </span><br><span class="line">## example print number of month days </span><br><span class="line">    month_days = [0,31,28,31,30,31,30,31,31,30,31,30,31]</span><br><span class="line"></span><br><span class="line">    def is_leap(year):</span><br><span class="line">        &quot;&quot;&quot;Return True for leap years, False for non-leap years.&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        return (year % 4 == 0 and year % 100 != 0) or year % 400 == 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def days_in_month(year, month):</span><br><span class="line">        &quot;&quot;&quot;Return number of days in that month in that year.&quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">        if not 1 &lt;= month &lt;= 12:</span><br><span class="line">            return &#x27;Invalid Month&#x27;</span><br><span class="line">    </span><br><span class="line">        if month == 2 and is_leap(year):</span><br><span class="line">            return 29</span><br><span class="line">    </span><br><span class="line">        return month_days[month]</span><br><span class="line">    </span><br><span class="line">    print(days_in_month(2020,2))    # 29</span><br><span class="line">    print(days_in_month(2021,2))    # 28</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="clbxudgtz000oawi40pvb40pg" data-title="Python-a08 Functions" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-a07-Loops-and-Iterations" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/01/29/Python-a07-Loops-and-Iterations/" class="article-date">
@@ -109,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="cl92lsb24000nsoi4drdravdt" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="clbxudgtz000nawi49kf79dpr" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
       
       
       
@@ -194,7 +237,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cl92lsb49001dsoi4dagpcb9s" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="clbxudgu9001dawi4hzlhcrpp" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
       
       
       
@@ -237,7 +280,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="cl92lsb1x000lsoi4f2e82jyh" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="clbxudgty000lawi47qtf15lo" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
       
       
       
@@ -282,7 +325,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="cl92lsb1v000ksoi4e4lods6f" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="clbxudgty000kawi4cg6s4q45" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
       
       
       
@@ -327,7 +370,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="cl92lsb1t000jsoi4cyws03gc" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="clbxudgtx000jawi4fl2m5mbs" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
       
       
       
@@ -372,7 +415,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="cl92lsb1k000hsoi44enhdgxu" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="clbxudgtw000hawi47q72hwle" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
       
       
       
@@ -417,7 +460,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="cl92lsb1g000gsoi4gynehtue" data-title="Python-a02-String" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="clbxudgtv000gawi42yazesi8" data-title="Python-a02-String" class="article-share-link">Share</a>
       
       
       
@@ -472,7 +515,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="cl92lsb0w000dsoi4gzh9etl1" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="clbxudgtu000dawi4fjs99g4l" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
       
       
       
@@ -539,65 +582,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="cl92lsb5h0022soi47mz5c2nz" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GCP-Kubernetes-Manually" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/08/20/GCP-Kubernetes-Manually/" class="article-date">
-  <time class="dt-published" datetime="2020-08-20T08:11:43.000Z" itemprop="datePublished">2020-08-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/08/20/GCP-Kubernetes-Manually/">GCP-Kubernetes-Manually</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>In this article, we will show you how to deploy a web application by kubernetes on gcp.</p>
-<ol>
-<li>run nginx on daemon<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p <span class="number">8080</span>:<span class="number">80</span> nginx:latest</span><br></pre></td></tr></table></figure></li>
-<li>change index.html in nginx container<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp index.html <span class="number">607</span>de9f58775:/usr/share/nginx/html/</span><br></pre></td></tr></table></figure></li>
-<li>create docker image from the new container version<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit <span class="number">607</span>de9f58775 daccfrance:version1</span><br></pre></td></tr></table></figure></li>
-<li>create tag of docker image with project id<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag daccfrance:version1 eu.gcr.io/kube-test<span class="number">-286917</span>/daccfrance:version1</span><br></pre></td></tr></table></figure></li>
-<li>push docker image to gcp container registry<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push eu.gcr.io/kube-test<span class="number">-286917</span>/daccfrance:version1</span><br></pre></td></tr></table></figure></li>
-<li>kill docker container<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container kill #container_id</span><br></pre></td></tr></table></figure></li>
-<li>set compute zone by default<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud config set compute/zone europe-west1-b</span><br></pre></td></tr></table></figure></li>
-<li>create a kubernetes cluster<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud container clusters create gk-cluster --num-nodes=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
-<li>get authentication credentials for the cluster<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud container clusters get-credentials gk-cluster</span><br></pre></td></tr></table></figure></li>
-<li>create kubernetes deployment<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create deployment web-server --image=eu.gcr.io/kube-test<span class="number">-286917</span>/daccfrance:version1</span><br></pre></td></tr></table></figure></li>
-<li>create kubernetes service<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl expose deployment web-server --<span class="class"><span class="keyword">type</span> <span class="title">LoadBalancer</span> <span class="title">--port</span> 80 <span class="title">--target-port</span> 80</span></span><br></pre></td></tr></table></figure></li>
-<li>get kubernetes pods<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods</span><br></pre></td></tr></table></figure></li>
-<li>get kubernetes service<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get service web-server</span><br></pre></td></tr></table></figure></li>
-</ol>
-<div class="video-container"><iframe src="https://www.youtube.com/embed/pksbLIY8PFA" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/08/20/GCP-Kubernetes-Manually/" data-id="cl92lsazz0004soi4c9vhet50" data-title="GCP-Kubernetes-Manually" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="clbxudguf0022awi43f8ug80a" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
       
       
       
@@ -653,7 +638,7 @@ More advanced in orchestration
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
     </div>
   </div>
 
@@ -664,6 +649,10 @@ More advanced in orchestration
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
+          </li>
         
           <li>
             <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
@@ -679,10 +668,6 @@ More advanced in orchestration
         
           <li>
             <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
           </li>
         
       </ul>

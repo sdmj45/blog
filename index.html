@@ -78,6 +78,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-d02-Cloud-Functions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2022/12/21/d02-Cloud-Functions/" class="article-date">
+  <time class="dt-published" datetime="2022-12-21T15:28:13.000Z" itemprop="datePublished">2022-12-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/d-practice/">d-practice</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Functions-framework"><a href="#Functions-framework" class="headerlink" title="Functions-framework"></a>Functions-framework</h1><p>Functions framework helps in setting up the environment for testing of cloud functions locally<br>Here is an example</p>
+<h3 id="installation"><a href="#installation" class="headerlink" title="installation"></a>installation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install functions-framework</span><br></pre></td></tr></table></figure>
+<p>code example:</p>
+<p>create a new project and install functions-framework as above, and then create a new python file <strong>main.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multiply</span>(<span class="params">request</span>):</span><br><span class="line">    request_json = request.get_json()</span><br><span class="line">    num_1 = request_json[<span class="string">&quot;num_1&quot;</span>]</span><br><span class="line">    num_2 = request_json[<span class="string">&quot;num_2&quot;</span>]</span><br><span class="line">    result = num_1 * num_2</span><br><span class="line">    <span class="keyword">return</span> (<span class="string">f&quot;The multiplication result is <span class="subst">&#123;result&#125;</span>&quot;</span>, <span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+
+<p>run the function on local:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">functions-framework --port 8080 --target multiply --signature-type http --source main.py --debug</span><br></pre></td></tr></table></figure>
+<p>Test the function<br>use another terminal and enter the curl command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST \</span><br><span class="line">-H &quot;Content-type:application/json&quot; \</span><br><span class="line">-d  &#x27;&#123;&quot;num_1&quot;:20, &quot;num_2&quot;: 30&#125;&#x27; \</span><br><span class="line">-w &#x27;\n&#x27; \</span><br><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
+<p>Response in this new terminal:<br><img src="/blog/img.png" alt="img.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clbxudguj002gawi4d1l48msr" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-c06-udpate-data" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2022/10/10/Python-c06-udpate-data/" class="article-date">
@@ -721,7 +774,7 @@
 <p>0    3<br>1    3<br>2    3<br>dtype: int64</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the min of each column</span></span><br><span class="line">df.apply(pd.Series.<span class="built_in">min</span>)</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#99;&#x6f;&#x72;&#101;&#121;&#x6d;&#x73;&#99;&#x68;&#x61;&#102;&#101;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#99;&#x6f;&#x72;&#101;&#121;&#x6d;&#x73;&#99;&#x68;&#x61;&#102;&#101;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a><br>dtype: object</p>
+<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#x63;&#x6f;&#114;&#101;&#121;&#109;&#x73;&#x63;&#x68;&#x61;&#x66;&#101;&#x72;&#64;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x63;&#x6f;&#114;&#101;&#121;&#109;&#x73;&#x63;&#x68;&#x61;&#x66;&#101;&#x72;&#64;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a><br>dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># applymap works only on every element of the DataFrame</span></span><br><span class="line">df.applymap(<span class="built_in">len</span>)</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -780,7 +833,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="cl92lsb3z001asoi4dyuzhtv4" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="clbxudgu9001cawi46uhz5mkf" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
       
       
       
@@ -962,10 +1015,10 @@
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># not in filter ~</span></span><br><span class="line">df.loc[~filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p>0    <a href="mailto:&#67;&#111;&#x72;&#x65;&#x79;&#x4d;&#83;&#99;&#x68;&#97;&#102;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#67;&#111;&#x72;&#x65;&#x79;&#x4d;&#83;&#99;&#x68;&#97;&#102;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#67;&#x6f;&#114;&#x65;&#121;&#77;&#83;&#99;&#104;&#97;&#x66;&#x65;&#x72;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#67;&#x6f;&#114;&#x65;&#121;&#77;&#83;&#99;&#104;&#97;&#x66;&#x65;&#x72;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># isin filter</span></span><br><span class="line">lasts = [<span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Mike&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>]</span><br><span class="line">filt = df[<span class="string">&#x27;last&#x27;</span>].isin(lasts)</span><br><span class="line">df.loc[filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>1    <a href="mailto:&#74;&#x61;&#x6e;&#101;&#68;&#111;&#x65;&#x40;&#101;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#74;&#x61;&#x6e;&#101;&#68;&#111;&#x65;&#x40;&#101;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a><br>2    <a href="mailto:&#74;&#111;&#x68;&#x6e;&#x44;&#111;&#101;&#64;&#101;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#74;&#111;&#x68;&#x6e;&#x44;&#111;&#101;&#64;&#101;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>1    <a href="mailto:&#74;&#97;&#x6e;&#x65;&#x44;&#x6f;&#101;&#x40;&#x65;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#74;&#97;&#x6e;&#x65;&#x44;&#x6f;&#101;&#x40;&#x65;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a><br>2    <a href="mailto:&#74;&#111;&#x68;&#110;&#68;&#111;&#x65;&#x40;&#x65;&#109;&#97;&#105;&#108;&#46;&#x63;&#111;&#109;">&#74;&#111;&#x68;&#110;&#68;&#111;&#x65;&#x40;&#x65;&#109;&#97;&#105;&#108;&#46;&#x63;&#111;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 
@@ -1600,7 +1653,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="cl92lsb45001csoi4gmif6tqf" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="clbxudgu8001aawi43shr0bf7" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
       
       
       
@@ -2701,7 +2754,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="cl92lsb3w0019soi4c7xxau1n" data-title="Python-c04-indexes" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="clbxudgu80019awi4bfhjgq9f" data-title="Python-c04-indexes" class="article-share-link">Share</a>
       
       
       
@@ -2749,7 +2802,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>[‘<a href="mailto:&#67;&#111;&#x72;&#101;&#121;&#77;&#83;&#99;&#104;&#x61;&#102;&#x65;&#114;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#67;&#111;&#x72;&#101;&#121;&#77;&#83;&#99;&#104;&#x61;&#102;&#x65;&#114;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;</a>‘, ‘<a href="mailto:&#74;&#x61;&#110;&#x65;&#x44;&#111;&#101;&#64;&#101;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;">&#74;&#x61;&#110;&#x65;&#x44;&#111;&#101;&#64;&#101;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a>‘, ‘<a href="mailto:&#74;&#111;&#104;&#110;&#x44;&#x6f;&#101;&#64;&#x65;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#74;&#111;&#104;&#110;&#x44;&#x6f;&#101;&#64;&#x65;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>‘]</p>
+<p>[‘<a href="mailto:&#x43;&#111;&#114;&#101;&#121;&#x4d;&#x53;&#x63;&#104;&#x61;&#102;&#x65;&#114;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x43;&#111;&#114;&#101;&#121;&#x4d;&#x53;&#x63;&#104;&#x61;&#102;&#x65;&#114;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#64;&#x65;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x4a;&#97;&#x6e;&#101;&#68;&#111;&#x65;&#64;&#x65;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#x6f;&#x68;&#110;&#x44;&#x6f;&#x65;&#64;&#101;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#x4a;&#x6f;&#x68;&#110;&#x44;&#x6f;&#x65;&#64;&#101;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a>‘]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
@@ -2803,7 +2856,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>0    <a href="mailto:&#x43;&#111;&#114;&#x65;&#121;&#x4d;&#83;&#x63;&#104;&#x61;&#x66;&#x65;&#114;&#64;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x43;&#111;&#114;&#x65;&#121;&#x4d;&#83;&#x63;&#104;&#x61;&#x66;&#x65;&#114;&#64;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;</a><br>1          <a href="mailto:&#74;&#x61;&#110;&#x65;&#68;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#74;&#x61;&#110;&#x65;&#68;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a><br>2          <a href="mailto:&#x4a;&#111;&#x68;&#x6e;&#x44;&#x6f;&#x65;&#64;&#x65;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#x4a;&#111;&#x68;&#x6e;&#x44;&#x6f;&#x65;&#64;&#x65;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#67;&#x6f;&#x72;&#101;&#121;&#x4d;&#83;&#x63;&#x68;&#97;&#102;&#101;&#114;&#64;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#67;&#x6f;&#x72;&#101;&#121;&#x4d;&#83;&#x63;&#x68;&#97;&#102;&#101;&#114;&#64;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a><br>1          <a href="mailto:&#x4a;&#97;&#110;&#x65;&#x44;&#x6f;&#x65;&#x40;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x4a;&#97;&#110;&#x65;&#x44;&#x6f;&#x65;&#x40;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a><br>2          <a href="mailto:&#74;&#111;&#x68;&#110;&#x44;&#111;&#101;&#64;&#101;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#74;&#111;&#x68;&#110;&#x44;&#111;&#101;&#64;&#101;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#display multiple columns</span></span><br><span class="line">df[[<span class="string">&#x27;last&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -2851,7 +2904,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iloc: integer location: put the integer index to get the row</span></span><br><span class="line"><span class="comment"># get the first row in this example</span></span><br><span class="line">df.iloc[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#x6f;&#x72;&#x65;&#x79;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#101;&#114;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#x6d;">&#67;&#x6f;&#x72;&#x65;&#x79;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#101;&#114;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#x6d;</a><br>Name: 0, dtype: object</p>
+<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#x6f;&#x72;&#101;&#x79;&#77;&#x53;&#x63;&#x68;&#97;&#102;&#x65;&#x72;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#67;&#x6f;&#x72;&#101;&#x79;&#77;&#x53;&#x63;&#x68;&#97;&#102;&#x65;&#x72;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;</a><br>Name: 0, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[[<span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -2995,7 +3048,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="cl92lsb3u0018soi4evynggx4" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="clbxudgu70018awi4ffrqcvmp" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
       
       
       
@@ -3365,7 +3418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="cl92lsb3r0016soi4c4d7ej27" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="clbxudgu70016awi4bqj2agdm" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
       
       
       
@@ -3419,7 +3472,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="cl92lsb3o0015soi4el96d5sh" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="clbxudgu60015awi440597jsp" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
       
       
       
@@ -3466,7 +3519,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="cl92lsb9q006gsoi4eluig5xs" data-title="Website Recommended" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="clbxudgv2006kawi4eoowh1g6" data-title="Website Recommended" class="article-share-link">Share</a>
       
       
       
@@ -3508,7 +3561,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="cl92lsb62002dsoi439fc7ybi" data-title="d01-Logs Router" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="clbxudgui002fawi4evhb1hxs" data-title="d01-Logs Router" class="article-share-link">Share</a>
       
       
       
@@ -3566,76 +3619,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="cl92lsazi0003soi4ci2zgl1i" data-title="Git Commands" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-gcp-c01-vpc" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2021/05/28/gcp-c01-vpc/" class="article-date">
-  <time class="dt-published" datetime="2021-05-28T11:24:24.000Z" itemprop="datePublished">2021-05-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a>►<a class="article-category-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/05/28/gcp-c01-vpc/">gcp-c01-vpc</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="4-ways-to-interact-with-GCP"><a href="#4-ways-to-interact-with-GCP" class="headerlink" title="4 ways to interact with GCP"></a>4 ways to interact with GCP</h2><img src="/blog/2021/05/28/gcp-c01-vpc/4_ways_to_interact_with_gcp.png" class="" title="4_ways_to_interact_with_gcp">
-
-<h2 id="Projects-and-networks"><a href="#Projects-and-networks" class="headerlink" title="Projects and networks"></a>Projects and networks</h2><h3 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h3><ul>
-<li>Associate objects and services with billing</li>
-<li>Contain networks(5 by default) that can be shared&#x2F;peered</li>
-</ul>
-<h3 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h3><ul>
-<li>Has no IP address range</li>
-<li>Is global and spans all available regions</li>
-<li>Contains subnetworks</li>
-<li>Is available as default, auto or custom</li>
-</ul>
-<h2 id="3-VPC-network-types"><a href="#3-VPC-network-types" class="headerlink" title="3 VPC network types"></a>3 VPC network types</h2><img src="/blog/2021/05/28/gcp-c01-vpc/3_vpc_network_types.png" class="" title="3_vpc_network_types">
-
-<p>The projects can communicate over internal IPs when they are in the same network even though they are in different regions.<br>They can not communicate over internal IPs when they are in different networks even though they are in the same region</p>
-<h2 id="Subnetworks-cross-zones"><a href="#Subnetworks-cross-zones" class="headerlink" title="Subnetworks cross zones"></a>Subnetworks cross zones</h2><ul>
-<li>VMs can be on the same subnet but in different zones</li>
-<li>A single firewall rule can apply to both VMs</li>
-</ul>
-<h2 id="Expand-subnets"><a href="#Expand-subnets" class="headerlink" title="Expand subnets"></a>Expand subnets</h2><ul>
-<li>Cannot overlap with other subnets</li>
-<li>Can expand but not shrink</li>
-<li>Avoid large subnets</li>
-</ul>
-<h2 id="Internal-and-External-Ip-address"><a href="#Internal-and-External-Ip-address" class="headerlink" title="Internal and External Ip address"></a>Internal and External Ip address</h2><img src="/blog/2021/05/28/gcp-c01-vpc/internal_external_ip_address.png" class="" title="internal_external_ip_address">
-
-<p>Every VM need an internal ip address but the external ip address is optional and by default it is ephemeral</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/05/28/gcp-c01-vpc/" data-id="cl92lsb6b002gsoi4fvmc9by3" data-title="gcp-c01-vpc" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/08/09/Git-Commands/" data-id="clbxudgtq0003awi4edm49fi5" data-title="Git Commands" class="article-share-link">Share</a>
       
       
       
@@ -3691,7 +3675,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
     </div>
   </div>
 
@@ -3702,6 +3686,10 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
+          </li>
         
           <li>
             <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
@@ -3717,10 +3705,6 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
         
           <li>
             <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
           </li>
         
       </ul>

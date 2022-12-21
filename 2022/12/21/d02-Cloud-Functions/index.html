@@ -4,18 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>Category: infrastructure-foundation | Developer</title>
+  <title>d02-Cloud Functions | Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="A developer&#39;s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Developer">
-<meta property="og:url" content="https://sdmj45.github.io/blog/categories/gcp/c-data-architect/infrastructure-foundation/index.html">
+  <meta name="description" content="Functions-frameworkFunctions framework helps in setting up the environment for testing of cloud functions locallyHere is an example installation1pip install functions-framework code example: create a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="d02-Cloud Functions">
+<meta property="og:url" content="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/index.html">
 <meta property="og:site_name" content="Developer">
-<meta property="og:description" content="A developer&#39;s blog">
+<meta property="og:description" content="Functions-frameworkFunctions framework helps in setting up the environment for testing of cloud functions locallyHere is an example installation1pip install functions-framework code example: create a">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/img.png">
+<meta property="article:published_time" content="2022-12-21T15:28:13.000Z">
+<meta property="article:modified_time" content="2022-12-21T15:37:38.693Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/img.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
   
@@ -76,39 +80,67 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2021/05/28/gcp-c01-vpc/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-05-28T11:24:24.000Z" itemprop="datePublished">May 28</time>
+        <section id="main"><article id="post-d02-Cloud-Functions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2022/12/21/d02-Cloud-Functions/" class="article-date">
+  <time class="dt-published" datetime="2022-12-21T15:28:13.000Z" itemprop="datePublished">2022-12-21</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/d-practice/">d-practice</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2021/05/28/gcp-c01-vpc/">gcp-c01-vpc</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      d02-Cloud Functions
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Functions-framework"><a href="#Functions-framework" class="headerlink" title="Functions-framework"></a>Functions-framework</h1><p>Functions framework helps in setting up the environment for testing of cloud functions locally<br>Here is an example</p>
+<h3 id="installation"><a href="#installation" class="headerlink" title="installation"></a>installation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install functions-framework</span><br></pre></td></tr></table></figure>
+<p>code example:</p>
+<p>create a new project and install functions-framework as above, and then create a new python file <strong>main.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multiply</span>(<span class="params">request</span>):</span><br><span class="line">    request_json = request.get_json()</span><br><span class="line">    num_1 = request_json[<span class="string">&quot;num_1&quot;</span>]</span><br><span class="line">    num_2 = request_json[<span class="string">&quot;num_2&quot;</span>]</span><br><span class="line">    result = num_1 * num_2</span><br><span class="line">    <span class="keyword">return</span> (<span class="string">f&quot;The multiplication result is <span class="subst">&#123;result&#125;</span>&quot;</span>, <span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+
+<p>run the function on local:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">functions-framework --port 8080 --target multiply --signature-type http --source main.py --debug</span><br></pre></td></tr></table></figure>
+<p>Test the function<br>use another terminal and enter the curl command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST \</span><br><span class="line">-H &quot;Content-type:application/json&quot; \</span><br><span class="line">-d  &#x27;&#123;&quot;num_1&quot;:20, &quot;num_2&quot;: 30&#125;&#x27; \</span><br><span class="line">-w &#x27;\n&#x27; \</span><br><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
+<p>Response in this new terminal:<br><img src="/blog/img.png" alt="img.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clbxudguj002gawi4d1l48msr" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2022/10/10/Python-c06-udpate-data/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python-c06-udpate data</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
