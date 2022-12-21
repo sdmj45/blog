@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="Developer">
 <meta property="og:description" content="Functions-frameworkFunctions framework helps in setting up the environment for testing of cloud functions locallyHere is an example installation1pip install functions-framework code example: create a">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sdmj45.github.io/blog/img.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/response.png">
 <meta property="article:published_time" content="2022-12-21T15:28:13.000Z">
-<meta property="article:modified_time" content="2022-12-21T15:37:38.693Z">
+<meta property="article:modified_time" content="2022-12-21T16:02:45.526Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sdmj45.github.io/blog/img.png">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/response.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="Developer" type="application/atom+xml">
   
@@ -116,12 +116,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">functions-framework --port 8080 --target multiply --signature-type http --source main.py --debug</span><br></pre></td></tr></table></figure>
 <p>Test the function<br>use another terminal and enter the curl command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST \</span><br><span class="line">-H &quot;Content-type:application/json&quot; \</span><br><span class="line">-d  &#x27;&#123;&quot;num_1&quot;:20, &quot;num_2&quot;: 30&#125;&#x27; \</span><br><span class="line">-w &#x27;\n&#x27; \</span><br><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
-<p>Response in this new terminal:<br><img src="/blog/img.png" alt="img.png"></p>
-
+<p>Response in this new terminal:</p>
+<img src="/blog/2022/12/21/d02-Cloud-Functions/response.png" class="" title="response">
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clbxudguj002gawi4d1l48msr" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clbxufyvt002ec4i47r3a3djb" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
       
       
       
