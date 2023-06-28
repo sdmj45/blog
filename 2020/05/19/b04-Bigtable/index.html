@@ -1,103 +1,112 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html>
 <head>
-    <meta charset="utf-8">
-<title>b04-Bigtable - MA Jian&#39;s Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
+  
+  
+  <title>b04-Bigtable | MA Jian&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Cloud Bigtable High performance, massively scalable NoSQL  Ideal for large analytical workloads  Bigtable infrastructure   Front-end server pool serves requests to nodes Compute and Storage are separa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="b04-Bigtable">
+<meta property="og:url" content="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/index.html">
+<meta property="og:site_name" content="MA Jian&#39;s Blog">
+<meta property="og:description" content="Cloud Bigtable High performance, massively scalable NoSQL  Ideal for large analytical workloads  Bigtable infrastructure   Front-end server pool serves requests to nodes Compute and Storage are separa">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/bigtable_infrastructure.png">
+<meta property="article:published_time" content="2020-05-19T11:57:07.000Z">
+<meta property="article:modified_time" content="2021-01-11T15:48:32.131Z">
+<meta property="article:author" content="MA Jian">
+<meta property="article:tag" content="development">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/bigtable_infrastructure.png">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="MA Jian's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
-
-
-
-
-<meta name="description" content="A developer's blog">
-
-
-
-<meta name="keywords" content="development">
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-
-
+  
+  
 <link rel="stylesheet" href="/blog/css/style.css">
 
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
 
-<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-
-
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body>
-    
-<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/blog/">
-                
-                <img src="/blog/images/logo.png" alt="" height="28">
-                
-            </a>
-            <div class="navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="navbar-menu navbar-end">
-            
-            
-            
-        </div>
-    </div>
-</nav>
 
-    <section class="section">
-    <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            b04-Bigtable
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-05-19T11:57:07.000Z" itemprop="datePublished">May 19 2020</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/blog/categories/gcp/">gcp</a><span>></span><a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 minutes read (About 225 words)
-        </span>
-        
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">MA Jian&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">Enthussiasm in developing</a>
+        </h2>
+      
     </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sdmj45.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-b04-Bigtable" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/05/19/b04-Bigtable/" class="article-date">
+  <time class="dt-published" datetime="2020-05-19T11:57:07.000Z" itemprop="datePublished">2020-05-19</time>
+</a>
     
-        <html><head></head><body><h2 id="Cloud-Bigtable"><a href="#Cloud-Bigtable" class="headerlink" title="Cloud Bigtable"></a>Cloud Bigtable</h2><ul>
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      b04-Bigtable
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Cloud-Bigtable"><a href="#Cloud-Bigtable" class="headerlink" title="Cloud Bigtable"></a>Cloud Bigtable</h2><ul>
 <li>High performance, massively scalable NoSQL </li>
 <li>Ideal for large analytical workloads</li>
 </ul>
@@ -106,7 +115,7 @@
 <ul>
 <li>Front-end server pool serves requests to nodes</li>
 <li>Compute and Storage are separate, No data is stored on the node except for metadata to direct requests to the correct tablet</li>
-<li>tables are shards into tablets. They are stored on Colossus, google’s filesystem. as storage is separate from compute node,<br>replication and recovery of node data is very fast, as only metadata/pointers need to be updated</li>
+<li>tables are shards into tablets. They are stored on Colossus, google’s filesystem. as storage is separate from compute node,<br>replication and recovery of node data is very fast, as only metadata&#x2F;pointers need to be updated</li>
 </ul>
 <h3 id="instances"><a href="#instances" class="headerlink" title="instances"></a>instances</h3><p>Entire bigtable project called ‘instance’</p>
 <h3 id="cluster"><a href="#cluster" class="headerlink" title="cluster"></a>cluster</h3><p>Nodes grouped into clusters</p>
@@ -120,107 +129,155 @@
 <h3 id="Schema-Design"><a href="#Schema-Design" class="headerlink" title="Schema Design"></a>Schema Design</h3><ul>
 <li>Per table - Row key is only indexed item</li>
 </ul>
-<h2 id="Hands-on"><a href="#Hands-on" class="headerlink" title="Hands on"></a>Hands on</h2><h3 id="install-cbt-in-Google-Cloud-SDK"><a href="#install-cbt-in-Google-Cloud-SDK" class="headerlink" title="install cbt in  Google Cloud SDK"></a>install cbt in  <strong>Google Cloud SDK</strong></h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcloud components update</span><br><span class="line">glcoud components install cbt</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="set-env-variable"><a href="#set-env-variable" class="headerlink" title="set env variable"></a>set env variable</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e "project=[PROJECT_ID]\ninstance=[INSTANCE_ID]"&gt;~/.cbtrc</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="create-table"><a href="#create-table" class="headerlink" title="create table"></a>create table</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt createtable my-table</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="list-table"><a href="#list-table" class="headerlink" title="list table"></a>list table</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt ls</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="add-column-family"><a href="#add-column-family" class="headerlink" title="add column family"></a>add column family</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt createfamily my-table cf1</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="list-column-family"><a href="#list-column-family" class="headerlink" title="list column family"></a>list column family</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt ls my-table</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="add-value-to-row1-column-family-cf1-column-qualifier-c1"><a href="#add-value-to-row1-column-family-cf1-column-qualifier-c1" class="headerlink" title="add value to row1, column family cf1, column qualifier c1"></a>add value to row1, column family cf1, column qualifier c1</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt set my-table r1 cf1:c1=testvalue</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="read-table"><a href="#read-table" class="headerlink" title="read table"></a>read table</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt read my-table</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="delete-table"><a href="#delete-table" class="headerlink" title="delete table"></a>delete table</h3><figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt deletetable my-table</span><br></pre></td></tr></tbody></table></figure>
-<div class="video-container"><iframe src="https://www.youtube.com/embed/WI1qVV9sM3s" frameborder="0" loading="lazy" allowfullscreen=""></iframe></div></body></html>
-    
+<h2 id="Hands-on"><a href="#Hands-on" class="headerlink" title="Hands on"></a>Hands on</h2><h3 id="install-cbt-in-Google-Cloud-SDK"><a href="#install-cbt-in-Google-Cloud-SDK" class="headerlink" title="install cbt in  Google Cloud SDK"></a>install cbt in  <strong>Google Cloud SDK</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcloud components update</span><br><span class="line">glcoud components install cbt</span><br></pre></td></tr></table></figure>
+<h3 id="set-env-variable"><a href="#set-env-variable" class="headerlink" title="set env variable"></a>set env variable</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;project=[PROJECT_ID]\ninstance=[INSTANCE_ID]&quot;&gt;~/.cbtrc</span><br></pre></td></tr></table></figure>
+<h3 id="create-table"><a href="#create-table" class="headerlink" title="create table"></a>create table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt createtable my-table</span><br></pre></td></tr></table></figure>
+<h3 id="list-table"><a href="#list-table" class="headerlink" title="list table"></a>list table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt ls</span><br></pre></td></tr></table></figure>
+<h3 id="add-column-family"><a href="#add-column-family" class="headerlink" title="add column family"></a>add column family</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt createfamily my-table cf1</span><br></pre></td></tr></table></figure>
+<h3 id="list-column-family"><a href="#list-column-family" class="headerlink" title="list column family"></a>list column family</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt ls my-table</span><br></pre></td></tr></table></figure>
+<h3 id="add-value-to-row1-column-family-cf1-column-qualifier-c1"><a href="#add-value-to-row1-column-family-cf1-column-qualifier-c1" class="headerlink" title="add value to row1, column family cf1, column qualifier c1"></a>add value to row1, column family cf1, column qualifier c1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt set my-table r1 cf1:c1=testvalue</span><br></pre></td></tr></table></figure>
+<h3 id="read-table"><a href="#read-table" class="headerlink" title="read table"></a>read table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt read my-table</span><br></pre></td></tr></table></figure>
+<h3 id="delete-table"><a href="#delete-table" class="headerlink" title="delete table"></a>delete table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt deletetable my-table</span><br></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/WI1qVV9sM3s" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/" data-id="cljfp33hu001z5oi46p3r6h4a" data-title="b04-Bigtable" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
     
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/blog/2020/05/20/b05-Cloud-Spanner/">b05-Cloud-Spanner</a>
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/blog/2020/05/16/b03-Cloud-Datastore/">b03-Cloud-Datastore</a>
-            
-        </span>
-    </div>
-    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/05/20/b05-Cloud-Spanner/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          b05-Cloud-Spanner
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/05/16/b03-Cloud-Datastore/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">b03-Cloud-Datastore</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-
-
-<div class="comments">
-    <h3 class="title is-4">Comments</h3>
-    
-<script>
-    var disqus_config = function () {
-        this.page.url = 'https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/';
-        this.page.identifier = '2020/05/19/b04-Bigtable/';
-        
-        this.language = 'en';
-        
-    };
-    (function() {
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'myblog-qrzxtabkyg' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-
-<div id="disqus_thread">
-    
-    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
-
-    </div>
 </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="columns content">
-            <div class="column is-narrow has-text-centered">
-                &copy; 2023 MA Jian&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
-                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
-            </div>
-            <div class="column is-hidden-mobile"></div>
-
-            
-            
-        </div>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/c-pandas/">c-pandas</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
     </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 MA Jian<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
-<!-- test if the browser is outdated -->
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // plugin function, place inside DOM ready function
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        })
-    });
-</script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-<script>
-    window.FontAwesomeConfig = {
-        searchPseudoElements: true
-    }
-    moment.locale("en-AU");
-</script>
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
 
 
 
@@ -228,6 +285,9 @@
 <script src="/blog/js/script.js"></script>
 
 
-    
+
+
+
+  </div>
 </body>
 </html>
