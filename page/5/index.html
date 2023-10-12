@@ -78,6 +78,140 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-b03-Cloud-Datastore" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/05/16/b03-Cloud-Datastore/" class="article-date">
+  <time class="dt-published" datetime="2020-05-16T08:08:57.000Z" itemprop="datePublished">2020-05-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/05/16/b03-Cloud-Datastore/">b03-Cloud-Datastore</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="What-is-a-Cloud-Datastore"><a href="#What-is-a-Cloud-Datastore" class="headerlink" title="What is a Cloud Datastore"></a>What is a Cloud Datastore</h2><ul>
+<li>NoSQL</li>
+</ul>
+<ul>
+<li>Flexible structure&#x2F;relationship</li>
+</ul>
+<ul>
+<li>No Ops</li>
+</ul>
+<ul>
+<li>No provisioning of instances</li>
+<li>Compute layer is abstracted away</li>
+</ul>
+<ul>
+<li>Scalable</li>
+</ul>
+<ul>
+<li>Multi-regions access</li>
+<li>Sharding&#x2F;replication automatic</li>
+</ul>
+<ul>
+<li>We can have only 1 Datastore per project</li>
+</ul>
+<h2 id="When-to-use-Datastore"><a href="#When-to-use-Datastore" class="headerlink" title="When to use Datastore"></a>When to use Datastore</h2><ul>
+<li>Applications need scale</li>
+<li>Product catalog - real time inventory</li>
+<li>User profiles - mobile apps</li>
+<li>Game save states</li>
+<li>ACID transactions, eg, transferring funds</li>
+</ul>
+<h2 id="When-not-use-Datastore"><a href="#When-not-use-Datastore" class="headerlink" title="When not use Datastore"></a>When not use Datastore</h2><ul>
+<li>Analytics(full SQL semantics)<ul>
+<li>Use Big Query&#x2F;Cloud Spanner</li>
+</ul>
+</li>
+<li>Extreme scale(10M+ read&#x2F;writes per second)<ul>
+<li>Use Bigtable</li>
+</ul>
+</li>
+<li>Don’t need ACID<ul>
+<li>Bigtable</li>
+</ul>
+</li>
+<li>Lift and shift(existing MYSQL)<ul>
+<li>Cloud SQL</li>
+</ul>
+</li>
+<li>Near zero latency(&lt; 10ms)<ul>
+<li>Use in-memory database (Redis)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Relational-Database-vs-Datastore"><a href="#Relational-Database-vs-Datastore" class="headerlink" title="Relational Database vs Datastore"></a>Relational Database vs Datastore</h2><p>Entities can be hierarchical</p>
+<img src="/blog/2020/05/16/b03-Cloud-Datastore/rdbms_vs_datastore.png" class="" title="rdbms_vs_datastore">
+
+<h2 id="Queries-and-Indexing"><a href="#Queries-and-Indexing" class="headerlink" title="Queries and Indexing"></a>Queries and Indexing</h2><h3 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h3><ul>
+<li>retrieve entity from datastore</li>
+<li>query methods<ul>
+<li>programmatic</li>
+<li>web console</li>
+<li>GQL( google query language)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h3><ul>
+<li>queries get results from indexes</li>
+<li>index type<ul>
+<li>Built-in: Allows single property queries</li>
+<li>Composite: use index.yaml</li>
+</ul>
+</li>
+</ul>
+<h3 id="Danger-Exploding-Indexes"><a href="#Danger-Exploding-Indexes" class="headerlink" title="Danger - Exploding Indexes !"></a>Danger - Exploding Indexes !</h3><ul>
+<li>solutions:</li>
+</ul>
+<ul>
+<li>use index.yaml to narrow index scope</li>
+<li>do not index properties that don’t need indexing</li>
+</ul>
+<h2 id="Data-Consistency"><a href="#Data-Consistency" class="headerlink" title="Data Consistency"></a>Data Consistency</h2><p>Performance vs Accuracy</p>
+<ul>
+<li>Strongly Consistent<ul>
+<li>Parallel processes with orders guaranteed</li>
+<li>Use case: financial transaction</li>
+</ul>
+</li>
+<li>Eventually Consistent<ul>
+<li>Parallel processes not with orders guaranteed </li>
+<li>Use case: Census population, order not important<div class="video-container"><iframe src="https://www.youtube.com/embed/EZVu3AIxKFg" frameborder="0" loading="lazy" allowfullscreen></iframe></div></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2020/05/16/b03-Cloud-Datastore/" data-id="clnnf0cby001ws4i4g2u7gbif" data-title="b03-Cloud-Datastore" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-b02-Cloud-SQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2020/05/14/b02-Cloud-SQL/" class="article-date">
@@ -118,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="cljfp33ht001u5oi43wnq3w1f" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="clnnf0cbx001us4i4hrjhaaqz" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
       
       
       
@@ -198,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/11/b01-Fundamental-Concepts/" data-id="cljfp33hs001t5oi47ff92vme" data-title="b01-Fundamental-Concepts" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/11/b01-Fundamental-Concepts/" data-id="clnnf0cbx001ts4i434pf8yws" data-title="b01-Fundamental-Concepts" class="article-share-link">Share</a>
       
       
       
@@ -327,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/09/a08-GCP-Big-Data-and-Machine-Learning/" data-id="cljfp33hs001r5oi418vaa8fc" data-title="a08-GCP Big Data and Machine Learning" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/09/a08-GCP-Big-Data-and-Machine-Learning/" data-id="clnnf0cbw001rs4i4c1m7bjsx" data-title="a08-GCP Big Data and Machine Learning" class="article-share-link">Share</a>
       
       
       
@@ -379,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a07-GCP-Developing-Deploying-and-Monitoring/" data-id="cljfp33hr001q5oi4ce94275h" data-title="a07-GCP Developing, Deploying and Monitoring" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a07-GCP-Developing-Deploying-and-Monitoring/" data-id="clnnf0cbv001os4i4b6xb4v73" data-title="a07-GCP Developing, Deploying and Monitoring" class="article-share-link">Share</a>
       
       
       
@@ -468,7 +602,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a06-GCP-Applications/" data-id="cljfp33hr001o5oi4510gdny9" data-title="a06-GCP-Applications" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a06-GCP-Applications/" data-id="clnnf0cbv001qs4i43wx9ctqx" data-title="a06-GCP-Applications" class="article-share-link">Share</a>
       
       
       
@@ -519,7 +653,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="cljfp33hr001n5oi4382galsq" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="clnnf0cbu001ns4i43mhl4flz" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
       
       
       
@@ -641,7 +775,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a04-GCP-Storage/" data-id="cljfp33hq001l5oi44j7c4cmr" data-title="a04-GCP-Storage" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a04-GCP-Storage/" data-id="clnnf0cbu001ls4i4dkcfg77n" data-title="a04-GCP-Storage" class="article-share-link">Share</a>
       
       
       
@@ -707,7 +841,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a03-GCP-Virtual-Machines/" data-id="cljfp33hq001k5oi49oui27d0" data-title="a03-GCP-Virtual-Machines" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a03-GCP-Virtual-Machines/" data-id="clnnf0cbt001js4i41nk7e4gl" data-title="a03-GCP-Virtual-Machines" class="article-share-link">Share</a>
       
       
       
@@ -753,106 +887,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/spark-cross-join/" data-id="cljfp33hz002j5oi481radrep" data-title="spark cross join" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-a02-Getting-Started-With-GCP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/05/03/a02-Getting-Started-With-GCP/" class="article-date">
-  <time class="dt-published" datetime="2020-05-03T12:53:10.000Z" itemprop="datePublished">2020-05-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/05/03/a02-Getting-Started-With-GCP/">a02-Getting-Started-With-GCP</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h2><p>IAM: Google Cloud’s Identity and Access Management.<br>It has 3 parts:</p>
-<ul>
-<li><strong>Who</strong>:<br>  can be defined by google account, google group, service account</li>
-<li><strong>Can do what</strong>: can be defined by an <strong>IAM role</strong> which is a collection of permissions<ul>
-<li>There are 3 kinds of roles:<ul>
-<li>Primitive role</li>
-<li>Predefined role</li>
-<li>Custom role:  can only be defined in organization or project, but not in folders</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>On which resource</strong></li>
-</ul>
-<h2 id="GCP-resource-hierarchy"><a href="#GCP-resource-hierarchy" class="headerlink" title="GCP resource hierarchy"></a>GCP resource hierarchy</h2><p>polices can define in organization, folder, project, they are inherited in the hierarchy.</p>
-<img src="/blog/2020/05/03/a02-Getting-Started-With-GCP/resources_hierarchy.png" class="" title="resources_hierarchy">
-
-<p><strong>Projects</strong> are the main way you organise your gcp resources.</p>
-<p>Each project has </p>
-<ul>
-<li>Project ID: immutable (assigned by you)</li>
-<li>Project Name: mutable (assigned by you)</li>
-<li>Project number: immutable (assigned by GCP)</li>
-</ul>
-<p>Policies defined in organisation level can be inherited to all children.</p>
-<p>GCP use <strong>least</strong> privilege in managing any kind of compute infrastructure. </p>
-<p><strong>The policies implemented at a higher level in this hierarchy can’t take away access that’s granted at a lower level</strong><br>Eg: if you grant Editor role to Organisation and Viewer role to the folder, then the folder is granted the Editor role.</p>
-<p>Projects can have different owners and users - they are built separately and managed separately.</p>
-<h2 id="Service-Account"><a href="#Service-Account" class="headerlink" title="Service Account"></a>Service Account</h2><p>For example: If you want to give permissions to a Compute Engine rather than a person, you would use service account.<br>A service account is also a resource, so you can give a role to it.</p>
-<p>There are 4 ways to interact with GCP’s management layer:</p>
-<ul>
-<li>GCP console<ul>
-<li>Manage and create projects</li>
-<li>Access to GCP APIs</li>
-<li>Offers access to Cloud Shell</li>
-</ul>
-</li>
-<li>Cloud shell and Cloud SDK<ul>
-<li>Includes command line tools: gcloud, gsutil(Cloud storage), bq(BigQuery)</li>
-</ul>
-</li>
-<li>API<ul>
-<li>Enabled through GCP console</li>
-<li><strong>APIs Explorer</strong> is an interface tool that let you easily try GCP APIs using a browser</li>
-<li>Use libraries within your code<ul>
-<li>Cloud Client Libraries<br>(<strong>Latest and recommended libraries</strong>)</li>
-<li>Google API Client Libraries</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Cloud Console Mobile App</li>
-</ul>
-<p>When using GCP, it handles most of the lower security layer, the upper layers remain the customer’s responsibility </p>
-<img src="/blog/2020/05/03/a02-Getting-Started-With-GCP/cloud_security.png" class="" title="cloud_security">
-
-<h2 id="Cloud-MarketPlace-formerly-Cloud-Launcher"><a href="#Cloud-MarketPlace-formerly-Cloud-Launcher" class="headerlink" title="Cloud MarketPlace( formerly Cloud Launcher)"></a>Cloud MarketPlace( formerly Cloud Launcher)</h2><p>It’s a tool for quickly deploying functional software packages on GCP</p>
-<div class="video-container"><iframe src="https://www.youtube.com/embed/WVwEVeW4A64" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/03/a02-Getting-Started-With-GCP/" data-id="cljfp33hp001i5oi481aq9pzw" data-title="a02-Getting-Started-With-GCP" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/spark-cross-join/" data-id="clnnf0cd2006ls4i4938u3qmi" data-title="spark cross join" class="article-share-link">Share</a>
       
       
       
@@ -879,7 +914,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/c-pandas/">c-pandas</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/">ml</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/a-algorithm/">a-algorithm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/c-pandas/">c-pandas</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
     </div>
   </div>
 
@@ -908,7 +943,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
     </div>
   </div>
 
@@ -919,6 +954,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2023/10/12/ml-a01-regression/">ml-a01-regression</a>
+          </li>
         
           <li>
             <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
@@ -934,10 +973,6 @@
         
           <li>
             <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
           </li>
         
       </ul>

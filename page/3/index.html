@@ -78,6 +78,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-a09-Modules" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/01/29/Python-a09-Modules/" class="article-date">
+  <time class="dt-published" datetime="2021-01-29T16:05:13.000Z" itemprop="datePublished">2021-01-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/01/29/Python-a09-Modules/">Python-a09-Modules</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of Modules in python</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">## my_module.py file</span><br><span class="line">    print(&#x27;Imported my_module...&#x27;)</span><br><span class="line">    </span><br><span class="line">    test = &#x27;Test String&#x27;</span><br><span class="line">    </span><br><span class="line">    def find_index(to_search, target):</span><br><span class="line">        &#x27;&#x27;&#x27;Find the index of a value in a sequence&#x27;&#x27;&#x27;</span><br><span class="line">        for i, value in enumerate(to_search):</span><br><span class="line">            if value == target:</span><br><span class="line">                return i</span><br><span class="line">        return -1</span><br><span class="line">    </span><br><span class="line">## test.py basic</span><br><span class="line">    import my_module</span><br><span class="line"></span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = my_module.find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)   # Imported my_module...</span><br><span class="line">                   # 1   </span><br><span class="line">                    </span><br><span class="line">## test.py as</span><br><span class="line">    import my_module as mm</span><br><span class="line"></span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = mm.find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)   # Imported my_module...</span><br><span class="line">                   # 1</span><br><span class="line">    </span><br><span class="line">## test.py from</span><br><span class="line">    from my_module import find_index,test</span><br><span class="line">    </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)       # Imported my_module...</span><br><span class="line">                       # 1</span><br><span class="line">    print(test)        # Test String</span><br><span class="line">     </span><br><span class="line">## test.py from as</span><br><span class="line">    from my_module import find_index as fi,test</span><br><span class="line">    </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = fi(courses, &#x27;Math&#x27;)</span><br><span class="line">    </span><br><span class="line">    print(index)       # Imported my_module...</span><br><span class="line">                       # 1</span><br><span class="line">    print(test)        # Test String</span><br><span class="line"> </span><br><span class="line">## sys.path: the path of modules to import from</span><br><span class="line">     </span><br><span class="line">    from my_module import find_index, test</span><br><span class="line">    import sys</span><br><span class="line">    </span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    </span><br><span class="line">    index = find_index(courses, &#x27;Math&#x27;)</span><br><span class="line">     </span><br><span class="line">    # print(index)</span><br><span class="line">    # print(test)</span><br><span class="line">    print(sys.path) # [&#x27;C:\\Dev\\examples\\python\\python_examples&#x27;,...]</span><br><span class="line">    </span><br><span class="line">## add path to sys.path or to PYTHONPATH</span><br><span class="line">    # move my_module.py to new dir mymoduledir</span><br><span class="line">    # rerun test.py, there is an error ModuleNotFoundError</span><br><span class="line">    </span><br><span class="line">    # solution 1: add mymoduledir to sys.path</span><br><span class="line">        import sys</span><br><span class="line">        sys.path.append(&#x27;C:\Dev\examples\python\python_examples\mymoduledir&#x27;)</span><br><span class="line">        print(sys.path)   </span><br><span class="line">         </span><br><span class="line">    # solution 2: set mymoduledir to PYTHONPATH</span><br><span class="line">        set PYTHONPATH=C:\Dev\examples\python\python_examples\mymoduledir</span><br><span class="line">        </span><br><span class="line">## import existing libraries</span><br><span class="line">    # random</span><br><span class="line">    import random</span><br><span class="line">    courses = [&#x27;History&#x27;, &#x27;Math&#x27;, &#x27;Physics&#x27;, &#x27;CompSci&#x27;]</span><br><span class="line">    random_choice = random.choice(courses)</span><br><span class="line">    print(random_choice)</span><br><span class="line">    </span><br><span class="line">    # math</span><br><span class="line">    import math</span><br><span class="line">    res = math.log2(2)</span><br><span class="line">    print(res)    # 1.0</span><br><span class="line">    </span><br><span class="line">    # datetime</span><br><span class="line">    import datetime</span><br><span class="line">    </span><br><span class="line">    today = datetime.date.today()</span><br><span class="line">    print(today)</span><br><span class="line">    </span><br><span class="line">    # os</span><br><span class="line">    import os</span><br><span class="line">    # get current working directory</span><br><span class="line">    print(os.getcwd())  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="clnnf0cbh000rs4i46g3n6gj7" data-title="Python-a09-Modules" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-a08-Functions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/01/29/Python-a08-Functions/" class="article-date">
@@ -109,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="cljfp33hf000o5oi49l3ohjj2" data-title="Python-a08 Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="clnnf0cbg000os4i4gwep9qk3" data-title="Python-a08 Functions" class="article-share-link">Share</a>
       
       
       
@@ -152,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="cljfp33he000n5oi489vhc321" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="clnnf0cbf000ms4i4helkdb1w" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
       
       
       
@@ -237,7 +280,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="cljfp33ho001d5oi41illas3r" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="clnnf0cbr001ds4i41pbh6p9a" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
       
       
       
@@ -280,7 +323,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="cljfp33hd000l5oi45gur8b2h" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="clnnf0cbe000js4i4h13k5bfm" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
       
       
       
@@ -325,7 +368,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="cljfp33hd000k5oi48h3225k2" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="clnnf0cbf000ls4i45jap7ee1" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
       
       
       
@@ -370,7 +413,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="cljfp33hc000j5oi4cdruam2z" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="clnnf0cbc000is4i42p588ubt" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
       
       
       
@@ -415,7 +458,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="cljfp33hb000h5oi49toae2y3" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="clnnf0cbb000fs4i495s8akn4" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
       
       
       
@@ -460,7 +503,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="cljfp33ha000g5oi48fso1jmm" data-title="Python-a02-String" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="clnnf0cba000es4i4hgur8dow" data-title="Python-a02-String" class="article-share-link">Share</a>
       
       
       
@@ -515,74 +558,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="cljfp33h9000d5oi43hl00sxt" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-b06-01-Cloud-PubSub-HelloWorld" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" class="article-date">
-  <time class="dt-published" datetime="2020-10-02T10:59:33.000Z" itemprop="datePublished">2020-10-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/">b06-01-Cloud-PubSub-HelloWorld</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>In this article I will show you how to publish and receive messages in PubSub with Java</p>
-<ol>
-<li><p>create topic</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud pubsub topics create my-topic</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>create subscription to this topic</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcloud pubsub subscriptions create my-sub --topic my-topic</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>git clone project into cloud shell</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="comment">//github.com/googleapis/java-pubsub.git</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>go into the sample</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd samples/snippets/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>modify PublisherExample.java and SubscribeAsyncExample.java to put the right project id, topic id and subscription id</p>
-</li>
-<li><p>compile project</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean install -<span class="type">DskipTests</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>run subscriber</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn exec:java -<span class="type">Dexec</span>.mainClass=<span class="string">&quot;pubsub.SubscribeAsyncExample&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>run publisher in another screen and observe subscriber</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn exec:java -<span class="type">Dexec</span>.mainClass=<span class="string">&quot;pubsub.PublisherExample&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<div class="video-container"><iframe src="https://www.youtube.com/embed/FCUkRvSEo-Y" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="cljfp33hv00225oi410m1bz6r" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="clnnf0cb9000cs4i4d7fd4nml" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
       
       
       
@@ -609,7 +585,7 @@ More advanced in orchestration
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/c-pandas/">c-pandas</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/">ml</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/a-algorithm/">a-algorithm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/c-pandas/">c-pandas</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
     </div>
   </div>
 
@@ -638,7 +614,7 @@ More advanced in orchestration
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
     </div>
   </div>
 
@@ -649,6 +625,10 @@ More advanced in orchestration
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2023/10/12/ml-a01-regression/">ml-a01-regression</a>
+          </li>
         
           <li>
             <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
@@ -664,10 +644,6 @@ More advanced in orchestration
         
           <li>
             <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c03-DataFrame-and-Series/">Python-c03-DataFrame and Series</a>
           </li>
         
       </ul>
