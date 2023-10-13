@@ -119,11 +119,26 @@
 <img src="/blog/2023/10/12/ml-a01-regression/output_5_1.png" class="" title="output_5_1">
 
 <p>PS:<br><a href="2023/10/12/ml-a01-regression/gradient-descent-data.csv" download="gradient-descent-data.csv">gradient-descent-data.csv</a></p>
+<h1 id="Sklearn"><a href="#Sklearn" class="headerlink" title="Sklearn"></a>Sklearn</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = np.genfromtxt(<span class="string">&quot;gradient-descent-data.csv&quot;</span>, delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line">x_data = data[:, <span class="number">0</span>]</span><br><span class="line">y_data = data[:, <span class="number">1</span>]</span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line">plt.show()</span><br><span class="line"><span class="built_in">print</span>(x_data.shape)</span><br></pre></td></tr></table></figure>
+
+
+<img src="/blog/2023/10/12/ml-a01-regression/output_1_0.png" class="" title="output_1_0">
+
+<p>(100,)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x_data = data[:, <span class="number">0</span>, np.newaxis]</span><br><span class="line">y_data = data[:, <span class="number">1</span>, np.newaxis]</span><br><span class="line">model = LinearRegression()</span><br><span class="line">model.fit(x_data,y_data)</span><br></pre></td></tr></table></figure>
+
+<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x_data,y_data,<span class="string">&#x27;b.&#x27;</span>)</span><br><span class="line">plt.plot(x_data, model.predict(x_data), <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<img src="/blog/2023/10/12/ml-a01-regression/output_5_1.png" class="" title="output_5_1">
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="clnnf0cc6002hs4i408nw37z9" data-title="ml-a01-regression" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="clnodto04002gp0i4hvgc4czl" data-title="ml-a01-regression" class="article-share-link">Share</a>
       
       
       
@@ -176,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clnnf0cc5002es4i42jgk1lfq" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clnodto02002bp0i45ayh3ozs" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
       
       
       
@@ -831,7 +846,7 @@
 <p>0    3<br>1    3<br>2    3<br>dtype: int64</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the min of each column</span></span><br><span class="line">df.apply(pd.Series.<span class="built_in">min</span>)</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#x63;&#x6f;&#114;&#x65;&#x79;&#x6d;&#115;&#99;&#104;&#x61;&#102;&#101;&#114;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x63;&#x6f;&#114;&#x65;&#x79;&#x6d;&#115;&#99;&#104;&#x61;&#102;&#101;&#114;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a><br>dtype: object</p>
+<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#99;&#111;&#114;&#x65;&#121;&#x6d;&#115;&#99;&#104;&#97;&#102;&#x65;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#99;&#111;&#114;&#x65;&#121;&#x6d;&#115;&#99;&#104;&#97;&#102;&#x65;&#x72;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;</a><br>dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># applymap works only on every element of the DataFrame</span></span><br><span class="line">df.applymap(<span class="built_in">len</span>)</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -890,7 +905,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="clnnf0cbr001cs4i4fldnbk58" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="clnodtnzm001ap0i48rq0h3uv" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
       
       
       
@@ -1072,10 +1087,10 @@
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># not in filter ~</span></span><br><span class="line">df.loc[~filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p>0    <a href="mailto:&#x43;&#111;&#114;&#101;&#x79;&#x4d;&#x53;&#x63;&#x68;&#97;&#102;&#x65;&#x72;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x43;&#111;&#114;&#101;&#x79;&#x4d;&#x53;&#x63;&#x68;&#97;&#102;&#x65;&#x72;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#67;&#x6f;&#114;&#101;&#121;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#101;&#114;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#67;&#x6f;&#114;&#101;&#121;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#101;&#114;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># isin filter</span></span><br><span class="line">lasts = [<span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Mike&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>]</span><br><span class="line">filt = df[<span class="string">&#x27;last&#x27;</span>].isin(lasts)</span><br><span class="line">df.loc[filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>1    <a href="mailto:&#74;&#x61;&#x6e;&#x65;&#x44;&#x6f;&#101;&#64;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#74;&#x61;&#x6e;&#x65;&#x44;&#x6f;&#101;&#64;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a><br>2    <a href="mailto:&#x4a;&#111;&#104;&#110;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#109;">&#x4a;&#111;&#104;&#110;&#68;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#109;</a><br>Name: email, dtype: object</p>
+<p>1    <a href="mailto:&#x4a;&#x61;&#x6e;&#x65;&#x44;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x4a;&#x61;&#x6e;&#x65;&#x44;&#x6f;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;</a><br>2    <a href="mailto:&#74;&#111;&#x68;&#x6e;&#68;&#x6f;&#x65;&#x40;&#101;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#74;&#111;&#x68;&#x6e;&#68;&#x6f;&#x65;&#x40;&#101;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 
@@ -1710,7 +1725,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="clnnf0cbq0019s4i4ajc604ss" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="clnodtnzl0019p0i4383v9hdb" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
       
       
       
@@ -2811,7 +2826,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="clnnf0cbq001bs4i4gty8294z" data-title="Python-c04-indexes" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="clnodtnzl0018p0i4g5sj5old" data-title="Python-c04-indexes" class="article-share-link">Share</a>
       
       
       
@@ -2859,7 +2874,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>[‘<a href="mailto:&#x43;&#111;&#114;&#101;&#x79;&#77;&#x53;&#x63;&#104;&#x61;&#x66;&#x65;&#x72;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x43;&#111;&#114;&#101;&#x79;&#77;&#x53;&#x63;&#104;&#x61;&#x66;&#x65;&#x72;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a>‘, ‘<a href="mailto:&#x4a;&#97;&#x6e;&#x65;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#x6d;">&#x4a;&#97;&#x6e;&#x65;&#68;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#x6d;</a>‘, ‘<a href="mailto:&#74;&#x6f;&#x68;&#x6e;&#68;&#x6f;&#x65;&#x40;&#x65;&#109;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#74;&#x6f;&#x68;&#x6e;&#68;&#x6f;&#x65;&#x40;&#x65;&#109;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>‘]</p>
+<p>[‘<a href="mailto:&#67;&#x6f;&#x72;&#101;&#121;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#101;&#114;&#x40;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;">&#67;&#x6f;&#x72;&#101;&#121;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#101;&#114;&#x40;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#97;&#x6e;&#101;&#x44;&#x6f;&#x65;&#64;&#x65;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x4a;&#97;&#x6e;&#101;&#x44;&#x6f;&#x65;&#64;&#x65;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a>‘, ‘<a href="mailto:&#x4a;&#111;&#104;&#x6e;&#x44;&#x6f;&#101;&#64;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x4a;&#111;&#104;&#x6e;&#x44;&#x6f;&#101;&#64;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a>‘]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
@@ -2913,7 +2928,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>0    <a href="mailto:&#67;&#x6f;&#x72;&#101;&#x79;&#77;&#x53;&#x63;&#x68;&#97;&#102;&#x65;&#114;&#x40;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#67;&#x6f;&#x72;&#101;&#x79;&#77;&#x53;&#x63;&#x68;&#97;&#102;&#x65;&#114;&#x40;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;</a><br>1          <a href="mailto:&#74;&#97;&#110;&#101;&#x44;&#111;&#101;&#x40;&#x65;&#109;&#x61;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#74;&#97;&#110;&#101;&#x44;&#111;&#101;&#x40;&#x65;&#109;&#x61;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a><br>2          <a href="mailto:&#74;&#x6f;&#104;&#x6e;&#x44;&#x6f;&#101;&#x40;&#x65;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#74;&#x6f;&#104;&#x6e;&#x44;&#x6f;&#101;&#x40;&#x65;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#67;&#x6f;&#114;&#101;&#121;&#77;&#83;&#99;&#104;&#97;&#102;&#101;&#114;&#64;&#x67;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#67;&#x6f;&#114;&#101;&#121;&#77;&#83;&#99;&#104;&#97;&#102;&#101;&#114;&#64;&#x67;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#x6d;</a><br>1          <a href="mailto:&#x4a;&#x61;&#x6e;&#x65;&#68;&#x6f;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x4a;&#x61;&#x6e;&#x65;&#68;&#x6f;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a><br>2          <a href="mailto:&#74;&#x6f;&#x68;&#x6e;&#x44;&#x6f;&#x65;&#x40;&#x65;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#74;&#x6f;&#x68;&#x6e;&#x44;&#x6f;&#x65;&#x40;&#x65;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#display multiple columns</span></span><br><span class="line">df[[<span class="string">&#x27;last&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -2961,7 +2976,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iloc: integer location: put the integer index to get the row</span></span><br><span class="line"><span class="comment"># get the first row in this example</span></span><br><span class="line">df.iloc[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#111;&#114;&#101;&#121;&#77;&#x53;&#99;&#x68;&#97;&#102;&#101;&#x72;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#67;&#111;&#114;&#101;&#121;&#77;&#x53;&#99;&#x68;&#97;&#102;&#101;&#x72;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a><br>Name: 0, dtype: object</p>
+<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#111;&#114;&#101;&#x79;&#x4d;&#83;&#x63;&#104;&#97;&#102;&#101;&#x72;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#67;&#111;&#114;&#101;&#x79;&#x4d;&#83;&#x63;&#104;&#97;&#102;&#101;&#x72;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a><br>Name: 0, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[[<span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -3105,7 +3120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="clnnf0cbp0018s4i4f3k616ef" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="clnodtnzk0016p0i479s56vzg" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
       
       
       
@@ -3475,7 +3490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="clnnf0cbo0016s4i41bt74c17" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="clnodtnzj0015p0i4ek049b72" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
       
       
       
@@ -3529,7 +3544,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="clnnf0cbl0013s4i48vb8b0gy" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="clnodtnzi0013p0i4403rhwpb" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
       
       
       
@@ -3576,7 +3591,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="clnnf0cd4006qs4i40dic15hn" data-title="Website Recommended" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="clnodto10006jp0i47fyjgm2y" data-title="Website Recommended" class="article-share-link">Share</a>
       
       
       
@@ -3618,7 +3633,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="clnnf0cc5002cs4i46iei94sw" data-title="d01-Logs Router" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/09/15/d01-Logs-Router/" data-id="clnodto02002ap0i47fgl2xlg" data-title="d01-Logs Router" class="article-share-link">Share</a>
       
       
       
