@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/output_1_0.png">
 <meta property="og:image" content="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/output_5_1.png">
 <meta property="article:published_time" content="2023-10-12T16:32:32.000Z">
-<meta property="article:modified_time" content="2023-10-13T09:03:41.887Z">
+<meta property="article:modified_time" content="2023-10-13T12:15:03.550Z">
 <meta property="article:author" content="MA Jian">
 <meta property="article:tag" content="development">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">starting b=<span class="number">0</span>, k=<span class="number">0</span>, error = <span class="number">2782.5539172416056</span></span><br><span class="line">Running...</span><br><span class="line">after <span class="number">50</span> iterations b=<span class="number">0.030569950649287983</span>, k=<span class="number">1.4788903781318357</span>, error=<span class="number">56.32488184238028</span></span><br></pre></td></tr></table></figure>
 <img src="/blog/2023/10/12/ml-a01-regression/output_5_1.png" class="" title="output_5_1">
 
-<p>PS:<br><a href="2023/10/12/ml-a01-regression/gradient-descent-data.csv" download="gradient-descent-data.csv">gradient-descent-data.csv</a></p>
+<p>PS:<br><a href="gradient-descent-data.csv" download="gradient-descent-data.csv">gradient-descent-data.csv</a></p>
 <h1 id="Sklearn"><a href="#Sklearn" class="headerlink" title="Sklearn"></a>Sklearn</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = np.genfromtxt(<span class="string">&quot;gradient-descent-data.csv&quot;</span>, delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line">x_data = data[:, <span class="number">0</span>]</span><br><span class="line">y_data = data[:, <span class="number">1</span>]</span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line">plt.show()</span><br><span class="line"><span class="built_in">print</span>(x_data.shape)</span><br></pre></td></tr></table></figure>
@@ -143,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="clnodto04002gp0i4hvgc4czl" data-title="ml-a01-regression" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="clnoknbas002pcgi4ev8qc3lc" data-title="ml-a01-regression" class="article-share-link">Share</a>
       
       
       
