@@ -78,6 +78,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-a02-String" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/01/14/Python-a02-String/" class="article-date">
+  <time class="dt-published" datetime="2021-01-14T19:10:16.000Z" itemprop="datePublished">2021-01-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/01/14/Python-a02-String/">Python-a02-String</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of String in python</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># 1</span><br><span class="line">   message1 = &#x27;Hello World&#x27;</span><br><span class="line">   print(message1)</span><br><span class="line"></span><br><span class="line"># 2   </span><br><span class="line">   message2 = &quot;hello &#x27;Jimmy&#x27;&quot;</span><br><span class="line">   print(message2)</span><br><span class="line">   </span><br><span class="line"># 3   </span><br><span class="line">   message3 = &#x27;Hello World&#x27;</span><br><span class="line">   print(len(message3))</span><br><span class="line">   </span><br><span class="line"># 4   </span><br><span class="line">   message4 = &#x27;Hello World&#x27;</span><br><span class="line">   print(message4[1])</span><br><span class="line">   print(message4[-1])</span><br><span class="line">   print(message4[0:5]) # first include, second not</span><br><span class="line">   print(message4[:5]) # end to the 5</span><br><span class="line">   print(message4[6:]) # start from the 6</span><br><span class="line">   print(message4[11]) # error</span><br><span class="line"></span><br><span class="line"># 5   </span><br><span class="line">   message5 = &#x27;Hello World&#x27;</span><br><span class="line">   print(message5.lower())</span><br><span class="line">   print(message5.upper())</span><br><span class="line">   print(message5.count(&#x27;l&#x27;)) # count l&#x27;s number in the message</span><br><span class="line">   print(message5.find(&#x27;World&#x27;)) # return 6</span><br><span class="line">   print(message5.find(&#x27;Unknown&#x27;)) # return -1</span><br><span class="line"></span><br><span class="line"># 6   </span><br><span class="line">   message6 = &#x27;Hello World&#x27;</span><br><span class="line">   # or by the same message6 = message6.replace(&#x27;World&#x27;, &#x27;You&#x27;)</span><br><span class="line">   new_message6 = message6.replace(&#x27;World&#x27;, &#x27;You&#x27;)</span><br><span class="line">   print(new_message6)</span><br><span class="line">   </span><br><span class="line"># 7   </span><br><span class="line">   greeting=&#x27;Hello&#x27;</span><br><span class="line">   name=&#x27;Bob&#x27;</span><br><span class="line">   message7 = greeting + &#x27;, &#x27; + name</span><br><span class="line">   print(message7)  </span><br><span class="line">   </span><br><span class="line">   message8 = &#x27;&#123;&#125;, &#123;&#125;. Welcome!&#x27;.format(greeting, name)</span><br><span class="line">   print(message8)</span><br><span class="line">   </span><br><span class="line">   message9 = f&#x27;&#123;greeting&#125;, &#123;name&#125;. Welcome!&#x27; # python &gt;3.10</span><br><span class="line">   print(message9)</span><br><span class="line">   </span><br><span class="line">   message10 = f&#x27;&#123;greeting&#125;, &#123;name.upper()&#125;. Welcome!&#x27; # python &gt;3.10</span><br><span class="line">   print(message10)</span><br><span class="line">   </span><br><span class="line"># 8</span><br><span class="line">   print(help(str))   </span><br><span class="line">   print(help(str.lower))   </span><br></pre></td></tr></table></figure>
+
+<div class="video-container"><iframe src="https://www.youtube.com/embed/5xKPmZ_skUg" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="clnot6mhf000db8i49ae33rms" data-title="Python-a02-String" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-a01-How-to-install-embedded-python-on-windows" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" class="article-date">
@@ -121,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="clnoryi62000j74i4037t42gn" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="clnot6mhi000hb8i49x2wbhm1" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
       
       
       
@@ -188,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="clnoryi6k002474i4cfmv28zj" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/10/02/b06-01-Cloud-PubSub-HelloWorld/" data-id="clnot6mii0022b8i4210say3h" data-title="b06-01-Cloud-PubSub-HelloWorld" class="article-share-link">Share</a>
       
       
       
@@ -246,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/08/20/GCP-Kubernetes-Manually/" data-id="clnoryi5w000474i47z95ar3g" data-title="GCP-Kubernetes-Manually" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/08/20/GCP-Kubernetes-Manually/" data-id="clnot6mh90004b8i4ffanh6km" data-title="GCP-Kubernetes-Manually" class="article-share-link">Share</a>
       
       
       
@@ -285,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/08/06/spark-skewness/" data-id="clnoryi7a006r74i419xw3hc5" data-title="spark skewness" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/08/06/spark-skewness/" data-id="clnot6mkr006pb8i4c1so3hf6" data-title="spark skewness" class="article-share-link">Share</a>
       
       
       
@@ -393,7 +438,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="clnoryi6m002d74i47kgqa10b" data-title="b10-Machine Learning" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/16/b10-Machine-Learning/" data-id="clnot6mip002db8i4gj2sas1p" data-title="b10-Machine Learning" class="article-share-link">Share</a>
       
       
       
@@ -459,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/12/b09-BigQuery/" data-id="clnoryi6m002c74i45jjk99hx" data-title="b09-BigQuery" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/12/b09-BigQuery/" data-id="clnot6mio002cb8i4fqdahk96" data-title="b09-BigQuery" class="article-share-link">Share</a>
       
       
       
@@ -532,7 +577,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/06/05/b08-Cloud-Dataproc/" data-id="clnoryi6l002874i41xuq0qdk" data-title="b08-Cloud Dataproc" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/06/05/b08-Cloud-Dataproc/" data-id="clnot6mil0028b8i49biq0qpv" data-title="b08-Cloud Dataproc" class="article-share-link">Share</a>
       
       
       
@@ -594,7 +639,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b07-Cloud-Dataflow/" data-id="clnoryi6l002574i48eu7cc9z" data-title="b07-Cloud Dataflow" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b07-Cloud-Dataflow/" data-id="clnot6mik0025b8i4bv3dgduy" data-title="b07-Cloud Dataflow" class="article-share-link">Share</a>
       
       
       
@@ -700,74 +745,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="clnoryi6k002274i434vug8za" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-b05-Cloud-Spanner" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/05/20/b05-Cloud-Spanner/" class="article-date">
-  <time class="dt-published" datetime="2020-05-20T14:50:32.000Z" itemprop="datePublished">2020-05-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/05/20/b05-Cloud-Spanner/">b05-Cloud-Spanner</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Cloud-Spanner"><a href="#Cloud-Spanner" class="headerlink" title="Cloud Spanner"></a>Cloud Spanner</h2><ul>
-<li>Fully managed, highly scalable&#x2F;available, relational database</li>
-<li>Similar architecture to Bigtable</li>
-</ul>
-<h2 id="What-is-it-used-for"><a href="#What-is-it-used-for" class="headerlink" title="What is it used for?"></a>What is it used for?</h2><ul>
-<li>A relational database that need strong transactional consistency(ACID)</li>
-<li>Wide scale</li>
-<li>Higher workload than Cloud SQL</li>
-<li>Standard SQL format</li>
-</ul>
-<h2 id="Spanner-vs-CLoud-SQL"><a href="#Spanner-vs-CLoud-SQL" class="headerlink" title="Spanner vs CLoud SQL"></a>Spanner vs CLoud SQL</h2><ul>
-<li>Cloud SQL &#x3D; MySQL</li>
-<li>Spanner is not “dropped in” replacement for MySQL<ul>
-<li>Not MySQL&#x2F;PostgreSQL compatible</li>
-<li>Work need to migrate<img src="/blog/2020/05/20/b05-Cloud-Spanner/spanner_vs_relational_vs_nosql.png" class="" title="spanner_vs_relational_vs_nosql"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Spanner-architecture"><a href="#Spanner-architecture" class="headerlink" title="Spanner architecture"></a>Spanner architecture</h2><img src="/blog/2020/05/20/b05-Cloud-Spanner/spanner_architecture.png" class="" title="spanner_architecture">
-
-<ul>
-<li>Nodes handle computation, each node serves up to 2 TB of storage</li>
-<li>Storage is replicated across zones, compute and storage are separated</li>
-<li>Replication is automatic</li>
-</ul>
-<div class="video-container"><iframe src="https://www.youtube.com/embed/BQX0NvWTcnw" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/20/b05-Cloud-Spanner/" data-id="clnoryi6j002174i483bs2hvl" data-title="b05-Cloud-Spanner" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/23/b06-Cloud-PubSub/" data-id="clnot6mik0024b8i4epga419u" data-title="b06-Cloud-PubSub" class="article-share-link">Share</a>
       
       
       
@@ -783,7 +761,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><a class="extend next" rel="next" href="/blog/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -836,6 +814,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2023/10/13/ml-a03-polynomial/">ml-a03-polynomial</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
           </li>
         
@@ -849,10 +831,6 @@
         
           <li>
             <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
           </li>
         
       </ul>

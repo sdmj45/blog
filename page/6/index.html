@@ -78,6 +78,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-a03-GCP-Virtual-Machines" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/05/06/a03-GCP-Virtual-Machines/" class="article-date">
+  <time class="dt-published" datetime="2020-05-06T11:41:07.000Z" itemprop="datePublished">2020-05-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/05/06/a03-GCP-Virtual-Machines/">a03-GCP-Virtual-Machines</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>We can run virtual machines by using of Compute Engine</p>
+<h2 id="VPC-Network"><a href="#VPC-Network" class="headerlink" title="VPC Network"></a>VPC Network</h2><p>Virtual Private Cloud: it connects your GCP resources to each other and to the internet.</p>
+<p>Google Cloud VPC networks are global, but the subnets are regional</p>
+<p>In the example below, us-east1-b and us-east1-c are on the same subnet but in different zones</p>
+<img src="/blog/2020/05/06/a03-GCP-Virtual-Machines/subnet.png" class="" title="subnet">
+
+<p>VPCs have routing tables, you can define firewall rules in terms of tags on compute engine.</p>
+<p>VPC Peering: establish a peering relationship between projects<br>Shared VPC:  you can use IAM to control</p>
+<h2 id="Cloud-Load-Balancing"><a href="#Cloud-Load-Balancing" class="headerlink" title="Cloud Load Balancing"></a>Cloud Load Balancing</h2><p>Users get a single, global anycast IP address</p>
+<h2 id="Cloud-CDN-Content-Delivery-Network"><a href="#Cloud-CDN-Content-Delivery-Network" class="headerlink" title="Cloud CDN(Content Delivery Network)"></a>Cloud CDN(Content Delivery Network)</h2><p>Use Google’s globally distributed edge caches to cache content close to your users</p>
+<h2 id="Compute-Engine"><a href="#Compute-Engine" class="headerlink" title="Compute Engine"></a>Compute Engine</h2><p>Create virtual machine by using of: </p>
+<ul>
+<li>GCP Console</li>
+<li>gcloud</li>
+</ul>
+<p>You can run images of linux or windows servers.</p>
+<p>You can configure memories and cpus of each VM, you can choose 2 kinds of storage: standard or SSD</p>
+<p>You can choose a Preemptible VM to save money (the instance will terminate after 24 hours, it can be used for applications<br>distribute processes across multiple instances in a cluster or for test)</p>
+<ul>
+<li><p>Scale up:<br>  use big VMs for memory and compute-intensive applications</p>
+</li>
+<li><p>Scale out:<br>  Use <strong>Autoscaling</strong> for resilient, scalable applications</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a03-GCP-Virtual-Machines/" data-id="clnot6mi8001kb8i41kcrgext" data-title="a03-GCP-Virtual-Machines" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-spark-cross-join" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2020/05/06/spark-cross-join/" class="article-date">
@@ -112,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/spark-cross-join/" data-id="clnoryi6p002o74i4dm8u215t" data-title="spark cross join" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/spark-cross-join/" data-id="clnot6mkq006ob8i4c93ddmm7" data-title="spark cross join" class="article-share-link">Share</a>
       
       
       
@@ -211,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/03/a02-Getting-Started-With-GCP/" data-id="clnoryi6e001i74i4b2xv1ph6" data-title="a02-Getting-Started-With-GCP" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/03/a02-Getting-Started-With-GCP/" data-id="clnot6mi6001gb8i484nz8nf8" data-title="a02-Getting-Started-With-GCP" class="article-share-link">Share</a>
       
       
       
@@ -306,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/01/a01-GCP-introduction/" data-id="clnoryi6e001g74i42wheeoz2" data-title="a01-GCP-introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/01/a01-GCP-introduction/" data-id="clnot6mi7001ib8i4hetphzvm" data-title="a01-GCP-introduction" class="article-share-link">Share</a>
       
       
       
@@ -379,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="clnoryi79006q74i44y4j5vpj" data-title="spark listeners" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/17/spark-listeners/" data-id="clnot6mks006rb8i41fqg332n" data-title="spark listeners" class="article-share-link">Share</a>
       
       
       
@@ -477,7 +543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="clnoryi5y000874i472lb9ryc" data-title="Hive vs Presto" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/13/Hive-vs-Presto/" data-id="clnot6mha0005b8i40p8pbaux" data-title="Hive vs Presto" class="article-share-link">Share</a>
       
       
       
@@ -555,7 +621,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="clnoryi5w000574i4bj13b4oe" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/05/03/Jenkins-multiple-pipelines/" data-id="clnot6mhc0008b8i4c8qq0ojh" data-title="Jenkins multiple pipelines" class="article-share-link">Share</a>
       
       
       
@@ -607,7 +673,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="clnoryi5z000b74i4e6jzgwwh" data-title="Kubernetes Deploy Example - Part 2" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-2/" data-id="clnot6mhe000bb8i4e8po8haw" data-title="Kubernetes Deploy Example - Part 2" class="article-share-link">Share</a>
       
       
       
@@ -667,7 +733,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="clnoryi5x000774i4d0f21jm6" data-title="Kubernetes Deploy Example - Part 1" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/26/Kubernetes-Deploy-Example-Part-1/" data-id="clnot6mhb0007b8i4du47hgwf" data-title="Kubernetes Deploy Example - Part 1" class="article-share-link">Share</a>
       
       
       
@@ -727,68 +793,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="clnoryi5o000074i45rul040k" data-title="Avro vs Parquet" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-First blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2019/03/08/First%20blog/" class="article-date">
-  <time class="dt-published" datetime="2019-03-08T16:03:53.000Z" itemprop="datePublished">2019-03-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/feelings/">feelings</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2019/03/08/First%20blog/">My First Blog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>The first time I tried to write a blog, this is a start. . .</p>
-<h2 id="My-Blog"><a href="#My-Blog" class="headerlink" title="My Blog"></a>My Blog</h2><h3 id="Why-to-write-blog"><a href="#Why-to-write-blog" class="headerlink" title="Why to write blog"></a>Why to write blog</h3><p>2018 is coming soon. I think that I came to France alone in 2009 and came to this country where everything is strange. Now I have not seen it for more than 8 years. During this period, I went to school, graduated, and found a job. Later, in love, marriage, childbirth, and embarrassment, there have been five or six years of experience in the world of programmers.</p>
-<p>I really want to leave something for my life, even if I want to make a simple record, I also want to communicate with my friends, and I have some experience in life.</p>
-<p>However, my writing is really a dish, and I haven’t written it for many years. There is no way, I can only bite my head.</p>
-<p>Seeing a summary of a peer on the Internet feels very good, use it to borrow, as an original intention of a personal blog.</p>
-<ul>
-<li>Accumulate Accumulate experience in work and gain in life.</li>
-<li>Record Use the blog as a diary to record what you see and hear in your work life.</li>
-<li>Share As a programmer, you must have an “open source” spirit.</li>
-<li>Communication Blog is a big circle.</li>
-<li>Learning I always learn knowledge here, just like reading it every day.</li>
-</ul>
-<h3 id="Blog’s-content"><a href="#Blog’s-content" class="headerlink" title="Blog’s content"></a>Blog’s content</h3><ul>
-<li><p>Tell the world of programmers and reprint some technically and nutritious articles.</p>
-</li>
-<li><p>Some stories about living abroad</p>
-</li>
-</ul>
-<p>Ok, the first blog is simply recorded here, my blog journey starts here!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2019/03/08/First%20blog/" data-id="clnoryi5s000174i4bdhm7727" data-title="My First Blog" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2019/04/17/Avro-vs-Parquet/" data-id="clnot6mgv0000b8i41swle8r3" data-title="Avro vs Parquet" class="article-share-link">Share</a>
       
       
       
@@ -804,7 +809,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/blog/page/5/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/blog/page/5/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/7/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -857,6 +862,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2023/10/13/ml-a03-polynomial/">ml-a03-polynomial</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
           </li>
         
@@ -870,10 +879,6 @@
         
           <li>
             <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
           </li>
         
       </ul>

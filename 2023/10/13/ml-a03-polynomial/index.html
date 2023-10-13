@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ml-a03-polynomial | MA Jian&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1234import numpy as npimport matplotlib.pyplot as pltfrom sklearn.preprocessing import PolynomialFeaturesfrom sklearn.linear_model import LinearRegression   12345data &#x3D; np.genfromtxt(&quot;job.csv&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ml-a03-polynomial">
+<meta property="og:url" content="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/index.html">
+<meta property="og:site_name" content="MA Jian&#39;s Blog">
+<meta property="og:description" content="1234import numpy as npimport matplotlib.pyplot as pltfrom sklearn.preprocessing import PolynomialFeaturesfrom sklearn.linear_model import LinearRegression   12345data &#x3D; np.genfromtxt(&quot;job.csv&amp;quo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/output_1_0.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/output_2_0.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/output_4_0.png">
+<meta property="article:published_time" content="2023-10-13T16:11:49.000Z">
+<meta property="article:modified_time" content="2023-10-13T16:13:41.683Z">
+<meta property="article:author" content="MA Jian">
+<meta property="article:tag" content="development">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/output_1_0.png">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="MA Jian's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">MA Jian&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">Enthussiasm in developing</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sdmj45.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ml-a03-polynomial" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2023/10/13/ml-a03-polynomial/" class="article-date">
+  <time class="dt-published" datetime="2023-10-13T16:11:49.000Z" itemprop="datePublished">2023-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/ml/">ml</a>►<a class="article-category-link" href="/blog/categories/ml/a-algorithm/">a-algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ml-a03-polynomial
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data = np.genfromtxt(<span class="string">&quot;job.csv&quot;</span>, delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line">x_data = data[<span class="number">1</span>:,<span class="number">1</span>]</span><br><span class="line">y_data = data[<span class="number">1</span>:,<span class="number">2</span>]</span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/2023/10/13/ml-a03-polynomial/output_1_0.png" class="">
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In this example, we use the linearRegression, we can see that the line does not match well the points</span></span><br><span class="line"></span><br><span class="line">x_data = data[<span class="number">1</span>:,<span class="number">1</span>,np.newaxis]</span><br><span class="line">y_data = data[<span class="number">1</span>:,<span class="number">2</span>,np.newaxis]</span><br><span class="line">model = LinearRegression()</span><br><span class="line">model.fit(x_data, y_data)</span><br><span class="line"></span><br><span class="line">plt.plot(x_data,y_data, <span class="string">&#x27;b.&#x27;</span>)</span><br><span class="line">plt.plot(x_data,model.predict(x_data), <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/2023/10/13/ml-a03-polynomial/output_2_0.png" class="">
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">poly_reg = PolynomialFeatures(degree=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># Polynomial is used to add the features to the data, degree=1 =&gt; add data * power 0, degree = 2 =&gt; add data * power 0 and data * power 1</span></span><br><span class="line">x_poly = poly_reg.fit_transform(x_data)</span><br><span class="line">lin_reg = LinearRegression()</span><br><span class="line">lin_reg.fit(x_poly, y_data)</span><br><span class="line"></span><br><span class="line">x_poly</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[1.0000e+00, 1.0000e+00, 1.0000e+00, 1.0000e+00, 1.0000e+00,
+        1.0000e+00],
+       [1.0000e+00, 2.0000e+00, 4.0000e+00, 8.0000e+00, 1.6000e+01,
+        3.2000e+01],
+       [1.0000e+00, 3.0000e+00, 9.0000e+00, 2.7000e+01, 8.1000e+01,
+        2.4300e+02],
+       [1.0000e+00, 4.0000e+00, 1.6000e+01, 6.4000e+01, 2.5600e+02,
+        1.0240e+03],
+       [1.0000e+00, 5.0000e+00, 2.5000e+01, 1.2500e+02, 6.2500e+02,
+        3.1250e+03],
+       [1.0000e+00, 6.0000e+00, 3.6000e+01, 2.1600e+02, 1.2960e+03,
+        7.7760e+03],
+       [1.0000e+00, 7.0000e+00, 4.9000e+01, 3.4300e+02, 2.4010e+03,
+        1.6807e+04],
+       [1.0000e+00, 8.0000e+00, 6.4000e+01, 5.1200e+02, 4.0960e+03,
+        3.2768e+04],
+       [1.0000e+00, 9.0000e+00, 8.1000e+01, 7.2900e+02, 6.5610e+03,
+        5.9049e+04],
+       [1.0000e+00, 1.0000e+01, 1.0000e+02, 1.0000e+03, 1.0000e+04,
+        1.0000e+05]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x_data, y_data, <span class="string">&#x27;b.&#x27;</span>)</span><br><span class="line">plt.plot(x_data, lin_reg.predict(x_poly), <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<img src="/blog/2023/10/13/ml-a03-polynomial/output_4_0.png" class="">
+<p>PS:<br><a href="job.csv" download="job.csv">job.csv</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/" data-id="clnot6mkq006nb8i47iksccce" data-title="ml-a03-polynomial" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ml-a02-multiple_linear_regression</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/">ml</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/a-algorithm/">a-algorithm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/c-pandas/">c-pandas</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2023/10/13/ml-a03-polynomial/">ml-a03-polynomial</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2023/10/12/ml-a01-regression/">ml-a01-regression</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 MA Jian<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

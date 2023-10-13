@@ -78,6 +78,119 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-b02-classmethod-staticmethod" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/02/02/Python-b02-classmethod-staticmethod/" class="article-date">
+  <time class="dt-published" datetime="2021-02-02T13:24:46.000Z" itemprop="datePublished">2021-02-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/b-OOP/">b-OOP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/02/02/Python-b02-classmethod-staticmethod/">Python-b02-classmethod-staticmethod</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of classmethod and staticmethod in python</p>
+<h2 id="regular-method"><a href="#regular-method" class="headerlink" title="regular method"></a>regular method</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Employee:</span><br><span class="line">    raise_amount = 2.04</span><br><span class="line"></span><br><span class="line">    def __init__(self, first, last, pay):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line">        self.pay = pay</span><br><span class="line">        self.email = first + &#x27;.&#x27; + last + &#x27;@company.com&#x27;</span><br><span class="line"></span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    def apply_raise(self):</span><br><span class="line">        self.pay = int(self.pay * self.raise_amount)</span><br><span class="line"></span><br><span class="line">    def set_regular_raise_amount(self, amount):</span><br><span class="line">        self.raise_amount = amount</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;, 20)</span><br><span class="line">emp_2 = Employee(&#x27;John&#x27;, &#x27;Youh&#x27;, 30)</span><br><span class="line"></span><br><span class="line">emp_1.set_regular_raise_amount(6)</span><br><span class="line"></span><br><span class="line">print(emp_1.raise_amount)       # 6</span><br><span class="line">print(emp_2.raise_amount)       # 2.04</span><br><span class="line">print(Employee.raise_amount)    # 2.04</span><br><span class="line">```  </span><br><span class="line">## classmethod</span><br></pre></td></tr></table></figure>
+<p>class Employee:<br>    raise_amount &#x3D; 2.04</p>
+<pre><code>def __init__(self, first, last, pay):
+    self.first = first
+    self.last = last
+    self.pay = pay
+    self.email = first + &#39;.&#39; + last + &#39;@company.com&#39;
+
+def fullname(self):
+    return &#39;&#123;&#125; &#123;&#125;&#39;.format(self.first, self.last)
+
+def apply_raise(self):
+    self.pay = int(self.pay * self.raise_amount)
+
+def set_regular_raise_amount(self, amount):
+    self.raise_amount = amount
+
+@classmethod
+def set_class_raise_amount(cls, amount):
+    cls.raise_amount = amount
+</code></pre>
+<p>emp_1 &#x3D; Employee(‘Bob’, ‘Gobdo’, 20)<br>emp_2 &#x3D; Employee(‘John’, ‘Youh’, 30)</p>
+<p>Employee.set_class_raise_amount(5)</p>
+<p>print(emp_1.raise_amount)   # 5<br>print(emp_2.raise_amount)   # 5<br>print(Employee.raise_amount)  # 5</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## staticmethod</span><br></pre></td></tr></table></figure>
+<p>class Employee:<br>    raise_amount &#x3D; 2.04</p>
+<pre><code>def __init__(self, first, last, pay):
+    self.first = first
+    self.last = last
+    self.pay = pay
+    self.email = first + &#39;.&#39; + last + &#39;@company.com&#39;
+
+def fullname(self):
+    return &#39;&#123;&#125; &#123;&#125;&#39;.format(self.first, self.last)
+
+def apply_raise(self):
+    self.pay = int(self.pay * self.raise_amount)
+
+def set_regular_raise_amount(self, amount):
+    self.raise_amount = amount
+
+@classmethod
+def set_class_raise_amount(cls, amount):
+    cls.raise_amount = amount
+
+@staticmethod
+def is_workday(day):
+    if day.weekday() == 5 or day.weekday() == 6:
+        return False
+    return True
+</code></pre>
+<p>import datetime<br>my_date &#x3D; datetime.date(2016,1,2)<br>print(Employee.is_workday(my_date)) # False</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## example</span><br></pre></td></tr></table></figure>
+<p>class A(object):<br>    bar &#x3D; 1</p>
+<pre><code>def func1(self):
+    print(&#39;foo&#39;)
+
+@classmethod
+def func2(cls):
+    print(&#39;func2&#39;)
+    print(cls.bar)
+    cls().func1()
+
+@staticmethod
+def func3():
+    print(&#39;func3&#39;)
+    print(A.bar)
+</code></pre>
+<p>A().func1()     # foo<br>A.func2()       # func2<br>                # 1<br>                # foo<br>A.func3()       # func3<br>                # 1</p>
+<p>&#96;&#96;&#96;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/02/02/Python-b02-classmethod-staticmethod/" data-id="clnot6mhw000xb8i42hcs5kx6" data-title="Python-b02-classmethod-staticmethod" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-b01-Classes-and-Instances" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/02/01/Python-b01-Classes-and-Instances/" class="article-date">
@@ -110,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/02/01/Python-b01-Classes-and-Instances/" data-id="clnoryi67000v74i4d7ss174d" data-title="Python-b01-Classes and Instances" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/02/01/Python-b01-Classes-and-Instances/" data-id="clnot6mht000vb8i40r6bazif" data-title="Python-b01-Classes and Instances" class="article-share-link">Share</a>
       
       
       
@@ -153,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="clnoryi65000r74i4dn6wexwe" data-title="Python-a09-Modules" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="clnot6mhq000qb8i48l9uhxqa" data-title="Python-a09-Modules" class="article-share-link">Share</a>
       
       
       
@@ -196,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="clnoryi64000o74i4ccibdxbx" data-title="Python-a08 Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="clnot6mho000ob8i43lyfd73v" data-title="Python-a08 Functions" class="article-share-link">Share</a>
       
       
       
@@ -239,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="clnoryi63000l74i49nfybptz" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="clnot6mhn000nb8i4bmtmd1oc" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
       
       
       
@@ -324,7 +437,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="clnoryi6d001d74i40tjd4mlm" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="clnot6mi5001db8i441cj3dgv" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
       
       
       
@@ -367,7 +480,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="clnoryi63000k74i42ghr3fdb" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="clnot6mhm000lb8i49xz85662" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
       
       
       
@@ -412,7 +525,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="clnoryi64000n74i4fm9s0arw" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="clnot6mhl000kb8i44gq223lp" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
       
       
       
@@ -457,7 +570,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="clnoryi61000h74i483qx5z3o" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="clnot6mhk000jb8i4fzrsehw2" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
       
       
       
@@ -502,52 +615,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="clnoryi61000f74i44urq80tv" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Python-a02-String" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2021/01/14/Python-a02-String/" class="article-date">
-  <time class="dt-published" datetime="2021-01-14T19:10:16.000Z" itemprop="datePublished">2021-01-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/01/14/Python-a02-String/">Python-a02-String</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This article shows the examples of String in python</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># 1</span><br><span class="line">   message1 = &#x27;Hello World&#x27;</span><br><span class="line">   print(message1)</span><br><span class="line"></span><br><span class="line"># 2   </span><br><span class="line">   message2 = &quot;hello &#x27;Jimmy&#x27;&quot;</span><br><span class="line">   print(message2)</span><br><span class="line">   </span><br><span class="line"># 3   </span><br><span class="line">   message3 = &#x27;Hello World&#x27;</span><br><span class="line">   print(len(message3))</span><br><span class="line">   </span><br><span class="line"># 4   </span><br><span class="line">   message4 = &#x27;Hello World&#x27;</span><br><span class="line">   print(message4[1])</span><br><span class="line">   print(message4[-1])</span><br><span class="line">   print(message4[0:5]) # first include, second not</span><br><span class="line">   print(message4[:5]) # end to the 5</span><br><span class="line">   print(message4[6:]) # start from the 6</span><br><span class="line">   print(message4[11]) # error</span><br><span class="line"></span><br><span class="line"># 5   </span><br><span class="line">   message5 = &#x27;Hello World&#x27;</span><br><span class="line">   print(message5.lower())</span><br><span class="line">   print(message5.upper())</span><br><span class="line">   print(message5.count(&#x27;l&#x27;)) # count l&#x27;s number in the message</span><br><span class="line">   print(message5.find(&#x27;World&#x27;)) # return 6</span><br><span class="line">   print(message5.find(&#x27;Unknown&#x27;)) # return -1</span><br><span class="line"></span><br><span class="line"># 6   </span><br><span class="line">   message6 = &#x27;Hello World&#x27;</span><br><span class="line">   # or by the same message6 = message6.replace(&#x27;World&#x27;, &#x27;You&#x27;)</span><br><span class="line">   new_message6 = message6.replace(&#x27;World&#x27;, &#x27;You&#x27;)</span><br><span class="line">   print(new_message6)</span><br><span class="line">   </span><br><span class="line"># 7   </span><br><span class="line">   greeting=&#x27;Hello&#x27;</span><br><span class="line">   name=&#x27;Bob&#x27;</span><br><span class="line">   message7 = greeting + &#x27;, &#x27; + name</span><br><span class="line">   print(message7)  </span><br><span class="line">   </span><br><span class="line">   message8 = &#x27;&#123;&#125;, &#123;&#125;. Welcome!&#x27;.format(greeting, name)</span><br><span class="line">   print(message8)</span><br><span class="line">   </span><br><span class="line">   message9 = f&#x27;&#123;greeting&#125;, &#123;name&#125;. Welcome!&#x27; # python &gt;3.10</span><br><span class="line">   print(message9)</span><br><span class="line">   </span><br><span class="line">   message10 = f&#x27;&#123;greeting&#125;, &#123;name.upper()&#125;. Welcome!&#x27; # python &gt;3.10</span><br><span class="line">   print(message10)</span><br><span class="line">   </span><br><span class="line"># 8</span><br><span class="line">   print(help(str))   </span><br><span class="line">   print(help(str.lower))   </span><br></pre></td></tr></table></figure>
-
-<div class="video-container"><iframe src="https://www.youtube.com/embed/5xKPmZ_skUg" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="clnoryi5z000c74i48xi4581u" data-title="Python-a02-String" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="clnot6mhh000gb8i4ffhyh3hl" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
       
       
       
@@ -563,7 +631,7 @@ More advanced in orchestration
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/blog/page/2/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><a class="extend next" rel="next" href="/blog/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/blog/page/2/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/4/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -616,6 +684,10 @@ More advanced in orchestration
       <ul>
         
           <li>
+            <a href="/blog/2023/10/13/ml-a03-polynomial/">ml-a03-polynomial</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
           </li>
         
@@ -629,10 +701,6 @@ More advanced in orchestration
         
           <li>
             <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
           </li>
         
       </ul>

@@ -78,6 +78,90 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ml-a03-polynomial" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2023/10/13/ml-a03-polynomial/" class="article-date">
+  <time class="dt-published" datetime="2023-10-13T16:11:49.000Z" itemprop="datePublished">2023-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/ml/">ml</a>►<a class="article-category-link" href="/blog/categories/ml/a-algorithm/">a-algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2023/10/13/ml-a03-polynomial/">ml-a03-polynomial</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data = np.genfromtxt(<span class="string">&quot;job.csv&quot;</span>, delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line">x_data = data[<span class="number">1</span>:,<span class="number">1</span>]</span><br><span class="line">y_data = data[<span class="number">1</span>:,<span class="number">2</span>]</span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/2023/10/13/ml-a03-polynomial/output_1_0.png" class="">
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In this example, we use the linearRegression, we can see that the line does not match well the points</span></span><br><span class="line"></span><br><span class="line">x_data = data[<span class="number">1</span>:,<span class="number">1</span>,np.newaxis]</span><br><span class="line">y_data = data[<span class="number">1</span>:,<span class="number">2</span>,np.newaxis]</span><br><span class="line">model = LinearRegression()</span><br><span class="line">model.fit(x_data, y_data)</span><br><span class="line"></span><br><span class="line">plt.plot(x_data,y_data, <span class="string">&#x27;b.&#x27;</span>)</span><br><span class="line">plt.plot(x_data,model.predict(x_data), <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/2023/10/13/ml-a03-polynomial/output_2_0.png" class="">
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">poly_reg = PolynomialFeatures(degree=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># Polynomial is used to add the features to the data, degree=1 =&gt; add data * power 0, degree = 2 =&gt; add data * power 0 and data * power 1</span></span><br><span class="line">x_poly = poly_reg.fit_transform(x_data)</span><br><span class="line">lin_reg = LinearRegression()</span><br><span class="line">lin_reg.fit(x_poly, y_data)</span><br><span class="line"></span><br><span class="line">x_poly</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[1.0000e+00, 1.0000e+00, 1.0000e+00, 1.0000e+00, 1.0000e+00,
+        1.0000e+00],
+       [1.0000e+00, 2.0000e+00, 4.0000e+00, 8.0000e+00, 1.6000e+01,
+        3.2000e+01],
+       [1.0000e+00, 3.0000e+00, 9.0000e+00, 2.7000e+01, 8.1000e+01,
+        2.4300e+02],
+       [1.0000e+00, 4.0000e+00, 1.6000e+01, 6.4000e+01, 2.5600e+02,
+        1.0240e+03],
+       [1.0000e+00, 5.0000e+00, 2.5000e+01, 1.2500e+02, 6.2500e+02,
+        3.1250e+03],
+       [1.0000e+00, 6.0000e+00, 3.6000e+01, 2.1600e+02, 1.2960e+03,
+        7.7760e+03],
+       [1.0000e+00, 7.0000e+00, 4.9000e+01, 3.4300e+02, 2.4010e+03,
+        1.6807e+04],
+       [1.0000e+00, 8.0000e+00, 6.4000e+01, 5.1200e+02, 4.0960e+03,
+        3.2768e+04],
+       [1.0000e+00, 9.0000e+00, 8.1000e+01, 7.2900e+02, 6.5610e+03,
+        5.9049e+04],
+       [1.0000e+00, 1.0000e+01, 1.0000e+02, 1.0000e+03, 1.0000e+04,
+        1.0000e+05]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x_data, y_data, <span class="string">&#x27;b.&#x27;</span>)</span><br><span class="line">plt.plot(x_data, lin_reg.predict(x_poly), <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<img src="/blog/2023/10/13/ml-a03-polynomial/output_4_0.png" class="">
+<p>PS:<br><a href="job.csv" download="job.csv">job.csv</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/" data-id="clnot6mkq006nb8i47iksccce" data-title="ml-a03-polynomial" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ml-a02-multiple-linear-regression" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/" class="article-date">
@@ -207,7 +291,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/" data-id="clnoryi6o002m74i45trg5iel" data-title="ml-a02-multiple_linear_regression" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/" data-id="clnot6mis002mb8i49t8h4vj2" data-title="ml-a02-multiple_linear_regression" class="article-share-link">Share</a>
       
       
       
@@ -279,7 +363,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="clnoryi6o002j74i48xy7f4zt" data-title="ml-a01-regression" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="clnot6mir002jb8i40vxp0kin" data-title="ml-a01-regression" class="article-share-link">Share</a>
       
       
       
@@ -332,7 +416,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clnoryi6n002g74i4agls1uly" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="clnot6miq002fb8i40ijt7svb" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
       
       
       
@@ -987,7 +1071,7 @@ predict: [9.06072908]
 <p>0    3<br>1    3<br>2    3<br>dtype: int64</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the min of each column</span></span><br><span class="line">df.apply(pd.Series.<span class="built_in">min</span>)</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#99;&#111;&#114;&#101;&#121;&#109;&#x73;&#x63;&#104;&#97;&#102;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#99;&#111;&#114;&#101;&#121;&#109;&#x73;&#x63;&#104;&#97;&#102;&#101;&#x72;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a><br>dtype: object</p>
+<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#x63;&#111;&#x72;&#x65;&#121;&#109;&#x73;&#99;&#104;&#x61;&#x66;&#101;&#114;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#x6d;">&#x63;&#111;&#x72;&#x65;&#121;&#109;&#x73;&#99;&#104;&#x61;&#x66;&#101;&#114;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#x6d;</a><br>dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># applymap works only on every element of the DataFrame</span></span><br><span class="line">df.applymap(<span class="built_in">len</span>)</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -1046,7 +1130,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="clnoryi6d001c74i405mm1q5o" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="clnot6mi4001cb8i46xv38dy9" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
       
       
       
@@ -1228,10 +1312,10 @@ predict: [9.06072908]
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># not in filter ~</span></span><br><span class="line">df.loc[~filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p>0    <a href="mailto:&#x43;&#x6f;&#x72;&#x65;&#x79;&#77;&#x53;&#x63;&#104;&#x61;&#102;&#101;&#114;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x43;&#x6f;&#x72;&#x65;&#x79;&#77;&#x53;&#x63;&#104;&#x61;&#102;&#101;&#114;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#x68;&#x61;&#x66;&#x65;&#x72;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#x43;&#111;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#x68;&#x61;&#x66;&#x65;&#x72;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># isin filter</span></span><br><span class="line">lasts = [<span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Mike&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>]</span><br><span class="line">filt = df[<span class="string">&#x27;last&#x27;</span>].isin(lasts)</span><br><span class="line">df.loc[filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>1    <a href="mailto:&#74;&#97;&#x6e;&#101;&#68;&#111;&#101;&#64;&#101;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#x6d;">&#74;&#97;&#x6e;&#101;&#68;&#111;&#101;&#64;&#101;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#x6d;</a><br>2    <a href="mailto:&#74;&#x6f;&#x68;&#x6e;&#68;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#109;">&#74;&#x6f;&#x68;&#x6e;&#68;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#109;</a><br>Name: email, dtype: object</p>
+<p>1    <a href="mailto:&#x4a;&#x61;&#110;&#101;&#x44;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x4a;&#x61;&#110;&#101;&#x44;&#x6f;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a><br>2    <a href="mailto:&#x4a;&#x6f;&#104;&#110;&#x44;&#x6f;&#x65;&#x40;&#101;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x4a;&#x6f;&#104;&#110;&#x44;&#x6f;&#x65;&#x40;&#101;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 
@@ -1866,7 +1950,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="clnoryi6c001974i4g13m38kc" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="clnot6mi3001ab8i40xw45cxp" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
       
       
       
@@ -2967,7 +3051,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="clnoryi6c001a74i4gn9jf1l1" data-title="Python-c04-indexes" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="clnot6mi30019b8i4gc2hf3z1" data-title="Python-c04-indexes" class="article-share-link">Share</a>
       
       
       
@@ -3015,7 +3099,7 @@ predict: [9.06072908]
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>[‘<a href="mailto:&#67;&#x6f;&#114;&#101;&#x79;&#x4d;&#x53;&#x63;&#x68;&#97;&#x66;&#101;&#114;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#67;&#x6f;&#114;&#101;&#x79;&#x4d;&#x53;&#x63;&#x68;&#97;&#x66;&#101;&#114;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a>‘, ‘<a href="mailto:&#x4a;&#x61;&#x6e;&#101;&#68;&#x6f;&#101;&#x40;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#x4a;&#x61;&#x6e;&#101;&#68;&#x6f;&#101;&#x40;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#x6f;&#104;&#x6e;&#x44;&#x6f;&#x65;&#64;&#x65;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x4a;&#x6f;&#104;&#x6e;&#x44;&#x6f;&#x65;&#64;&#x65;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>‘]</p>
+<p>[‘<a href="mailto:&#x43;&#111;&#x72;&#101;&#x79;&#77;&#83;&#99;&#104;&#97;&#102;&#x65;&#114;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#x43;&#111;&#x72;&#101;&#x79;&#77;&#83;&#99;&#104;&#97;&#102;&#x65;&#114;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a>‘, ‘<a href="mailto:&#74;&#97;&#x6e;&#101;&#68;&#x6f;&#x65;&#64;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#74;&#97;&#x6e;&#101;&#68;&#x6f;&#x65;&#64;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>‘, ‘<a href="mailto:&#74;&#111;&#104;&#x6e;&#x44;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#74;&#111;&#104;&#x6e;&#x44;&#111;&#x65;&#x40;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a>‘]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
@@ -3069,7 +3153,7 @@ predict: [9.06072908]
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>0    <a href="mailto:&#67;&#x6f;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#x68;&#97;&#102;&#101;&#114;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#67;&#x6f;&#114;&#x65;&#x79;&#77;&#83;&#x63;&#x68;&#97;&#102;&#101;&#114;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a><br>1          <a href="mailto:&#74;&#x61;&#110;&#101;&#x44;&#x6f;&#101;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#74;&#x61;&#110;&#101;&#x44;&#x6f;&#101;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a><br>2          <a href="mailto:&#x4a;&#x6f;&#104;&#x6e;&#68;&#x6f;&#101;&#x40;&#x65;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#x4a;&#x6f;&#104;&#x6e;&#68;&#x6f;&#101;&#x40;&#x65;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#x43;&#x6f;&#x72;&#x65;&#x79;&#x4d;&#83;&#x63;&#104;&#97;&#102;&#x65;&#x72;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#x43;&#x6f;&#x72;&#x65;&#x79;&#x4d;&#83;&#x63;&#104;&#97;&#102;&#x65;&#x72;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a><br>1          <a href="mailto:&#74;&#97;&#x6e;&#x65;&#x44;&#111;&#x65;&#x40;&#x65;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;">&#74;&#97;&#x6e;&#x65;&#x44;&#111;&#x65;&#x40;&#x65;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;</a><br>2          <a href="mailto:&#x4a;&#111;&#104;&#x6e;&#68;&#x6f;&#x65;&#64;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#x4a;&#111;&#104;&#x6e;&#68;&#x6f;&#x65;&#64;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#display multiple columns</span></span><br><span class="line">df[[<span class="string">&#x27;last&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -3117,7 +3201,7 @@ predict: [9.06072908]
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iloc: integer location: put the integer index to get the row</span></span><br><span class="line"><span class="comment"># get the first row in this example</span></span><br><span class="line">df.iloc[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#x6f;&#x72;&#x65;&#x79;&#77;&#x53;&#99;&#x68;&#x61;&#x66;&#x65;&#114;&#x40;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#67;&#x6f;&#x72;&#x65;&#x79;&#77;&#x53;&#99;&#x68;&#x61;&#x66;&#x65;&#114;&#x40;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a><br>Name: 0, dtype: object</p>
+<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#x6f;&#114;&#x65;&#x79;&#x4d;&#83;&#x63;&#104;&#97;&#x66;&#101;&#114;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#109;">&#67;&#x6f;&#114;&#x65;&#x79;&#x4d;&#83;&#x63;&#104;&#97;&#x66;&#101;&#114;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#109;</a><br>Name: 0, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[[<span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -3261,7 +3345,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="clnoryi6c001874i45dkg0qfg" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="clnot6mi20018b8i4ewic1mtx" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
       
       
       
@@ -3631,7 +3715,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="clnoryi6b001674i4cudk0rsq" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="clnot6mi10016b8i4fkkm779t" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
       
       
       
@@ -3685,54 +3769,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="clnoryi6b001574i494zzfjun" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-xiaomakuaibao" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2022/09/16/xiaomakuaibao/" class="article-date">
-  <time class="dt-published" datetime="2022-09-16T13:01:43.723Z" itemprop="datePublished">2022-09-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2022/09/16/xiaomakuaibao/">Website Recommended</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Share a website which you can view </p>
-<ul>
-<li>headlines of major French media in real time</li>
-<li>changes in the epidemic</li>
-<li>markets, food delivery shops, drug stores, and banks that are open during the epidemic</li>
-<li>some very useful links, you can enjoy online concerts for free, visit online museums</li>
-<li>some rumor information, etc.</li>
-</ul>
-<p>highly recommended <a target="_blank" rel="noopener" href="http://daccfrance.com/">http://daccfrance.com/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/09/16/xiaomakuaibao/" data-id="clnoryi7a006s74i41ddigagr" data-title="Website Recommended" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c01-Jupyter/" data-id="clnot6mi00015b8i44v0e2mdi" data-title="Python-c01-Jupyter" class="article-share-link">Share</a>
       
       
       
@@ -3748,7 +3785,7 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/6/">6</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -3801,6 +3838,10 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
       <ul>
         
           <li>
+            <a href="/blog/2023/10/13/ml-a03-polynomial/">ml-a03-polynomial</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
           </li>
         
@@ -3814,10 +3855,6 @@ or from the desktop<img src="/blog/2022/10/06/Python-c01-Jupyter/start_jupyter_f
         
           <li>
             <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
           </li>
         
       </ul>
