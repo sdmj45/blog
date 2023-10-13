@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ml-a02-multiple_linear_regression | MA Jian&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Multiple Linear Regression 1234import numpy as npfrom numpy import genfromtxtimport matplotlib.pyplot as pltfrom mpl_toolkits.mplot3d import Axes3D   12data &#x3D; genfromtxt(r&quot;Delivery.csv&quot;, del">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ml-a02-multiple_linear_regression">
+<meta property="og:url" content="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/index.html">
+<meta property="og:site_name" content="MA Jian&#39;s Blog">
+<meta property="og:description" content="Multiple Linear Regression 1234import numpy as npfrom numpy import genfromtxtimport matplotlib.pyplot as pltfrom mpl_toolkits.mplot3d import Axes3D   12data &#x3D; genfromtxt(r&quot;Delivery.csv&quot;, del">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/output_5_0.png">
+<meta property="og:image" content="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/output_6_0.png">
+<meta property="article:published_time" content="2023-10-13T15:35:53.000Z">
+<meta property="article:modified_time" content="2023-10-13T15:39:17.002Z">
+<meta property="article:author" content="MA Jian">
+<meta property="article:tag" content="development">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/output_5_0.png">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="MA Jian's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">MA Jian&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">Enthussiasm in developing</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sdmj45.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ml-a02-multiple-linear-regression" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/" class="article-date">
+  <time class="dt-published" datetime="2023-10-13T15:35:53.000Z" itemprop="datePublished">2023-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/ml/">ml</a>►<a class="article-category-link" href="/blog/categories/ml/a-algorithm/">a-algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ml-a02-multiple_linear_regression
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Multiple Linear Regression</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = genfromtxt(<span class="string">r&quot;Delivery.csv&quot;</span>, delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[100.    4.    9.3]
+ [ 50.    3.    4.8]
+ [100.    4.    8.9]
+ [100.    2.    6.5]
+ [ 50.    2.    4.2]
+ [ 80.    2.    6.2]
+ [ 75.    3.    7.4]
+ [ 65.    4.    6. ]
+ [ 90.    3.    7.6]
+ [ 90.    2.    6.1]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># all data until the last column</span></span><br><span class="line">x_data = data[:, :-<span class="number">1</span>]</span><br><span class="line"><span class="comment"># label: the last column</span></span><br><span class="line">y_data = data[:, -<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(x_data)</span><br><span class="line"><span class="built_in">print</span>(y_data)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[100.   4.]
+ [ 50.   3.]
+ [100.   4.]
+ [100.   2.]
+ [ 50.   2.]
+ [ 80.   2.]
+ [ 75.   3.]
+ [ 65.   4.]
+ [ 90.   3.]
+ [ 90.   2.]]
+[9.3 4.8 8.9 6.5 4.2 6.2 7.4 6.  7.6 6.1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">compute_error</span>(<span class="params">theta0, theta1, theta2, x_data, y_data</span>):</span><br><span class="line">    totalError = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(x_data)):</span><br><span class="line">        totalError += (y_data[i] - (theta1 * x_data[i, <span class="number">0</span>] + theta2 * x_data[i, <span class="number">1</span>] + theta0))**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> totalError / <span class="built_in">float</span>(<span class="built_in">len</span>(x_data))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gradient_descent_runner</span>(<span class="params">x_data, y_data, theta0, theta1, theta2, lr, epochs</span>):</span><br><span class="line">    <span class="comment"># total data number</span></span><br><span class="line">    m = <span class="built_in">float</span>(<span class="built_in">len</span>(x_data))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">        theta0_grad = <span class="number">0</span></span><br><span class="line">        theta1_grad = <span class="number">0</span></span><br><span class="line">        theta2_grad = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(x_data)):</span><br><span class="line">            theta0_grad += (<span class="number">1</span>/m) * ((theta1 * x_data[j, <span class="number">0</span>] + theta2 * x_data[j, <span class="number">1</span>] + theta0) - y_data[j])</span><br><span class="line">            theta1_grad += (<span class="number">1</span>/m) * x_data[j, <span class="number">0</span>] * ((theta1 * x_data[j, <span class="number">0</span>] + theta2 * x_data[j, <span class="number">1</span>] + theta0) - y_data[j])</span><br><span class="line">            theta2_grad += (<span class="number">1</span>/m) * x_data[j, <span class="number">1</span>] * ((theta1 * x_data[j, <span class="number">0</span>] + theta2 * x_data[j, <span class="number">1</span>] + theta0) - y_data[j])</span><br><span class="line">        theta0 = theta0 - (lr * theta0_grad)</span><br><span class="line">        theta1 = theta1 - (lr * theta1_grad)</span><br><span class="line">        theta2 = theta2 - (lr * theta2_grad)</span><br><span class="line">    <span class="keyword">return</span> theta0, theta1, theta2</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">lr = <span class="number">0.0001</span></span><br><span class="line">theta0 = <span class="number">0</span></span><br><span class="line">theta1 = <span class="number">0</span></span><br><span class="line">theta2 = <span class="number">0</span></span><br><span class="line">epochs = <span class="number">1000</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;starting theta0=&#123;0&#125;, theta1=&#123;1&#125;, theta2=&#123;2&#125;, error=&#123;3&#125;&quot;</span></span><br><span class="line">      .<span class="built_in">format</span>( theta0,theta1,theta2,compute_error(theta0, theta1, theta2, x_data, y_data)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Running...&quot;</span>)</span><br><span class="line">theta0, theta1, theta2 = gradient_descent_runner(x_data, y_data, theta0, theta1, theta2, lr, epochs)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;After &#123;0&#125; iterations theta0=&#123;1&#125;, theta1=&#123;2&#125;, theta2=&#123;3&#125;, error=&#123;4&#125;&quot;</span></span><br><span class="line">      .<span class="built_in">format</span>( epochs, theta0,theta1,theta2,compute_error(theta0, theta1, theta2, x_data, y_data)))    </span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+
+<pre><code>starting theta0=0, theta1=0, theta2=0, error=47.279999999999994
+Running...
+After 1000 iterations theta0=0.006971416196678632, theta1=0.08021042690771771, theta2=0.07611036240566814, error=0.7731271432218118
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ax = plt.figure().add_subplot(<span class="number">111</span>, projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line"><span class="comment"># c=&#x27;r&#x27; =&gt; red color, marker=&#x27;o&#x27; =&gt; use o to print the figure, s=100 =&gt; the marker size is 100</span></span><br><span class="line">ax.scatter(x_data[:, <span class="number">0</span>], x_data[:, <span class="number">1</span>], y_data, c=<span class="string">&#x27;r&#x27;</span>, marker=<span class="string">&quot;o&quot;</span>, s=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">x0 = x_data[:, <span class="number">0</span>]</span><br><span class="line">x1 = x_data[:, <span class="number">1</span>]</span><br><span class="line">x0, x1 = np.meshgrid(x0, x1)</span><br><span class="line">z = theta0 + theta1 * x0 + theta1 * x1</span><br><span class="line">ax.plot_surface(x0, x1, z)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Miles&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Num of Deliveries&#x27;</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">&#x27;Time&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<img src="/blog/2023/10/13/ml-a02-multiple-linear-regression/output_5_0.png" class="" title="output_5_0">
+
+
+<p>PS:<br><a href="Delivery.csv" download="Delivery.csv">Delivery.csv</a></p>
+<h1 id="Sklearn"><a href="#Sklearn" class="headerlink" title="Sklearn"></a>Sklearn</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = genfromtxt(<span class="string">r&quot;Delivery.csv&quot;</span>, delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[100.    4.    9.3]
+ [ 50.    3.    4.8]
+ [100.    4.    8.9]
+ [100.    2.    6.5]
+ [ 50.    2.    4.2]
+ [ 80.    2.    6.2]
+ [ 75.    3.    7.4]
+ [ 65.    4.    6. ]
+ [ 90.    3.    7.6]
+ [ 90.    2.    6.1]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># all data until the last column</span></span><br><span class="line">x_data = data[:, :-<span class="number">1</span>]</span><br><span class="line"><span class="comment"># label: the last column</span></span><br><span class="line">y_data = data[:, -<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(x_data)</span><br><span class="line"><span class="built_in">print</span>(y_data)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[100.   4.]
+ [ 50.   3.]
+ [100.   4.]
+ [100.   2.]
+ [ 50.   2.]
+ [ 80.   2.]
+ [ 75.   3.]
+ [ 65.   4.]
+ [ 90.   3.]
+ [ 90.   2.]]
+[9.3 4.8 8.9 6.5 4.2 6.2 7.4 6.  7.6 6.1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model = linear_model.LinearRegression()</span><br><span class="line">model.fit(x_data, y_data)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;coefficients:&quot;</span>, model.coef_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;intercept:&quot;</span>, model.intercept_)</span><br><span class="line"></span><br><span class="line">x_test = [[<span class="number">102</span>,<span class="number">4</span>]]</span><br><span class="line">predict = model.predict(x_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;predict:&quot;</span>, predict)</span><br></pre></td></tr></table></figure>
+
+<pre><code>coefficients: [0.0611346  0.92342537]
+intercept: -0.868701466781709
+predict: [9.06072908]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ax = plt.figure().add_subplot(<span class="number">111</span>, projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">ax.scatter(x_data[:,<span class="number">0</span>], x_data[:,<span class="number">1</span>], y_data, c=<span class="string">&#x27;r&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>, s=<span class="number">100</span>)</span><br><span class="line">x0 = x_data[:,<span class="number">0</span>]</span><br><span class="line">x1 = x_data[:,<span class="number">1</span>]</span><br><span class="line">x0,x1 = np.meshgrid(x0,x1)</span><br><span class="line"></span><br><span class="line">z = model.intercept_ + x0*model.coef_[<span class="number">0</span>] + x1*model.coef_[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">ax.plot_surface(x0, x1, z)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Miles&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Num of Deliveries&#x27;</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">&#x27;Time&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<img src="/blog/2023/10/13/ml-a02-multiple-linear-regression/output_6_0.png" class="" title="output_6_0">
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/" data-id="clnoryi6o002m74i45trg5iel" data-title="ml-a02-multiple_linear_regression" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2023/10/12/ml-a01-regression/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ml-a01-regression</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ci-cd/">ci/cd</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">devops</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/kubernetes/">kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/terraform/">terraform</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/feelings/">feelings</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/">gcp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/a-core-infrastructure/">a-core-infrastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/">c-data-architect</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/c-data-architect/infrastructure-foundation/">infrastructure-foundation</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/d-practice/">d-practice</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/gcp/kubernetes/">kubernetes</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/commands/">commands</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/">ml</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ml/a-algorithm/">a-algorithm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/a-basics/">a-basics</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/b-OOP/">b-OOP</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/python/c-pandas/">c-pandas</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spark/">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2023/10/12/ml-a01-regression/">ml-a01-regression</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/10/Python-c06-udpate-data/">Python-c06-udpate data</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 MA Jian<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

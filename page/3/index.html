@@ -78,6 +78,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-b01-Classes-and-Instances" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/02/01/Python-b01-Classes-and-Instances/" class="article-date">
+  <time class="dt-published" datetime="2021-02-01T08:55:55.000Z" itemprop="datePublished">2021-02-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/b-OOP/">b-OOP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/02/01/Python-b01-Classes-and-Instances/">Python-b01-Classes and Instances</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This article shows the examples of Classes and Instances in python</p>
+<p>OOP: Object-Oriented Programming</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"># basic</span><br><span class="line">class Employee:</span><br><span class="line">    def __init__(self, first, last, pay):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line">        self.pay = pay</span><br><span class="line">        self.email = first + &#x27;.&#x27; + last + &#x27;@company.com&#x27;</span><br><span class="line"></span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;, 20)</span><br><span class="line">print(emp_1.email)</span><br><span class="line">print(emp_1.fullname())</span><br><span class="line"></span><br><span class="line"># the same thing of fullname()</span><br><span class="line">print(Employee.fullname(emp_1))</span><br><span class="line"></span><br><span class="line"># class variables</span><br><span class="line">class Employee:</span><br><span class="line">    raise_amount = 2.04</span><br><span class="line"></span><br><span class="line">    def __init__(self, first, last, pay):</span><br><span class="line">        self.first = first</span><br><span class="line">        self.last = last</span><br><span class="line">        self.pay = pay</span><br><span class="line">        self.email = first + &#x27;.&#x27; + last + &#x27;@company.com&#x27;</span><br><span class="line"></span><br><span class="line">    def fullname(self):</span><br><span class="line">        return &#x27;&#123;&#125; &#123;&#125;&#x27;.format(self.first, self.last)</span><br><span class="line"></span><br><span class="line">    def apply_raise(self):</span><br><span class="line">        self.pay = int(self.pay * self.raise_amount) # raise_amount is class vriable, we can remplace by Employee.raise_amount</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;, 20)</span><br><span class="line">print(emp_1.pay)        # 20</span><br><span class="line">emp_1.apply_raise()</span><br><span class="line">print(emp_1.pay)        # 40</span><br><span class="line"></span><br><span class="line">print(Employee.__dict__)    # there is raise_amount inside</span><br><span class="line">print(emp_1.__dict__)       # there is no raise_amount inside</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># change raise_amount by instance</span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;, 20)</span><br><span class="line">emp_2 = Employee(&#x27;John&#x27;, &#x27;Youhs&#x27;, 30)</span><br><span class="line"></span><br><span class="line">emp_1.raise_amount = 3</span><br><span class="line">print(Employee.raise_amount)    # 2.04</span><br><span class="line">print(emp_1.raise_amount)       # 3</span><br><span class="line">print(emp_2.raise_amount)       # 2.04</span><br><span class="line"></span><br><span class="line"># change raise_amount by class</span><br><span class="line">emp_1 = Employee(&#x27;Bob&#x27;, &#x27;Gobdo&#x27;, 20)</span><br><span class="line">emp_2 = Employee(&#x27;John&#x27;, &#x27;Youhs&#x27;, 30)</span><br><span class="line"></span><br><span class="line">Employee.raise_amount = 3</span><br><span class="line">print(Employee.raise_amount)    # 3</span><br><span class="line">print(emp_1.raise_amount)       # 3</span><br><span class="line">print(emp_2.raise_amount)       # 3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2021/02/01/Python-b01-Classes-and-Instances/" data-id="clnoryi67000v74i4d7ss174d" data-title="Python-b01-Classes and Instances" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-a09-Modules" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/01/29/Python-a09-Modules/" class="article-date">
@@ -109,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="clnoknba5000qcgi4b5va6xsq" data-title="Python-a09-Modules" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a09-Modules/" data-id="clnoryi65000r74i4dn6wexwe" data-title="Python-a09-Modules" class="article-share-link">Share</a>
       
       
       
@@ -152,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="clnoknba5000ocgi42lw8f739" data-title="Python-a08 Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a08-Functions/" data-id="clnoryi64000o74i4ccibdxbx" data-title="Python-a08 Functions" class="article-share-link">Share</a>
       
       
       
@@ -195,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="clnoknba4000ncgi45itlgrfd" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/29/Python-a07-Loops-and-Iterations/" data-id="clnoryi63000l74i49nfybptz" data-title="Python-a07 Loops and Iterations" class="article-share-link">Share</a>
       
       
       
@@ -280,7 +324,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="clnoknbaf001ccgi4cekl3m1b" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/19/Terraform-a01-Introduction/" data-id="clnoryi6d001d74i40tjd4mlm" data-title="Terraform-a01-Introduction" class="article-share-link">Share</a>
       
       
       
@@ -323,7 +367,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="clnoknba4000mcgi47u7l4zyo" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a06-Conditions-and-Boolean/" data-id="clnoryi63000k74i42ghr3fdb" data-title="Python-a06-Conditions and Boolean" class="article-share-link">Share</a>
       
       
       
@@ -368,7 +412,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="clnoknba3000kcgi496iu8kr3" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/18/Python-a05-Dictionaries/" data-id="clnoryi64000n74i4fm9s0arw" data-title="Python-a05-Dictionaries" class="article-share-link">Share</a>
       
       
       
@@ -413,7 +457,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="clnoknba3000jcgi4ca9eceh9" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/17/Python-a04-List-Tuple-Set/" data-id="clnoryi61000h74i483qx5z3o" data-title="Python-a04-List,Tuple,Set" class="article-share-link">Share</a>
       
       
       
@@ -458,7 +502,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="clnoknba1000fcgi4dbva5y4v" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/15/Python-a03-Numeric/" data-id="clnoryi61000f74i44urq80tv" data-title="Python-a03-Numeric" class="article-share-link">Share</a>
       
       
       
@@ -503,62 +547,7 @@ More advanced in orchestration
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="clnoknba2000gcgi4h3is6oa6" data-title="Python-a02-String" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Python-a01-How-to-install-embedded-python-on-windows" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" class="article-date">
-  <time class="dt-published" datetime="2021-01-11T13:08:17.000Z" itemprop="datePublished">2021-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/a-basics/">a-basics</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/">Python-a01-How to install embedded python on windows</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="install-an-embedded-python-on-Windows"><a href="#install-an-embedded-python-on-Windows" class="headerlink" title="install an embedded python on Windows"></a>install an embedded python on Windows</h1><ol>
-<li><p>download zip file from <a target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>, unzip it and add it to the path environment variable</p>
-</li>
-<li><p>download get-pip.py from <a target="_blank" rel="noopener" href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a></p>
-</li>
-<li><p>run command</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure></li>
-<li><p>add pip path to the path in environment variable</p>
-</li>
-<li><p>when running pip -V there is error<br><em>ModuleNotFoundError: No module named ‘pip’</em></p>
-<p>In order to fix this, we have to do as below:<br> open python38._pth and add the following paths to it</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Dev\softwares\python-3.8.0-embed-amd64\Scripts</span><br><span class="line">C:\Dev\softwares\python-3.8.0-embed-amd64\Lib</span><br><span class="line">C:\Dev\softwares\python-3.8.0-embed-amd64\Lib\site-packages</span><br></pre></td></tr></table></figure></li>
-</ol>
-<div class="video-container"><iframe src="https://www.youtube.com/embed/zZ-Z75Ct18c" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2021/01/11/Python-a01-How-to-install-embedded-python-on-windows/" data-id="clnoknb9w0008cgi41b7wbtsy" data-title="Python-a01-How to install embedded python on windows" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2021/01/14/Python-a02-String/" data-id="clnoryi5z000c74i48xi4581u" data-title="Python-a02-String" class="article-share-link">Share</a>
       
       
       
@@ -627,6 +616,10 @@ More advanced in orchestration
       <ul>
         
           <li>
+            <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/10/12/ml-a01-regression/">ml-a01-regression</a>
           </li>
         
@@ -640,10 +633,6 @@ More advanced in orchestration
         
           <li>
             <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
           </li>
         
       </ul>

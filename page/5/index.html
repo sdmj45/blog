@@ -78,6 +78,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-b04-Bigtable" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/05/19/b04-Bigtable/" class="article-date">
+  <time class="dt-published" datetime="2020-05-19T11:57:07.000Z" itemprop="datePublished">2020-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/gcp/">gcp</a>►<a class="article-category-link" href="/blog/categories/gcp/b-data-engineer/">b-data-engineer</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/05/19/b04-Bigtable/">b04-Bigtable</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Cloud-Bigtable"><a href="#Cloud-Bigtable" class="headerlink" title="Cloud Bigtable"></a>Cloud Bigtable</h2><ul>
+<li>High performance, massively scalable NoSQL </li>
+<li>Ideal for large analytical workloads</li>
+</ul>
+<h3 id="Bigtable-infrastructure"><a href="#Bigtable-infrastructure" class="headerlink" title="Bigtable infrastructure"></a>Bigtable infrastructure</h3><img src="/blog/2020/05/19/b04-Bigtable/bigtable_infrastructure.png" class="" title="bigtable_infrastructure">
+
+<ul>
+<li>Front-end server pool serves requests to nodes</li>
+<li>Compute and Storage are separate, No data is stored on the node except for metadata to direct requests to the correct tablet</li>
+<li>tables are shards into tablets. They are stored on Colossus, google’s filesystem. as storage is separate from compute node,<br>replication and recovery of node data is very fast, as only metadata&#x2F;pointers need to be updated</li>
+</ul>
+<h3 id="instances"><a href="#instances" class="headerlink" title="instances"></a>instances</h3><p>Entire bigtable project called ‘instance’</p>
+<h3 id="cluster"><a href="#cluster" class="headerlink" title="cluster"></a>cluster</h3><p>Nodes grouped into clusters</p>
+<ul>
+<li>1 or more cluster per instance</li>
+</ul>
+<h3 id="instance-type"><a href="#instance-type" class="headerlink" title="instance type"></a>instance type</h3><ul>
+<li>Development - low cost, single node, on replication</li>
+<li>Production - 3+ nodes per cluster, replications available</li>
+</ul>
+<h3 id="Schema-Design"><a href="#Schema-Design" class="headerlink" title="Schema Design"></a>Schema Design</h3><ul>
+<li>Per table - Row key is only indexed item</li>
+</ul>
+<h2 id="Hands-on"><a href="#Hands-on" class="headerlink" title="Hands on"></a>Hands on</h2><h3 id="install-cbt-in-Google-Cloud-SDK"><a href="#install-cbt-in-Google-Cloud-SDK" class="headerlink" title="install cbt in  Google Cloud SDK"></a>install cbt in  <strong>Google Cloud SDK</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcloud components update</span><br><span class="line">glcoud components install cbt</span><br></pre></td></tr></table></figure>
+<h3 id="set-env-variable"><a href="#set-env-variable" class="headerlink" title="set env variable"></a>set env variable</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;project=[PROJECT_ID]\ninstance=[INSTANCE_ID]&quot;&gt;~/.cbtrc</span><br></pre></td></tr></table></figure>
+<h3 id="create-table"><a href="#create-table" class="headerlink" title="create table"></a>create table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt createtable my-table</span><br></pre></td></tr></table></figure>
+<h3 id="list-table"><a href="#list-table" class="headerlink" title="list table"></a>list table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt ls</span><br></pre></td></tr></table></figure>
+<h3 id="add-column-family"><a href="#add-column-family" class="headerlink" title="add column family"></a>add column family</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt createfamily my-table cf1</span><br></pre></td></tr></table></figure>
+<h3 id="list-column-family"><a href="#list-column-family" class="headerlink" title="list column family"></a>list column family</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt ls my-table</span><br></pre></td></tr></table></figure>
+<h3 id="add-value-to-row1-column-family-cf1-column-qualifier-c1"><a href="#add-value-to-row1-column-family-cf1-column-qualifier-c1" class="headerlink" title="add value to row1, column family cf1, column qualifier c1"></a>add value to row1, column family cf1, column qualifier c1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt set my-table r1 cf1:c1=testvalue</span><br></pre></td></tr></table></figure>
+<h3 id="read-table"><a href="#read-table" class="headerlink" title="read table"></a>read table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt read my-table</span><br></pre></td></tr></table></figure>
+<h3 id="delete-table"><a href="#delete-table" class="headerlink" title="delete table"></a>delete table</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cbt deletetable my-table</span><br></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/WI1qVV9sM3s" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2020/05/19/b04-Bigtable/" data-id="clnoryi6j001z74i411lg9djp" data-title="b04-Bigtable" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-b03-Cloud-Datastore" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2020/05/16/b03-Cloud-Datastore/" class="article-date">
@@ -200,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/16/b03-Cloud-Datastore/" data-id="clnoknbam001wcgi49fqt2dxh" data-title="b03-Cloud-Datastore" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/16/b03-Cloud-Datastore/" data-id="clnoryi6j001x74i4hx0h93i8" data-title="b03-Cloud-Datastore" class="article-share-link">Share</a>
       
       
       
@@ -252,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="clnoknbal001ucgi4f7g98kxs" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/14/b02-Cloud-SQL/" data-id="clnoryi6i001u74i4duuqb0rm" data-title="b02-Cloud-SQL" class="article-share-link">Share</a>
       
       
       
@@ -332,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/11/b01-Fundamental-Concepts/" data-id="clnoknbal001tcgi469796fpz" data-title="b01-Fundamental-Concepts" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/11/b01-Fundamental-Concepts/" data-id="clnoryi6i001t74i41gk8dkp1" data-title="b01-Fundamental-Concepts" class="article-share-link">Share</a>
       
       
       
@@ -461,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/09/a08-GCP-Big-Data-and-Machine-Learning/" data-id="clnoknbak001rcgi474f109do" data-title="a08-GCP Big Data and Machine Learning" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/09/a08-GCP-Big-Data-and-Machine-Learning/" data-id="clnoryi6h001r74i4cu9cajn0" data-title="a08-GCP Big Data and Machine Learning" class="article-share-link">Share</a>
       
       
       
@@ -513,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a07-GCP-Developing-Deploying-and-Monitoring/" data-id="clnoknbak001pcgi49052cc14" data-title="a07-GCP Developing, Deploying and Monitoring" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a07-GCP-Developing-Deploying-and-Monitoring/" data-id="clnoryi6g001q74i41bpz9bv8" data-title="a07-GCP Developing, Deploying and Monitoring" class="article-share-link">Share</a>
       
       
       
@@ -602,7 +676,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a06-GCP-Applications/" data-id="clnoknbaj001mcgi46wmzd747" data-title="a06-GCP-Applications" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a06-GCP-Applications/" data-id="clnoryi6g001o74i48i17giij" data-title="a06-GCP-Applications" class="article-share-link">Share</a>
       
       
       
@@ -653,7 +727,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="clnoknbai001lcgi4b5ct2gkd" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/08/a05-GCP-Containers/" data-id="clnoryi6g001n74i498ke71xc" data-title="a05-GCP-Containers" class="article-share-link">Share</a>
       
       
       
@@ -775,7 +849,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a04-GCP-Storage/" data-id="clnoknbah001hcgi4bi5saqy1" data-title="a04-GCP-Storage" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a04-GCP-Storage/" data-id="clnoryi6f001l74i47d1i9z8k" data-title="a04-GCP-Storage" class="article-share-link">Share</a>
       
       
       
@@ -841,53 +915,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a03-GCP-Virtual-Machines/" data-id="clnoknbai001jcgi42zs734x1" data-title="a03-GCP-Virtual-Machines" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spark-cross-join" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2020/05/06/spark-cross-join/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T06:57:42.000Z" itemprop="datePublished">2020-05-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/spark/">spark</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/05/06/spark-cross-join/">spark cross join</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>&#x2F;&#x2F;todo: to complete</p>
-<p>Cross join matches every row from left with every row from right, generating a Cartesian cross product.</p>
-<p>val joinDF&#x3D;statesPopulationDF.crossJoin(statesTaxRatesDF)</p>
-<p>without using a join condition.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2020/05/06/spark-cross-join/" data-id="clnoknbat002ucgi4an0ahq12" data-title="spark cross join" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2020/05/06/a03-GCP-Virtual-Machines/" data-id="clnoryi6f001k74i4awbyfh6v" data-title="a03-GCP-Virtual-Machines" class="article-share-link">Share</a>
       
       
       
@@ -956,6 +984,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2023/10/13/ml-a02-multiple-linear-regression/">ml-a02-multiple_linear_regression</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/10/12/ml-a01-regression/">ml-a01-regression</a>
           </li>
         
@@ -969,10 +1001,6 @@
         
           <li>
             <a href="/blog/2022/10/07/Python-c05-Filtering/">Python-c05-Filtering</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/07/Python-c04-indexes/">Python-c04-indexes</a>
           </li>
         
       </ul>
