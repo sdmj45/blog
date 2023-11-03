@@ -78,6 +78,1402 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python-c07-Filtering-and-Ordering" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2023/11/03/Python-c07-Filtering-and-Ordering/" class="article-date">
+  <time class="dt-published" datetime="2023-11-03T14:24:03.000Z" itemprop="datePublished">2023-11-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/c-pandas/">c-pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2023/11/03/Python-c07-Filtering-and-Ordering/">Python-c07-Filtering-and-Ordering</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&quot;world_population.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">&quot;Rank&quot;</span>] &lt; <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>CCA3</th>
+      <th>Country</th>
+      <th>Capital</th>
+      <th>Continent</th>
+      <th>2022 Population</th>
+      <th>2020 Population</th>
+      <th>2015 Population</th>
+      <th>2010 Population</th>
+      <th>2000 Population</th>
+      <th>1990 Population</th>
+      <th>1980 Population</th>
+      <th>1970 Population</th>
+      <th>Area (km²)</th>
+      <th>Density (per km²)</th>
+      <th>Growth Rate</th>
+      <th>World Population Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>8</td>
+      <td>BGD</td>
+      <td>Bangladesh</td>
+      <td>Dhaka</td>
+      <td>Asia</td>
+      <td>1.711864e+08</td>
+      <td>1.674210e+08</td>
+      <td>1.578300e+08</td>
+      <td>1.483911e+08</td>
+      <td>1.291933e+08</td>
+      <td>1.071477e+08</td>
+      <td>83929765.0</td>
+      <td>67541860.0</td>
+      <td>147570.0</td>
+      <td>1160.0350</td>
+      <td>1.0108</td>
+      <td>2.15</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>7</td>
+      <td>BRA</td>
+      <td>Brazil</td>
+      <td>Brasilia</td>
+      <td>South America</td>
+      <td>2.153135e+08</td>
+      <td>2.131963e+08</td>
+      <td>2.051882e+08</td>
+      <td>1.963535e+08</td>
+      <td>1.758737e+08</td>
+      <td>1.507064e+08</td>
+      <td>122288383.0</td>
+      <td>96369875.0</td>
+      <td>8515767.0</td>
+      <td>25.2841</td>
+      <td>1.0046</td>
+      <td>2.70</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>1</td>
+      <td>CHN</td>
+      <td>China</td>
+      <td>Beijing</td>
+      <td>Asia</td>
+      <td>1.425887e+09</td>
+      <td>1.424930e+09</td>
+      <td>1.393715e+09</td>
+      <td>1.348191e+09</td>
+      <td>1.264099e+09</td>
+      <td>1.153704e+09</td>
+      <td>982372466.0</td>
+      <td>822534450.0</td>
+      <td>9706961.0</td>
+      <td>146.8933</td>
+      <td>1.0000</td>
+      <td>17.88</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>2</td>
+      <td>IND</td>
+      <td>India</td>
+      <td>New Delhi</td>
+      <td>Asia</td>
+      <td>1.417173e+09</td>
+      <td>1.396387e+09</td>
+      <td>1.322867e+09</td>
+      <td>1.240614e+09</td>
+      <td>1.059634e+09</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>557501301.0</td>
+      <td>3287590.0</td>
+      <td>431.0675</td>
+      <td>1.0068</td>
+      <td>17.77</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>4</td>
+      <td>IDN</td>
+      <td>Indonesia</td>
+      <td>Jakarta</td>
+      <td>Asia</td>
+      <td>2.755013e+08</td>
+      <td>2.718580e+08</td>
+      <td>2.590920e+08</td>
+      <td>2.440162e+08</td>
+      <td>2.140724e+08</td>
+      <td>1.821599e+08</td>
+      <td>148177096.0</td>
+      <td>115228394.0</td>
+      <td>1904569.0</td>
+      <td>144.6529</td>
+      <td>1.0064</td>
+      <td>3.45</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>6</td>
+      <td>NGA</td>
+      <td>Nigeria</td>
+      <td>Abuja</td>
+      <td>Africa</td>
+      <td>2.185412e+08</td>
+      <td>2.083274e+08</td>
+      <td>1.839958e+08</td>
+      <td>1.609529e+08</td>
+      <td>1.228520e+08</td>
+      <td>9.521426e+07</td>
+      <td>72951439.0</td>
+      <td>55569264.0</td>
+      <td>923768.0</td>
+      <td>236.5759</td>
+      <td>1.0241</td>
+      <td>2.74</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>5</td>
+      <td>PAK</td>
+      <td>Pakistan</td>
+      <td>Islamabad</td>
+      <td>Asia</td>
+      <td>2.358249e+08</td>
+      <td>2.271967e+08</td>
+      <td>2.109693e+08</td>
+      <td>1.944545e+08</td>
+      <td>1.543699e+08</td>
+      <td>1.154141e+08</td>
+      <td>80624057.0</td>
+      <td>59290872.0</td>
+      <td>881912.0</td>
+      <td>267.4018</td>
+      <td>1.0191</td>
+      <td>2.96</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>9</td>
+      <td>RUS</td>
+      <td>Russia</td>
+      <td>Moscow</td>
+      <td>Europe</td>
+      <td>1.447133e+08</td>
+      <td>1.456173e+08</td>
+      <td>1.446684e+08</td>
+      <td>1.432426e+08</td>
+      <td>1.468448e+08</td>
+      <td>1.480057e+08</td>
+      <td>138257420.0</td>
+      <td>130093010.0</td>
+      <td>17098242.0</td>
+      <td>8.4636</td>
+      <td>0.9973</td>
+      <td>1.81</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>3</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>Washington, D.C.</td>
+      <td>North America</td>
+      <td>3.382899e+08</td>
+      <td>3.359420e+08</td>
+      <td>3.246078e+08</td>
+      <td>3.111828e+08</td>
+      <td>2.823986e+08</td>
+      <td>2.480837e+08</td>
+      <td>223140018.0</td>
+      <td>200328340.0</td>
+      <td>9372610.0</td>
+      <td>36.0935</td>
+      <td>1.0038</td>
+      <td>4.24</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">specific_countries = [<span class="string">&#x27;Bangladesh&#x27;</span>, <span class="string">&#x27;Brazil&#x27;</span>]</span><br><span class="line">df[df[<span class="string">&#x27;Country&#x27;</span>].isin(specific_countries)]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>CCA3</th>
+      <th>Country</th>
+      <th>Capital</th>
+      <th>Continent</th>
+      <th>2022 Population</th>
+      <th>2020 Population</th>
+      <th>2015 Population</th>
+      <th>2010 Population</th>
+      <th>2000 Population</th>
+      <th>1990 Population</th>
+      <th>1980 Population</th>
+      <th>1970 Population</th>
+      <th>Area (km²)</th>
+      <th>Density (per km²)</th>
+      <th>Growth Rate</th>
+      <th>World Population Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>8</td>
+      <td>BGD</td>
+      <td>Bangladesh</td>
+      <td>Dhaka</td>
+      <td>Asia</td>
+      <td>171186372.0</td>
+      <td>167420951.0</td>
+      <td>157830000.0</td>
+      <td>148391139.0</td>
+      <td>129193327.0</td>
+      <td>107147651.0</td>
+      <td>83929765.0</td>
+      <td>67541860.0</td>
+      <td>147570.0</td>
+      <td>1160.0350</td>
+      <td>1.0108</td>
+      <td>2.15</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>7</td>
+      <td>BRA</td>
+      <td>Brazil</td>
+      <td>Brasilia</td>
+      <td>South America</td>
+      <td>215313498.0</td>
+      <td>213196304.0</td>
+      <td>205188205.0</td>
+      <td>196353492.0</td>
+      <td>175873720.0</td>
+      <td>150706446.0</td>
+      <td>122288383.0</td>
+      <td>96369875.0</td>
+      <td>8515767.0</td>
+      <td>25.2841</td>
+      <td>1.0046</td>
+      <td>2.70</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># filter country which contains United</span></span><br><span class="line">df[df[<span class="string">&#x27;Country&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;United&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>CCA3</th>
+      <th>Country</th>
+      <th>Capital</th>
+      <th>Continent</th>
+      <th>2022 Population</th>
+      <th>2020 Population</th>
+      <th>2015 Population</th>
+      <th>2010 Population</th>
+      <th>2000 Population</th>
+      <th>1990 Population</th>
+      <th>1980 Population</th>
+      <th>1970 Population</th>
+      <th>Area (km²)</th>
+      <th>Density (per km²)</th>
+      <th>Growth Rate</th>
+      <th>World Population Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>219</th>
+      <td>97</td>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Abu Dhabi</td>
+      <td>Asia</td>
+      <td>9441129.0</td>
+      <td>9287289.0</td>
+      <td>8916899.0</td>
+      <td>8481771.0</td>
+      <td>3275333.0</td>
+      <td>1900151.0</td>
+      <td>1014048.0</td>
+      <td>298084.0</td>
+      <td>83600.0</td>
+      <td>112.9322</td>
+      <td>1.0081</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>21</td>
+      <td>GBR</td>
+      <td>United Kingdom</td>
+      <td>London</td>
+      <td>Europe</td>
+      <td>67508936.0</td>
+      <td>67059474.0</td>
+      <td>65224364.0</td>
+      <td>62760039.0</td>
+      <td>58850043.0</td>
+      <td>57210442.0</td>
+      <td>56326328.0</td>
+      <td>55650166.0</td>
+      <td>242900.0</td>
+      <td>277.9289</td>
+      <td>1.0034</td>
+      <td>0.85</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>3</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>Washington, D.C.</td>
+      <td>North America</td>
+      <td>338289857.0</td>
+      <td>335942003.0</td>
+      <td>324607776.0</td>
+      <td>311182845.0</td>
+      <td>282398554.0</td>
+      <td>248083732.0</td>
+      <td>223140018.0</td>
+      <td>200328340.0</td>
+      <td>9372610.0</td>
+      <td>36.0935</td>
+      <td>1.0038</td>
+      <td>4.24</td>
+    </tr>
+    <tr>
+      <th>222</th>
+      <td>200</td>
+      <td>VIR</td>
+      <td>United States Virgin Islands</td>
+      <td>Charlotte Amalie</td>
+      <td>North America</td>
+      <td>99465.0</td>
+      <td>100442.0</td>
+      <td>102803.0</td>
+      <td>106142.0</td>
+      <td>108185.0</td>
+      <td>100685.0</td>
+      <td>96640.0</td>
+      <td>63446.0</td>
+      <td>347.0</td>
+      <td>286.6427</td>
+      <td>0.9937</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set index to country</span></span><br><span class="line">df2 = df.set_index(<span class="string">&#x27;Country&#x27;</span>)</span><br><span class="line"><span class="comment"># show only the columns Contient and CCA3</span></span><br><span class="line">df2.<span class="built_in">filter</span>(items = [<span class="string">&#x27;Continent&#x27;</span>, <span class="string">&#x27;CCA3&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Continent</th>
+      <th>CCA3</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>Asia</td>
+      <td>AFG</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>Europe</td>
+      <td>ALB</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>Africa</td>
+      <td>DZA</td>
+    </tr>
+    <tr>
+      <th>American Samoa</th>
+      <td>Oceania</td>
+      <td>ASM</td>
+    </tr>
+    <tr>
+      <th>Andorra</th>
+      <td>Europe</td>
+      <td>AND</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Wallis and Futuna</th>
+      <td>Oceania</td>
+      <td>WLF</td>
+    </tr>
+    <tr>
+      <th>Western Sahara</th>
+      <td>Africa</td>
+      <td>ESH</td>
+    </tr>
+    <tr>
+      <th>Yemen</th>
+      <td>Asia</td>
+      <td>YEM</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>Africa</td>
+      <td>ZMB</td>
+    </tr>
+    <tr>
+      <th>Zimbabwe</th>
+      <td>Africa</td>
+      <td>ZWE</td>
+    </tr>
+  </tbody>
+</table>
+<p>234 rows × 2 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># axis= is the vertical axis and axis=1 is the horizontal axis</span></span><br><span class="line"><span class="comment"># The following returns 0 result as &#x27;Continent&#x27;, &#x27;CCA3&#x27; do not exist in the vertical axis which is Country</span></span><br><span class="line">df2.<span class="built_in">filter</span>(items=[<span class="string">&#x27;Continent&#x27;</span>, <span class="string">&#x27;CCA3&#x27;</span>], axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>CCA3</th>
+      <th>Capital</th>
+      <th>Continent</th>
+      <th>2022 Population</th>
+      <th>2020 Population</th>
+      <th>2015 Population</th>
+      <th>2010 Population</th>
+      <th>2000 Population</th>
+      <th>1990 Population</th>
+      <th>1980 Population</th>
+      <th>1970 Population</th>
+      <th>Area (km²)</th>
+      <th>Density (per km²)</th>
+      <th>Growth Rate</th>
+      <th>World Population Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># but axis=1 exists as &#x27;Continent&#x27;, &#x27;CCA3&#x27; exist in the horizontal axis</span></span><br><span class="line">df2.<span class="built_in">filter</span>(items=[<span class="string">&#x27;Continent&#x27;</span>, <span class="string">&#x27;CCA3&#x27;</span>], axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Continent</th>
+      <th>CCA3</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>Asia</td>
+      <td>AFG</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>Europe</td>
+      <td>ALB</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>Africa</td>
+      <td>DZA</td>
+    </tr>
+    <tr>
+      <th>American Samoa</th>
+      <td>Oceania</td>
+      <td>ASM</td>
+    </tr>
+    <tr>
+      <th>Andorra</th>
+      <td>Europe</td>
+      <td>AND</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Wallis and Futuna</th>
+      <td>Oceania</td>
+      <td>WLF</td>
+    </tr>
+    <tr>
+      <th>Western Sahara</th>
+      <td>Africa</td>
+      <td>ESH</td>
+    </tr>
+    <tr>
+      <th>Yemen</th>
+      <td>Asia</td>
+      <td>YEM</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>Africa</td>
+      <td>ZMB</td>
+    </tr>
+    <tr>
+      <th>Zimbabwe</th>
+      <td>Africa</td>
+      <td>ZWE</td>
+    </tr>
+  </tbody>
+</table>
+<p>234 rows × 2 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This will return all the countries which contains &quot;United&quot;</span></span><br><span class="line">df2.<span class="built_in">filter</span>(like=<span class="string">&#x27;United&#x27;</span>, axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>CCA3</th>
+      <th>Capital</th>
+      <th>Continent</th>
+      <th>2022 Population</th>
+      <th>2020 Population</th>
+      <th>2015 Population</th>
+      <th>2010 Population</th>
+      <th>2000 Population</th>
+      <th>1990 Population</th>
+      <th>1980 Population</th>
+      <th>1970 Population</th>
+      <th>Area (km²)</th>
+      <th>Density (per km²)</th>
+      <th>Growth Rate</th>
+      <th>World Population Percentage</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>United Arab Emirates</th>
+      <td>97</td>
+      <td>ARE</td>
+      <td>Abu Dhabi</td>
+      <td>Asia</td>
+      <td>9441129.0</td>
+      <td>9287289.0</td>
+      <td>8916899.0</td>
+      <td>8481771.0</td>
+      <td>3275333.0</td>
+      <td>1900151.0</td>
+      <td>1014048.0</td>
+      <td>298084.0</td>
+      <td>83600.0</td>
+      <td>112.9322</td>
+      <td>1.0081</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>21</td>
+      <td>GBR</td>
+      <td>London</td>
+      <td>Europe</td>
+      <td>67508936.0</td>
+      <td>67059474.0</td>
+      <td>65224364.0</td>
+      <td>62760039.0</td>
+      <td>58850043.0</td>
+      <td>57210442.0</td>
+      <td>56326328.0</td>
+      <td>55650166.0</td>
+      <td>242900.0</td>
+      <td>277.9289</td>
+      <td>1.0034</td>
+      <td>0.85</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>3</td>
+      <td>USA</td>
+      <td>Washington, D.C.</td>
+      <td>North America</td>
+      <td>338289857.0</td>
+      <td>335942003.0</td>
+      <td>324607776.0</td>
+      <td>311182845.0</td>
+      <td>282398554.0</td>
+      <td>248083732.0</td>
+      <td>223140018.0</td>
+      <td>200328340.0</td>
+      <td>9372610.0</td>
+      <td>36.0935</td>
+      <td>1.0038</td>
+      <td>4.24</td>
+    </tr>
+    <tr>
+      <th>United States Virgin Islands</th>
+      <td>200</td>
+      <td>VIR</td>
+      <td>Charlotte Amalie</td>
+      <td>North America</td>
+      <td>99465.0</td>
+      <td>100442.0</td>
+      <td>102803.0</td>
+      <td>106142.0</td>
+      <td>108185.0</td>
+      <td>100685.0</td>
+      <td>96640.0</td>
+      <td>63446.0</td>
+      <td>347.0</td>
+      <td>286.6427</td>
+      <td>0.9937</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.loc[<span class="string">&#x27;United States&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Rank                                          3
+CCA3                                        USA
+Capital                        Washington, D.C.
+Continent                         North America
+2022 Population                     338289857.0
+2020 Population                     335942003.0
+2015 Population                     324607776.0
+2010 Population                     311182845.0
+2000 Population                     282398554.0
+1990 Population                     248083732.0
+1980 Population                     223140018.0
+1970 Population                     200328340.0
+Area (km²)                            9372610.0
+Density (per km²)                       36.0935
+Growth Rate                              1.0038
+World Population Percentage                4.24
+Name: United States, dtype: object
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.iloc[<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Rank                                 213
+CCA3                                 ASM
+Capital                        Pago Pago
+Continent                        Oceania
+2022 Population                  44273.0
+2020 Population                  46189.0
+2015 Population                  51368.0
+2010 Population                  54849.0
+2000 Population                  58230.0
+1990 Population                  47818.0
+1980 Population                  32886.0
+1970 Population                  27075.0
+Area (km²)                         199.0
+Density (per km²)               222.4774
+Growth Rate                       0.9831
+World Population Percentage          0.0
+Name: American Samoa, dtype: object
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sort by Rank and Country in ascending</span></span><br><span class="line">df[df[<span class="string">&#x27;Rank&#x27;</span>] &lt; <span class="number">10</span>].sort_values(by=[<span class="string">&#x27;Rank&#x27;</span>, <span class="string">&#x27;Country&#x27;</span>], ascending=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>CCA3</th>
+      <th>Country</th>
+      <th>Capital</th>
+      <th>Continent</th>
+      <th>2022 Population</th>
+      <th>2020 Population</th>
+      <th>2015 Population</th>
+      <th>2010 Population</th>
+      <th>2000 Population</th>
+      <th>1990 Population</th>
+      <th>1980 Population</th>
+      <th>1970 Population</th>
+      <th>Area (km²)</th>
+      <th>Density (per km²)</th>
+      <th>Growth Rate</th>
+      <th>World Population Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41</th>
+      <td>1</td>
+      <td>CHN</td>
+      <td>China</td>
+      <td>Beijing</td>
+      <td>Asia</td>
+      <td>1.425887e+09</td>
+      <td>1.424930e+09</td>
+      <td>1.393715e+09</td>
+      <td>1.348191e+09</td>
+      <td>1.264099e+09</td>
+      <td>1.153704e+09</td>
+      <td>982372466.0</td>
+      <td>822534450.0</td>
+      <td>9706961.0</td>
+      <td>146.8933</td>
+      <td>1.0000</td>
+      <td>17.88</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>2</td>
+      <td>IND</td>
+      <td>India</td>
+      <td>New Delhi</td>
+      <td>Asia</td>
+      <td>1.417173e+09</td>
+      <td>1.396387e+09</td>
+      <td>1.322867e+09</td>
+      <td>1.240614e+09</td>
+      <td>1.059634e+09</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>557501301.0</td>
+      <td>3287590.0</td>
+      <td>431.0675</td>
+      <td>1.0068</td>
+      <td>17.77</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>3</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>Washington, D.C.</td>
+      <td>North America</td>
+      <td>3.382899e+08</td>
+      <td>3.359420e+08</td>
+      <td>3.246078e+08</td>
+      <td>3.111828e+08</td>
+      <td>2.823986e+08</td>
+      <td>2.480837e+08</td>
+      <td>223140018.0</td>
+      <td>200328340.0</td>
+      <td>9372610.0</td>
+      <td>36.0935</td>
+      <td>1.0038</td>
+      <td>4.24</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>4</td>
+      <td>IDN</td>
+      <td>Indonesia</td>
+      <td>Jakarta</td>
+      <td>Asia</td>
+      <td>2.755013e+08</td>
+      <td>2.718580e+08</td>
+      <td>2.590920e+08</td>
+      <td>2.440162e+08</td>
+      <td>2.140724e+08</td>
+      <td>1.821599e+08</td>
+      <td>148177096.0</td>
+      <td>115228394.0</td>
+      <td>1904569.0</td>
+      <td>144.6529</td>
+      <td>1.0064</td>
+      <td>3.45</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>5</td>
+      <td>PAK</td>
+      <td>Pakistan</td>
+      <td>Islamabad</td>
+      <td>Asia</td>
+      <td>2.358249e+08</td>
+      <td>2.271967e+08</td>
+      <td>2.109693e+08</td>
+      <td>1.944545e+08</td>
+      <td>1.543699e+08</td>
+      <td>1.154141e+08</td>
+      <td>80624057.0</td>
+      <td>59290872.0</td>
+      <td>881912.0</td>
+      <td>267.4018</td>
+      <td>1.0191</td>
+      <td>2.96</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>6</td>
+      <td>NGA</td>
+      <td>Nigeria</td>
+      <td>Abuja</td>
+      <td>Africa</td>
+      <td>2.185412e+08</td>
+      <td>2.083274e+08</td>
+      <td>1.839958e+08</td>
+      <td>1.609529e+08</td>
+      <td>1.228520e+08</td>
+      <td>9.521426e+07</td>
+      <td>72951439.0</td>
+      <td>55569264.0</td>
+      <td>923768.0</td>
+      <td>236.5759</td>
+      <td>1.0241</td>
+      <td>2.74</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>7</td>
+      <td>BRA</td>
+      <td>Brazil</td>
+      <td>Brasilia</td>
+      <td>South America</td>
+      <td>2.153135e+08</td>
+      <td>2.131963e+08</td>
+      <td>2.051882e+08</td>
+      <td>1.963535e+08</td>
+      <td>1.758737e+08</td>
+      <td>1.507064e+08</td>
+      <td>122288383.0</td>
+      <td>96369875.0</td>
+      <td>8515767.0</td>
+      <td>25.2841</td>
+      <td>1.0046</td>
+      <td>2.70</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>8</td>
+      <td>BGD</td>
+      <td>Bangladesh</td>
+      <td>Dhaka</td>
+      <td>Asia</td>
+      <td>1.711864e+08</td>
+      <td>1.674210e+08</td>
+      <td>1.578300e+08</td>
+      <td>1.483911e+08</td>
+      <td>1.291933e+08</td>
+      <td>1.071477e+08</td>
+      <td>83929765.0</td>
+      <td>67541860.0</td>
+      <td>147570.0</td>
+      <td>1160.0350</td>
+      <td>1.0108</td>
+      <td>2.15</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>9</td>
+      <td>RUS</td>
+      <td>Russia</td>
+      <td>Moscow</td>
+      <td>Europe</td>
+      <td>1.447133e+08</td>
+      <td>1.456173e+08</td>
+      <td>1.446684e+08</td>
+      <td>1.432426e+08</td>
+      <td>1.468448e+08</td>
+      <td>1.480057e+08</td>
+      <td>138257420.0</td>
+      <td>130093010.0</td>
+      <td>17098242.0</td>
+      <td>8.4636</td>
+      <td>0.9973</td>
+      <td>1.81</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sort by Rank in ascending and Country in descending</span></span><br><span class="line">df[df[<span class="string">&#x27;Rank&#x27;</span>] &lt; <span class="number">10</span>].sort_values(by=[<span class="string">&#x27;Rank&#x27;</span>, <span class="string">&#x27;Country&#x27;</span>], ascending=[<span class="literal">True</span>, <span class="literal">False</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>CCA3</th>
+      <th>Country</th>
+      <th>Capital</th>
+      <th>Continent</th>
+      <th>2022 Population</th>
+      <th>2020 Population</th>
+      <th>2015 Population</th>
+      <th>2010 Population</th>
+      <th>2000 Population</th>
+      <th>1990 Population</th>
+      <th>1980 Population</th>
+      <th>1970 Population</th>
+      <th>Area (km²)</th>
+      <th>Density (per km²)</th>
+      <th>Growth Rate</th>
+      <th>World Population Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41</th>
+      <td>1</td>
+      <td>CHN</td>
+      <td>China</td>
+      <td>Beijing</td>
+      <td>Asia</td>
+      <td>1.425887e+09</td>
+      <td>1.424930e+09</td>
+      <td>1.393715e+09</td>
+      <td>1.348191e+09</td>
+      <td>1.264099e+09</td>
+      <td>1.153704e+09</td>
+      <td>982372466.0</td>
+      <td>822534450.0</td>
+      <td>9706961.0</td>
+      <td>146.8933</td>
+      <td>1.0000</td>
+      <td>17.88</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>2</td>
+      <td>IND</td>
+      <td>India</td>
+      <td>New Delhi</td>
+      <td>Asia</td>
+      <td>1.417173e+09</td>
+      <td>1.396387e+09</td>
+      <td>1.322867e+09</td>
+      <td>1.240614e+09</td>
+      <td>1.059634e+09</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>557501301.0</td>
+      <td>3287590.0</td>
+      <td>431.0675</td>
+      <td>1.0068</td>
+      <td>17.77</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>3</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>Washington, D.C.</td>
+      <td>North America</td>
+      <td>3.382899e+08</td>
+      <td>3.359420e+08</td>
+      <td>3.246078e+08</td>
+      <td>3.111828e+08</td>
+      <td>2.823986e+08</td>
+      <td>2.480837e+08</td>
+      <td>223140018.0</td>
+      <td>200328340.0</td>
+      <td>9372610.0</td>
+      <td>36.0935</td>
+      <td>1.0038</td>
+      <td>4.24</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>4</td>
+      <td>IDN</td>
+      <td>Indonesia</td>
+      <td>Jakarta</td>
+      <td>Asia</td>
+      <td>2.755013e+08</td>
+      <td>2.718580e+08</td>
+      <td>2.590920e+08</td>
+      <td>2.440162e+08</td>
+      <td>2.140724e+08</td>
+      <td>1.821599e+08</td>
+      <td>148177096.0</td>
+      <td>115228394.0</td>
+      <td>1904569.0</td>
+      <td>144.6529</td>
+      <td>1.0064</td>
+      <td>3.45</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>5</td>
+      <td>PAK</td>
+      <td>Pakistan</td>
+      <td>Islamabad</td>
+      <td>Asia</td>
+      <td>2.358249e+08</td>
+      <td>2.271967e+08</td>
+      <td>2.109693e+08</td>
+      <td>1.944545e+08</td>
+      <td>1.543699e+08</td>
+      <td>1.154141e+08</td>
+      <td>80624057.0</td>
+      <td>59290872.0</td>
+      <td>881912.0</td>
+      <td>267.4018</td>
+      <td>1.0191</td>
+      <td>2.96</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>6</td>
+      <td>NGA</td>
+      <td>Nigeria</td>
+      <td>Abuja</td>
+      <td>Africa</td>
+      <td>2.185412e+08</td>
+      <td>2.083274e+08</td>
+      <td>1.839958e+08</td>
+      <td>1.609529e+08</td>
+      <td>1.228520e+08</td>
+      <td>9.521426e+07</td>
+      <td>72951439.0</td>
+      <td>55569264.0</td>
+      <td>923768.0</td>
+      <td>236.5759</td>
+      <td>1.0241</td>
+      <td>2.74</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>7</td>
+      <td>BRA</td>
+      <td>Brazil</td>
+      <td>Brasilia</td>
+      <td>South America</td>
+      <td>2.153135e+08</td>
+      <td>2.131963e+08</td>
+      <td>2.051882e+08</td>
+      <td>1.963535e+08</td>
+      <td>1.758737e+08</td>
+      <td>1.507064e+08</td>
+      <td>122288383.0</td>
+      <td>96369875.0</td>
+      <td>8515767.0</td>
+      <td>25.2841</td>
+      <td>1.0046</td>
+      <td>2.70</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>8</td>
+      <td>BGD</td>
+      <td>Bangladesh</td>
+      <td>Dhaka</td>
+      <td>Asia</td>
+      <td>1.711864e+08</td>
+      <td>1.674210e+08</td>
+      <td>1.578300e+08</td>
+      <td>1.483911e+08</td>
+      <td>1.291933e+08</td>
+      <td>1.071477e+08</td>
+      <td>83929765.0</td>
+      <td>67541860.0</td>
+      <td>147570.0</td>
+      <td>1160.0350</td>
+      <td>1.0108</td>
+      <td>2.15</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>9</td>
+      <td>RUS</td>
+      <td>Russia</td>
+      <td>Moscow</td>
+      <td>Europe</td>
+      <td>1.447133e+08</td>
+      <td>1.456173e+08</td>
+      <td>1.446684e+08</td>
+      <td>1.432426e+08</td>
+      <td>1.468448e+08</td>
+      <td>1.480057e+08</td>
+      <td>138257420.0</td>
+      <td>130093010.0</td>
+      <td>17098242.0</td>
+      <td>8.4636</td>
+      <td>0.9973</td>
+      <td>1.81</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>PS:<br><a href="world_population.csv" download="world_population.csv">world_population.csv</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sdmj45.github.io/blog/2023/11/03/Python-c07-Filtering-and-Ordering/" data-id="cloipm0ok001dtsi4bktmea3y" data-title="Python-c07-Filtering-and-Ordering" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python-d01-selenium" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2023/11/02/Python-d01-selenium/" class="article-date">
@@ -118,7 +1514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/11/02/Python-d01-selenium/" data-id="cloheoqjt001essi4huut0pbj" data-title="Python-d01-selenium" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/11/02/Python-d01-selenium/" data-id="cloipm0om001ftsi4eq2t6v8e" data-title="Python-d01-selenium" class="article-share-link">Share</a>
       
       
       
@@ -202,7 +1598,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/" data-id="cloheoqk4002pssi40p2bfjhq" data-title="ml-a03-polynomial" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a03-polynomial/" data-id="cloipm0po002ptsi433vw8kz8" data-title="ml-a03-polynomial" class="article-share-link">Share</a>
       
       
       
@@ -343,7 +1739,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/" data-id="cloheoqk3002hssi49nrnhy7l" data-title="ml-a02-multiple_linear_regression" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/10/13/ml-a02-multiple-linear-regression/" data-id="cloipm0pn002otsi4gcu14p81" data-title="ml-a02-multiple_linear_regression" class="article-share-link">Share</a>
       
       
       
@@ -415,7 +1811,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="cloheoqk3002gssi47bafclmp" data-title="ml-a01-regression" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2023/10/12/ml-a01-regression/" data-id="cloipm0pm002mtsi423n4eke8" data-title="ml-a01-regression" class="article-share-link">Share</a>
       
       
       
@@ -468,7 +1864,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="cloheoqk2002essi4cfoc9nv7" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/12/21/d02-Cloud-Functions/" data-id="cloipm0pi002htsi46b0a88qs" data-title="d02-Cloud Functions" class="article-share-link">Share</a>
       
       
       
@@ -1123,7 +2519,7 @@ predict: [9.06072908]
 <p>0    3<br>1    3<br>2    3<br>dtype: int64</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the min of each column</span></span><br><span class="line">df.apply(pd.Series.<span class="built_in">min</span>)</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#99;&#111;&#114;&#101;&#x79;&#109;&#115;&#x63;&#x68;&#x61;&#x66;&#x65;&#x72;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#99;&#111;&#114;&#101;&#x79;&#109;&#115;&#x63;&#x68;&#x61;&#x66;&#x65;&#x72;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a><br>dtype: object</p>
+<p>first                      Corey<br>last                         Doe<br>email    <a href="mailto:&#x63;&#x6f;&#x72;&#x65;&#x79;&#109;&#x73;&#99;&#x68;&#97;&#102;&#101;&#x72;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;">&#x63;&#x6f;&#x72;&#x65;&#x79;&#109;&#x73;&#99;&#x68;&#97;&#102;&#101;&#x72;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;</a><br>dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># applymap works only on every element of the DataFrame</span></span><br><span class="line">df.applymap(<span class="built_in">len</span>)</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -1182,7 +2578,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="cloheoqju001hssi437rt63oi" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/10/Python-c06-udpate-data/" data-id="cloipm0oj001ctsi4bbq90605" data-title="Python-c06-udpate data" class="article-share-link">Share</a>
       
       
       
@@ -1364,10 +2760,10 @@ predict: [9.06072908]
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># not in filter ~</span></span><br><span class="line">df.loc[~filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p>0    <a href="mailto:&#67;&#111;&#114;&#x65;&#x79;&#x4d;&#83;&#99;&#x68;&#x61;&#102;&#101;&#114;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#67;&#111;&#114;&#x65;&#x79;&#x4d;&#83;&#99;&#x68;&#x61;&#102;&#101;&#114;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#67;&#x6f;&#114;&#x65;&#121;&#x4d;&#83;&#x63;&#104;&#97;&#102;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#67;&#x6f;&#114;&#x65;&#121;&#x4d;&#83;&#x63;&#104;&#97;&#102;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># isin filter</span></span><br><span class="line">lasts = [<span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;Mike&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>]</span><br><span class="line">filt = df[<span class="string">&#x27;last&#x27;</span>].isin(lasts)</span><br><span class="line">df.loc[filt, <span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>1    <a href="mailto:&#x4a;&#97;&#110;&#x65;&#x44;&#111;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#x4a;&#97;&#110;&#x65;&#x44;&#111;&#101;&#64;&#101;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a><br>2    <a href="mailto:&#x4a;&#x6f;&#104;&#110;&#x44;&#x6f;&#101;&#64;&#x65;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x4a;&#x6f;&#104;&#110;&#x44;&#x6f;&#101;&#64;&#x65;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a><br>Name: email, dtype: object</p>
+<p>1    <a href="mailto:&#74;&#x61;&#x6e;&#x65;&#68;&#x6f;&#x65;&#x40;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#74;&#x61;&#x6e;&#x65;&#68;&#x6f;&#x65;&#x40;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a><br>2    <a href="mailto:&#74;&#111;&#104;&#110;&#x44;&#x6f;&#x65;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#74;&#111;&#104;&#110;&#x44;&#x6f;&#x65;&#64;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 
@@ -2002,7 +3398,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="cloheoqjs001bssi4avy45z5r" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c05-Filtering/" data-id="cloipm0oi001btsi4gam9d89w" data-title="Python-c05-Filtering" class="article-share-link">Share</a>
       
       
       
@@ -3103,7 +4499,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="cloheoqjs0019ssi47bp86cpz" data-title="Python-c04-indexes" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c04-indexes/" data-id="cloipm0og0019tsi4f9b6fsq2" data-title="Python-c04-indexes" class="article-share-link">Share</a>
       
       
       
@@ -3151,7 +4547,7 @@ predict: [9.06072908]
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>[‘<a href="mailto:&#x43;&#x6f;&#x72;&#101;&#x79;&#77;&#83;&#99;&#x68;&#x61;&#x66;&#x65;&#114;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#x43;&#x6f;&#x72;&#101;&#x79;&#77;&#83;&#99;&#x68;&#x61;&#x66;&#x65;&#114;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#x61;&#x6e;&#101;&#x44;&#x6f;&#x65;&#x40;&#x65;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;">&#x4a;&#x61;&#x6e;&#101;&#x44;&#x6f;&#x65;&#x40;&#x65;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;</a>‘, ‘<a href="mailto:&#74;&#x6f;&#x68;&#110;&#x44;&#x6f;&#101;&#x40;&#x65;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#109;">&#74;&#x6f;&#x68;&#110;&#x44;&#x6f;&#101;&#x40;&#x65;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#109;</a>‘]</p>
+<p>[‘<a href="mailto:&#67;&#111;&#114;&#101;&#x79;&#77;&#x53;&#x63;&#104;&#x61;&#x66;&#101;&#114;&#64;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#67;&#111;&#114;&#101;&#x79;&#77;&#x53;&#x63;&#104;&#x61;&#x66;&#101;&#114;&#64;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a>‘, ‘<a href="mailto:&#x4a;&#x61;&#x6e;&#x65;&#68;&#x6f;&#x65;&#64;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x4a;&#x61;&#x6e;&#x65;&#68;&#x6f;&#x65;&#64;&#x65;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a>‘, ‘<a href="mailto:&#74;&#111;&#x68;&#110;&#68;&#111;&#x65;&#64;&#x65;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#74;&#111;&#x68;&#110;&#68;&#111;&#x65;&#64;&#x65;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#109;</a>‘]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(people)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
@@ -3205,7 +4601,7 @@ predict: [9.06072908]
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;email&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>0    <a href="mailto:&#67;&#x6f;&#114;&#x65;&#x79;&#x4d;&#83;&#x63;&#x68;&#97;&#x66;&#x65;&#x72;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#111;&#109;">&#67;&#x6f;&#114;&#x65;&#x79;&#x4d;&#83;&#x63;&#x68;&#97;&#x66;&#x65;&#x72;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>1          <a href="mailto:&#74;&#97;&#110;&#x65;&#x44;&#111;&#x65;&#x40;&#x65;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#74;&#97;&#110;&#x65;&#x44;&#111;&#x65;&#x40;&#x65;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a><br>2          <a href="mailto:&#x4a;&#x6f;&#104;&#x6e;&#x44;&#x6f;&#x65;&#x40;&#101;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#x4a;&#x6f;&#104;&#x6e;&#x44;&#x6f;&#x65;&#x40;&#101;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a><br>Name: email, dtype: object</p>
+<p>0    <a href="mailto:&#x43;&#111;&#x72;&#x65;&#121;&#77;&#x53;&#99;&#104;&#97;&#x66;&#x65;&#x72;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x43;&#111;&#x72;&#x65;&#121;&#77;&#x53;&#99;&#104;&#97;&#x66;&#x65;&#x72;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a><br>1          <a href="mailto:&#74;&#97;&#x6e;&#101;&#68;&#111;&#101;&#x40;&#101;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#74;&#97;&#x6e;&#101;&#68;&#111;&#101;&#x40;&#101;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a><br>2          <a href="mailto:&#x4a;&#x6f;&#x68;&#x6e;&#68;&#111;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;">&#x4a;&#x6f;&#x68;&#x6e;&#68;&#111;&#x65;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;</a><br>Name: email, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#display multiple columns</span></span><br><span class="line">df[[<span class="string">&#x27;last&#x27;</span>, <span class="string">&#x27;email&#x27;</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -3253,7 +4649,7 @@ predict: [9.06072908]
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iloc: integer location: put the integer index to get the row</span></span><br><span class="line"><span class="comment"># get the first row in this example</span></span><br><span class="line">df.iloc[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#x43;&#x6f;&#114;&#101;&#x79;&#x4d;&#x53;&#x63;&#104;&#x61;&#x66;&#x65;&#x72;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#x43;&#x6f;&#114;&#101;&#x79;&#x4d;&#x53;&#x63;&#104;&#x61;&#x66;&#x65;&#x72;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;</a><br>Name: 0, dtype: object</p>
+<p>first                      Corey<br>last                     Schafer<br>email    <a href="mailto:&#67;&#x6f;&#114;&#101;&#x79;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#x65;&#x72;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#67;&#x6f;&#114;&#101;&#x79;&#x4d;&#83;&#99;&#104;&#x61;&#102;&#x65;&#x72;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a><br>Name: 0, dtype: object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[[<span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
 
 <div>
@@ -3397,377 +4793,7 @@ predict: [9.06072908]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="cloheoqjr0018ssi474ipg99m" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Python-c02-Getting-Started-with-Pandas" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" class="article-date">
-  <time class="dt-published" datetime="2022-10-06T14:59:24.000Z" itemprop="datePublished">2022-10-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/python/">python</a>►<a class="article-category-link" href="/blog/categories/python/c-pandas/">c-pandas</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/">Python-c02-Getting Started with Pandas</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>I will show a simple example of csv with pandas, you can download the files from here:<br><a href="2022/10/06/Python-c02-Getting-Started-with-Pandas/survey_results_public.csv" download="survey_results_public.csv">survey_results_public.csv</a><br><a href="2022/10/06/Python-c02-Getting-Started-with-Pandas/survey_results_schema.csv" download="survey_results_schema.csv">survey_results_schema.csv</a></p>
-<h2 id="Notebook"><a href="#Notebook" class="headerlink" title="Notebook"></a>Notebook</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/survey_results_public.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Respondent</th>
-      <th>Professional</th>
-      <th>ProgramHobby</th>
-      <th>Country</th>
-      <th>University</th>
-      <th>EmploymentStatus</th>
-      <th>FormalEducation</th>
-      <th>MajorUndergrad</th>
-      <th>HomeRemote</th>
-      <th>CompanySize</th>
-      <th>...</th>
-      <th>StackOverflowMakeMoney</th>
-      <th>Gender</th>
-      <th>HighestEducationParents</th>
-      <th>Race</th>
-      <th>SurveyLong</th>
-      <th>QuestionsInteresting</th>
-      <th>QuestionsConfusing</th>
-      <th>InterestedAnswers</th>
-      <th>Salary</th>
-      <th>ExpectedSalary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>Student</td>
-      <td>Yes, both</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>Not employed, and not looking for work</td>
-      <td>Secondary school</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Strongly disagree</td>
-      <td>Male</td>
-      <td>High school</td>
-      <td>White or of European descent</td>
-      <td>Strongly disagree</td>
-      <td>Strongly agree</td>
-      <td>Disagree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>Student</td>
-      <td>Yes, both</td>
-      <td>United Kingdom</td>
-      <td>Yes, full-time</td>
-      <td>Employed part-time</td>
-      <td>Some college/university study without earning ...</td>
-      <td>Computer science or software engineering</td>
-      <td>More than half, but not all, the time</td>
-      <td>20 to 99 employees</td>
-      <td>...</td>
-      <td>Strongly disagree</td>
-      <td>Male</td>
-      <td>A master's degree</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Somewhat agree</td>
-      <td>Disagree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>37500.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>Professional developer</td>
-      <td>Yes, both</td>
-      <td>United Kingdom</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10,000 or more employees</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A professional degree</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>113750.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>Professional non-developer who sometimes write...</td>
-      <td>Yes, both</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Doctoral degree</td>
-      <td>A non-computer-focused engineering discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>10,000 or more employees</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>A doctoral degree</td>
-      <td>White or of European descent</td>
-      <td>Agree</td>
-      <td>Agree</td>
-      <td>Somewhat agree</td>
-      <td>Strongly agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>Professional developer</td>
-      <td>Yes, I program as a hobby</td>
-      <td>Switzerland</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Master's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Never</td>
-      <td>10 to 19 employees</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>19097</th>
-      <td>19098</td>
-      <td>Professional developer</td>
-      <td>Yes, I program as a hobby</td>
-      <td>Canada</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Bachelor's degree</td>
-      <td>A business discipline</td>
-      <td>A few days each month</td>
-      <td>10 to 19 employees</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19098</th>
-      <td>19099</td>
-      <td>Student</td>
-      <td>Yes, I program as a hobby</td>
-      <td>India</td>
-      <td>No</td>
-      <td>Not employed, and not looking for work</td>
-      <td>Secondary school</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19099</th>
-      <td>19100</td>
-      <td>Professional non-developer who sometimes write...</td>
-      <td>Yes, I program as a hobby</td>
-      <td>United Kingdom</td>
-      <td>No</td>
-      <td>Independent contractor, freelancer, or self-em...</td>
-      <td>Bachelor's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>Never</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19100</th>
-      <td>19101</td>
-      <td>Professional developer</td>
-      <td>Yes, I program as a hobby</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Some college/university study without earning ...</td>
-      <td>A humanities discipline</td>
-      <td>Less than half the time, but at least one day ...</td>
-      <td>100 to 499 employees</td>
-      <td>...</td>
-      <td>Disagree</td>
-      <td>Male</td>
-      <td>Some college/university study, no bachelor's d...</td>
-      <td>White or of European descent</td>
-      <td>Somewhat agree</td>
-      <td>Somewhat agree</td>
-      <td>Disagree</td>
-      <td>Agree</td>
-      <td>110000.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19101</th>
-      <td>19102</td>
-      <td>Professional developer</td>
-      <td>Yes, I program as a hobby</td>
-      <td>France</td>
-      <td>No</td>
-      <td>Employed full-time</td>
-      <td>Master's degree</td>
-      <td>Computer science or software engineering</td>
-      <td>All or almost all the time (I'm full-time remote)</td>
-      <td>100 to 499 employees</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>19102 rows × 154 columns</p>
-</div>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># shape give us the number of rows and columns of the dataframe</span></span><br><span class="line">df.shape</span><br></pre></td></tr></table></figure>
-<p>(19102, 154)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.info()</span><br></pre></td></tr></table></figure>
-<p>&lt;class ‘pandas.core.frame.DataFrame’&gt;<br>RangeIndex: 19102 entries, 0 to 19101<br>Columns: 154 entries, Respondent to ExpectedSalary<br>dtypes: float64(6), int64(1), object(147)<br>memory usage: 22.4+ MB</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set the number of columns and rows displayed</span></span><br><span class="line">pd.set_option(<span class="string">&#x27;display.max_columns&#x27;</span>, <span class="number">154</span>)</span><br><span class="line">pd.set_option(<span class="string">&#x27;display.max_rows&#x27;</span>, <span class="number">154</span>)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sdmj45.github.io/blog/2022/10/06/Python-c02-Getting-Started-with-Pandas/" data-id="cloheoqjq0015ssi4h8xkeijt" data-title="Python-c02-Getting Started with Pandas" class="article-share-link">Share</a>
+      <a data-url="https://sdmj45.github.io/blog/2022/10/07/Python-c03-DataFrame-and-Series/" data-id="cloipm0of0018tsi4hnvu9hy2" data-title="Python-c03-DataFrame and Series" class="article-share-link">Share</a>
       
       
       
@@ -3836,6 +4862,10 @@ predict: [9.06072908]
       <ul>
         
           <li>
+            <a href="/blog/2023/11/03/Python-c07-Filtering-and-Ordering/">Python-c07-Filtering-and-Ordering</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/11/02/Python-d01-selenium/">Python-d01-selenium</a>
           </li>
         
@@ -3849,10 +4879,6 @@ predict: [9.06072908]
         
           <li>
             <a href="/blog/2023/10/12/ml-a01-regression/">ml-a01-regression</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/12/21/d02-Cloud-Functions/">d02-Cloud Functions</a>
           </li>
         
       </ul>
